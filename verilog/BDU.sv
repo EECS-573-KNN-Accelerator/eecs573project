@@ -14,7 +14,7 @@ module BDU (
 
     output logic terminate, // signal indicating computation is done
     output logic done,// whether the distance is less than threshold
-    output logic [B-1:0] partial_distance  // computed distance
+    output logic [B-1:0] partial_distance_output  // computed distance
 );
     // Intermediate REGs 
     logic [B/2-1:0] f_x, f_y, f_z; // Acumulators for each dimension 
@@ -55,13 +55,32 @@ module BDU (
             f_x <= mux1;
             f_Y <= mux2;
             f_Z <= mux3;
+            partial_dist2 <= mux4 + mux5 + (mux8 << 2); 
         end
     end
-    
+
     logic [B/2-1:0] neg_f = ~mux6 + 1;
 
-    logic [B/2-1:0] mux8 = S8 == 2'b01 ? neg_f : S8 == 2'b10 ? mux6 : 0;
-    logic [B/2-1:0] mux4 = S4 == 1'b1 ? 1'b1 : 1'b0; 
-    
+    logic [B-1:0] mux8 = S8 == 2'b01 ? neg_f : S8 == 2'b10 ? mux6 : 0;
+    logic [B-1:0] mux4 = S4 == 1'b1 ? 1'b1 : 1'b0;
+    logic [B-1:0] mux5 = S5 == 1'b1 ? (partial_dist2 << 2) : partial_dist2;
+
+
+    // Lower Bound Logistics
+
+    logic [B/2-1:0] sumOfAbs = $abs(f_x) + $abs(f_y) + $abs(f_z);
+    logic [B/2-1:0] shiftNeg = ~(sumOfAbs << 1) + 1;
+
+    logic [B/2-1:0] f_x_Iszero = f_x == 0? 1'b1 : 1'b0;
+    logic [B/2-1:0] f_y_Iszero = f_y == 0? 1'b1 : 1'b0;
+    logic [B/2-1:0] f_z_Iszero = f_z == 0? 1'b1 : 1'b0;
+
+
+    logic [B-1:0] inputTo_which_bit_Shift = shiftNeg + f_x_Iszero + f_y_Iszero + f_z_Iszero;
+    logic [B-1:0] outputTo_which_bit_Shift = inputTo_which_bit_Shift << which_bit;
+
+    assign terminate = threshold <= outputTo_which_bit_Shift? 1'b1: 1'b0;
+    assign partial_distance_output = partial_dist2;
+
 
 endmodule
