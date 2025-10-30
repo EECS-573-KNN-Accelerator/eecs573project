@@ -62,7 +62,7 @@ module BDU_tb;
         r_bit = 0;
         code = 2'b00;
         b = 0;
-        threshold = 32'h0000_000D;
+        threshold = 32'h0000_000D; // TODO: Change threshold here
         @(negedge clk);
         //@(posedge clk);
         $display("Cycle reset | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%b",
@@ -75,7 +75,7 @@ module BDU_tb;
         // ---------------------------------- Sanity Test ---------------------------------------------------
         valid = 1;
 
-        // q and r
+        // TODO: Change q and r bits here
         q = 32'h0000_FFFD;
         r = 32'h0000_FFFF;
 
