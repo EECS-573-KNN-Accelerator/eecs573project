@@ -10,7 +10,7 @@ module BDU (
     input logic q_bit, // the query bit comes in as xyzxyzxyz... one bit of each dimension at a time of the point 
     input logic r_bit,  // the reference bit comes in as xyzxyzxyz... one bit of each dimension at a time of the point 
     input logic [1:0] code, // the input that indicates which dimension the query and ref bit belongs to, 01 - x, 10 - y, 11 - z
-    input logic [$clog2(`B)-1:0] b, // which bit is this, MSB = 1, LSB = `B, used for 2(`B-b) calculation
+    input logic [$clog2(`B+1)-1:0] b, // which bit is this, MSB = 1, LSB = `B, used for 2(`B-b) calculation
     input logic [`B-1:0] threshold, // threshold for distance comparison (kth dist^2), the last KNN value
 
     output logic terminate, // signal indicating early termination of the reference coordinate (ref point not selected as kNN)
@@ -32,8 +32,8 @@ module BDU (
     logic [$clog2(`B+1)+ 2:0] ctr; // there should be 3*`B cycles (for each bit for each dimension) before it is done
 
     // Control Signals 
-    logic S1, S2, S3, S4, S5, S6;
-    logic [1:0] S7, S8;
+    logic S1, S2, S3, S4, S5;
+    logic [1:0] S6, S7, S8;
 
     assign S1 = ~code[1] & code[0];  // x dimension
     assign S2 = code[1] & ~code[0];  // y dimension
@@ -59,12 +59,12 @@ module BDU (
     assign mux3 = S3 == 1'b1 ? accumulate : f_z;
 
     logic [`B-1:0] mux4, mux5, mux8;
-    assign mux8 = S8 == 2'b01 ? {{(`B - `F){1'b0}},neg_f} : S8 == 2'b10 ? {{(`B - `F){1'b0}},mux6} : 0;
+    assign mux8 = S8 == 2'b01 ? 0 - mux6 : S8 == 2'b10 ? mux6 : 0;
     assign mux4 = S4 == 1'b1 ? 1'b1 : 1'b0;
     assign mux5 = S5 == 1'b1 ? (partial_dist2 << 2) : partial_dist2;
 
 
-    // --------------------------------- Lower `Bound Logic ---------------------------------
+    // --------------------------------- Lower Bound Logic ---------------------------------
 
     // Absolute Logic
     logic [`F-1:0] abs_f_x, abs_f_y, abs_f_z;
@@ -81,11 +81,12 @@ module BDU (
     assign f_y_Iszero = f_y == 0 ? 0 : 1;
     assign f_z_Iszero = f_z == 0 ? 0 : 1;
 
-    logic [`B-1:0] sum_to_shift, curr_lower_bound;
-    logic [$clog2(`B)-1:0] shift_amt;
-    assign sum_to_shift = shiftNeg + f_x_Iszero + f_y_Iszero + f_z_Iszero + partial_dist2;
+    logic [`B-1:0] sum_to_shift, shifted_sum, curr_lower_bound;
+    logic [$clog2(`B+1)-1:0] shift_amt;
+    assign sum_to_shift = partial_dist2 + f_x_Iszero + f_y_Iszero + f_z_Iszero - (sumOfAbs << 1);
     assign shift_amt = 2 * (`B - b);
-    assign curr_lower_bound = sum_to_shift << shift_amt;
+    assign shifted_sum = sum_to_shift << shift_amt;
+    assign curr_lower_bound = partial_dist2 > shifted_sum ? partial_dist2 : shifted_sum;
 
 
     // --------------------------------- Register Updates ---------------------------------

@@ -10,7 +10,7 @@ module BDU_tb;
     logic q_bit;
     logic r_bit;
     logic [1:0] code;
-    logic [$clog2(`B)-1:0] b;
+    logic [$clog2(`B+1)-1:0] b;
     logic [`B-1:0] threshold;
 
     // DUT outputs
@@ -62,7 +62,7 @@ module BDU_tb;
         r_bit = 0;
         code = 2'b00;
         b = 0;
-        threshold = 32'h0000_FFFF;
+        threshold = 32'h0000_000D;
         @(negedge clk);
         //@(posedge clk);
         $display("Cycle reset | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%b",
@@ -76,8 +76,8 @@ module BDU_tb;
         valid = 1;
 
         // q and r
-        q = 32'h0000_FFFF;
-        r = 32'h0000_FFF0;
+        q = 32'h0000_FFFD;
+        r = 32'h0000_FFFF;
 
         for (int i = 0; i < 96; i++) begin
             case (i % 3)
@@ -91,12 +91,18 @@ module BDU_tb;
             b = i/3 + 1;
 
             @(posedge clk);
-            $display("Cycle %0d | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%d",
-                     i, code, q_bit, r_bit, terminate, done, partial_distance_output, debug);
+            $display("Cycle %0d | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%d, b=%d",
+                     i, code, q_bit, r_bit, terminate, done, partial_distance_output, debug, b);
+            if(terminate) begin
+                $finish;
+            end
         end
 
         // End of stimulus
         valid = 0;
+        @(posedge clk);
+        $display("Cycle end | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d r_x=%b debug=%d, b=%d",
+                    code, q_bit, r_bit, terminate, done, partial_distance_output, ref_coor_x, debug, b);
         repeat(10) @(posedge clk);
 
         $display("---- Simulation Complete ----");
