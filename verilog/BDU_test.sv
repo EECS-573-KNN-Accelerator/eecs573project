@@ -21,6 +21,8 @@ module BDU_tb;
     logic [`B-1:0] ref_coor_y;
     logic [`B-1:0] ref_coor_z;
 
+    logic [`B-1:0] debug;
+
     // Instantiate DUT
     BDU dut (
         .clk(clk),
@@ -36,7 +38,8 @@ module BDU_tb;
         .partial_distance_output(partial_distance_output),
         .ref_coor_x(ref_coor_x),
         .ref_coor_y(ref_coor_y),
-        .ref_coor_z(ref_coor_z)
+        .ref_coor_z(ref_coor_z),
+        .debug(debug)
     );
 
     // ----------------------------------------
@@ -60,6 +63,10 @@ module BDU_tb;
         code = 2'b00;
         b = 0;
         threshold = 32'h0000_FFFF;
+        @(negedge clk);
+        //@(posedge clk);
+        $display("Cycle reset | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%b",
+                    code, q_bit, r_bit, terminate, done, partial_distance_output, debug);
 
         repeat(3) @(posedge clk);
         rst = 0;
@@ -70,7 +77,7 @@ module BDU_tb;
 
         // q and r
         q = 32'h0000_FFFF;
-        r = 32'h0000_FF00;
+        r = 32'h0000_FFF0;
 
         for (int i = 0; i < 96; i++) begin
             case (i % 3)
@@ -84,8 +91,8 @@ module BDU_tb;
             b = i/3 + 1;
 
             @(posedge clk);
-            $display("Cycle %0d | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d",
-                     i, code, q_bit, r_bit, terminate, done, partial_distance_output);
+            $display("Cycle %0d | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%d",
+                     i, code, q_bit, r_bit, terminate, done, partial_distance_output, debug);
         end
 
         // End of stimulus
