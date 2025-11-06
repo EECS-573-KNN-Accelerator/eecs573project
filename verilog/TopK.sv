@@ -14,14 +14,20 @@ module TopK (
     input logic [`NUM_BDU-1:0] [`BIT_WIDTH-1:0] bdu_z,
 `endif
 
+`ifndef STORE_POINTS
+    input logic [`NUM_BDU-1:0] [`MEM_ADDR_WIDTH-1:0] bdu_addr, // Address outputs from each BDU
+`endif
+
     output logic [`BIT_WIDTH-1:0] threshold, // threashold for distance comparison, the largest value in KNN buffer
     output logic done, // signal indicating computation is done
     output logic [(`K*2*`BIT_WIDTH-1):0] knn_distances // distances of the KNN points
 );
 
-// KNN buffer - size K ordered shift register
+// KNN buffer - size K linked list to store nearest K neighbors
+// Each entry contains: valid bit, distance, (optionally) point coordinates or memory address
 
-//
+
+
 
 // Side buffer - size K ordered shift register
 
