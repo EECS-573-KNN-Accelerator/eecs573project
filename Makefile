@@ -59,17 +59,25 @@ SHELL := $(SHELL) -o pipefail
 
 # ---- Modules to Test ---- #
 
-MODULES = 
+MODULES = BDU topK comparator parallelDistCompute
 
 # TODO: update this if you add more header files
 ALL_HEADERS = $(BITNN_HEADERS)
 
 # TODO: add extra source file dependencies below
+BDU_FILES = verilog/BDU.sv
+build/BDU.simv: $(BDU_FILES) ;
+synth/BDU.vg: $(BDU_FILES) ;
+build/BDU.cov: $(BDU_FILES) ;
 
+TOPK_FILES = verilog/topK.sv
+build/topK.simv: $(TOPK_FILES) ;
+synth/topK.vg: $(TOPK_FILES) ;
+build/topK.cov: $(TOPK_FILES) ;
 
 
 #################################
-# ---- Main AURA Definition ---- #
+# ---- Main BitNN Definition ---- #
 #################################
 
 # We also reuse this section to compile the cpu, but not to run it
