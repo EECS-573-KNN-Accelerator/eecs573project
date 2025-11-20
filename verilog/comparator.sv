@@ -7,17 +7,26 @@
 
 module comparator(
 	input knn_entry_t prev_knn_point_in, //distance from the previous neighbor to the new query point
+
 	input [`B-1:0] running_mean,
     input running_mean_valid,
 
 	// Output is a knn_entry_t
 	output knn_entry_t prev_knn_point_out,
-	output not_taken, //equivalent to bdu_terminate - tells the topK whether the entry is greater than the running mean
-	output vaild_comp
+	output vaild_out
 );
 
-	assign not_taken = prev_knn_point_in.distance < running_mean;
-	assign prev_knn_point_out = prev_knn_point_in; 
-	assign vaild_comp = prev_knn_point_in.valid && running_mean_valid; 
+    wire taken;
+    assign taken = prev_knn_point_in.distance <= running_mean;
+
+	//assign prev_knn_point_out = prev_knn_point_in; 
+    assign prev_knn_point_out.valid = prev_knn_point_in.valid && taken;
+    assign prev_knn_point_out.distance = prev_knn_point_in.distance;
+    assign prev_knn_point_out.x = prev_knn_point_in.x;
+    assign prev_knn_point_out.y = prev_knn_point_in.y;
+    assign prev_knn_point_out.z = prev_knn_point_in.z;
+    assign prev_knn_point_out.addr = prev_knn_point_in.addr;
+
+	assign vaild_out = prev_knn_point_in.valid && running_mean_valid; 
 
 endmodule
