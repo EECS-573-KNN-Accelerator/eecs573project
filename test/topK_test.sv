@@ -16,13 +16,13 @@ module topK_tb;
     // DUT Inputs
     logic                  clk;
     logic                  reset;
-    logic [`NUM_BDU-1:0]   bdu_done;
+    logic                  bdu_done;
     knn_entry_t            bdu_entry;
     logic [`DIST_WIDTH-1:0] running_mean;
 
     // DUT Outputs
     logic [`DIST_WIDTH-1:0]     threshold;
-    knn_entry_t [`K-1:0]  knn_distances;
+    knn_entry_t   knn_distances [`K-1:0];
 
     //----------------------------------------------------------------
     // Instantiate the DUT (Device Under Test)

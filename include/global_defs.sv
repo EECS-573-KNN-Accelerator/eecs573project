@@ -4,7 +4,7 @@
 `define BIT_WIDTH 16 // bit width for each dimension
 `define DIST_WIDTH 32
 `define NUM_BDU 8
-`define K 16 // Max number of nearest neighbors to find
+`define K 4 // Max number of nearest neighbors to find
 `define MEM_ADDR_WIDTH 20 // Address width for point memory
 //`STORE_POINTS 1 - if defined, store full point coordinates in KNN buffer, else store memory address
 // This is useful, because if we use a parallel comparator to compare between previous KNN cache and
