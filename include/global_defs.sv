@@ -77,4 +77,31 @@ typedef enum logic [1:0] {
     MEM_STORE  = 2'h2
 } MEM_COMMAND;
 
+
+
+// BDU input 
+typedef union packed {
+  logic valid; 
+  logic q_bit; 
+  logic r_bit; 
+  logic [1:0] code; 
+  logic [$clog2(`B+1)-1:0] b; // which bit this is 
+  logic [`B-1:0] threshold
+}BDU_Input; 
+
+// BDU output 
+typedef union packed {
+  logic terminate; 
+  logic done; 
+  logic [`B-1:0] partial_distance_output; 
+  logic [`B-1:0] ref_coor_x; 
+  logic [`B-1:0] ref_coor_y; 
+  logic [`B-1:0] ref_coor_z; 
+}BDU_Output; 
+
+
+
+
+
+
 `endif // __GLOBAL_DEFS_SV__

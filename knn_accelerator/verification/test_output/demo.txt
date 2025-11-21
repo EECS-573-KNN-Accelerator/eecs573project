@@ -1,0 +1,9 @@
+first 4 points ->  0000 MSB1_x 0000 MSB1_y 0000 MSB1_z 0000 -> xxxx_xxxx_xxxx_xxxx (MSB1_MSB2_MSB3_MSB4)
+        ...
+       (MSB29_MSB30_MSB31_MSB32)
+second 4 points -> 
+
+
+
+1AB2
+26B6

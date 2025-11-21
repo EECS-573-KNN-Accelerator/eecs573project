@@ -62,7 +62,7 @@ module BDU_tb;
         r_bit = 0;
         code = 2'b00;
         b = 0;
-        threshold = 32'h0000_000D; // TODO: Change threshold here
+        threshold = 32'h0000_02A4; // TODO: Change threshold here
         @(negedge clk);
         //@(posedge clk);
         $display("Cycle reset | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%b",
@@ -76,8 +76,8 @@ module BDU_tb;
         valid = 1;
 
         // TODO: Change q and r bits here
-        q = 32'h0000_FFFD;
-        r = 32'h0000_FFFF;
+        q = 32'h0000_FFFF;
+        r = 32'h0000_FFF0;
 
         for (int i = 0; i < 96; i++) begin
             case (i % 3)
@@ -90,7 +90,7 @@ module BDU_tb;
             r_bit = r[`B - 1 - (i/3)];
             b = i/3 + 1;
 
-            @(posedge clk);
+            @(negedge clk);
             $display("Cycle %0d | code=%b q_bit=%b r_bit=%b | terminate=%b done=%b partial_dist=%0d debug=%d, b=%d",
                      i, code, q_bit, r_bit, terminate, done, partial_distance_output, debug, b);
             if(terminate) begin

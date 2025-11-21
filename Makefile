@@ -86,7 +86,7 @@ build/topK.cov: $(TOPK_FILES) ;
 BITNN_HEADERS = include/global_defs.sv
 
 # tb/cpu_test.sv is implicit
-BITNN_TESTBENCH = tb/mem.sv 
+BITNN_TESTBENCH = test/mem.sv 
 
 # verilog/cpu.sv is implicit
 BITNN_SOURCES = verilog/ 
