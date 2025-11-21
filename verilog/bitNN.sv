@@ -26,15 +26,6 @@ module bitNN (
         .proc2mem_command(proc2mem_command),
         .proc2mem_addr(proc2mem_addr),
         .proc2mem_data(proc2mem_data),
-    
-        .Q_sram_rdy(Q_sram_rdy),
-        .K_sram_rdy(K_sram_rdy),
-        .V_sram_rdy(V_sram_rdy),
-        .O_sram_vld(O_sram_vld),
-        .ctrl_O_rdy(ctrl_O_rdy),
-        .ctrl_Q_vld(ctrl_Q_vld),
-        .ctrl_K_vld(ctrl_K_vld),
-        .ctrl_V_vld(ctrl_V_vld),
         
         .drained_vector(drained_vector),
         .loaded_vector(loaded_vector),
@@ -43,7 +34,20 @@ module bitNN (
     );
 
     BDU [`NUM_BDU-1:0] bdu_array (
-
+        .clk(clk),
+        .rst(rst),
+        .valid(),
+        .q_bit(),
+        .r_bit(),
+        .code(),
+        .b(),
+        .threshold(),
+        .terminate(),
+        .done(),
+        .partial_distance_output(),
+        .ref_coor_x(),
+        .ref_coor_y(),
+        .ref_coor_z()
     );
 
     topK topk_inst (

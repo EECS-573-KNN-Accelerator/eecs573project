@@ -30,11 +30,9 @@ module prev_knn_cache (
         end else begin
             knn_mem <= top_k_done ? top_k_entry : knn_mem;
             reading <= new_query ? 1'b1 : read_ptr == `K-1 ? 0 : reading;
-            read_ptr <= new_query ? 1'b1 : reading ? (read_ptr == `K-1 ? 0 : read_ptr + 1'b1) : read_ptr;
 
             if(reading) begin
-                read_ptr <= new_query ? 1'b1 : read_ptr == `K-1 ? 0 : read_ptr + 1'b1;
-                reading <= read_ptr == `K-1 ? 0 : reading;
+                read_ptr <= read_ptr == `K-1 ? 0 : read_ptr + 1'b1;
             end
         end
     end

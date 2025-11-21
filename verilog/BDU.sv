@@ -13,6 +13,8 @@ module BDU (
     input logic [$clog2(`B+1)-1:0] b, // which bit is this, MSB = 1, LSB = `B, used for 2(`B-b) calculation
     input logic [`B-1:0] threshold, // threshold for distance comparison (kth dist^2), the last KNN value
 
+    output knn_entry_t result;
+
     output logic terminate, // signal indicating early termination of the reference coordinate (ref point not selected as kNN)
     output logic done,// signal indicating ref. coordinate dist calculation is complete and passes the threshold (ref point is selected as kNN)
     output logic [`B-1:0] partial_distance_output,  // computed distance (only when done == 1, when this value is valid for use)
@@ -24,7 +26,7 @@ module BDU (
 );
     // Intermediate REGs 
     logic [`F-1:0] f_x, f_y, f_z; // Acumulators for each dimension 
-    logic [`F-1:0] partial_dist2; // Partial Distance Squared
+    logic [`B-1:0] partial_dist2; // Partial Distance Squared
 
     // Coordinate Registers
     logic [`B-1:0] q_x, q_y, q_z;
@@ -130,6 +132,14 @@ module BDU (
     assign ref_coor_x = r_x;
     assign ref_coor_y = r_y;
     assign ref_coor_z = r_z;
+
+    //knn_entry_t result;
+    assign result.valid = (ctr == `B*3);
+    assign result.distance = partial_dist2;
+    `ifdef STORE_POINTS
+    assign result.x = r_x;
+    assign result.y = r_y;
+    assign result.z = r_z;
 
     assign debug = curr_lower_bound;
 
