@@ -13,10 +13,15 @@ module BDU (
     input logic [$clog2(`B+1)-1:0] b, // which bit is this, MSB = 1, LSB = `B, used for 2(`B-b) calculation
     input logic [`B-1:0] threshold, // threshold for distance comparison (kth dist^2), the last KNN value
 
-    output knn_entry_t result;
+    input knn_entry_t north_input,
+    input logic shift,
 
-    output logic terminate, // signal indicating early termination of the reference coordinate (ref point not selected as kNN)
-    output logic done,// signal indicating ref. coordinate dist calculation is complete and passes the threshold (ref point is selected as kNN)
+    // output knn_entry_t result;
+
+    output logic complete,
+    output logic output_valid,
+    //output logic terminate, // signal indicating early termination of the reference coordinate (ref point not selected as kNN)
+    //output logic done,// signal indicating ref. coordinate dist calculation is complete and passes the threshold (ref point is selected as kNN)
     output logic [`B-1:0] partial_distance_output,  // computed distance (only when done == 1, when this value is valid for use)
     output logic [`B-1:0] ref_coor_x, // ref. coordinate at x dimension (only when done == 1, when this value is valid for use)
     output logic [`B-1:0] ref_coor_y, // ref. coordinate at y dimension (only when done == 1, when this value is valid for use)
@@ -24,6 +29,8 @@ module BDU (
     
     output logic [`B-1:0] debug
 );
+
+
     // Intermediate REGs 
     logic [`F-1:0] f_x, f_y, f_z; // Acumulators for each dimension 
     logic [`B-1:0] partial_dist2; // Partial Distance Squared
@@ -109,38 +116,43 @@ module BDU (
             ctr <= 0;
 
         end else begin
-            f_x <= terminate || done ? 0 : valid ? mux1 : f_x;
-            f_y <= terminate || done ? 0 : valid ? mux2 : f_x;
-            f_z <= terminate || done ? 0 : valid ? mux3 : f_x;
-            partial_dist2 <= terminate || done ? 0 : valid ? mux4 + mux5 + (mux8 << 2) : partial_dist2; 
+            f_x <= shift ? 0 : valid ? mux1 : f_x;
+            f_y <= shift ? 0 : valid ? mux2 : f_y;
+            f_z <= shift ? 0 : valid ? mux3 : f_z;
+            partial_dist2 <= shift ? 0 : valid ? mux4 + mux5 + (mux8 << 2) : partial_dist2; 
             
-            ctr <= terminate || done ? 0 : valid ? ctr + 1'b1 : ctr;
-            q_x <= terminate || done ? 0 : valid && S1 ? {q_x[`B-2:0], q_bit} : q_x;
-            q_y <= terminate || done ? 0 : valid && S2 ? {q_y[`B-2:0], q_bit} : q_y;
-            q_z <= terminate || done ? 0 : valid && S3 ? {q_z[`B-2:0], q_bit} : q_z;
-            r_x <= terminate || done ? 0 : valid && S1 ? {r_x[`B-2:0], r_bit} : r_x;
-            r_y <= terminate || done ? 0 : valid && S2 ? {r_y[`B-2:0], r_bit} : r_y;
-            r_z <= terminate || done ? 0 : valid && S3 ? {r_z[`B-2:0], r_bit} : r_z;
+            ctr <= shift ? 0 : valid ? ctr + 1'b1 : ctr;
+            q_x <= shift ? 0 : valid && S1 ? {q_x[`B-2:0], q_bit} : q_x;
+            q_y <= shift ? 0 : valid && S2 ? {q_y[`B-2:0], q_bit} : q_y;
+            q_z <= shift ? 0 : valid && S3 ? {q_z[`B-2:0], q_bit} : q_z;
+            r_x <= shift ? 0 : valid && S1 ? {r_x[`B-2:0], r_bit} : r_x;
+            r_y <= shift ? 0 : valid && S2 ? {r_y[`B-2:0], r_bit} : r_y;
+            r_z <= shift ? 0 : valid && S3 ? {r_z[`B-2:0], r_bit} : r_z;
         end
     end
 
     // --------------------------------- Output Values ---------------------------------
 
+    logic terminate;
+
+    assign output_valid = ~terminate;
     assign terminate = (threshold <= curr_lower_bound) ? 1'b1: 1'b0;
-    assign done = (ctr == `B*3);
+    assign output_valid = !terminate;
+    //assign done = (ctr == `B*3) && !terminate;
+    assign complete = (ctr == `B*3) || terminate;
     assign partial_distance_output = partial_dist2;
     assign ref_coor_x = r_x;
     assign ref_coor_y = r_y;
     assign ref_coor_z = r_z;
 
     //knn_entry_t result;
-    assign result.valid = (ctr == `B*3);
-    assign result.distance = partial_dist2;
-    `ifdef STORE_POINTS
-    assign result.x = r_x;
-    assign result.y = r_y;
-    assign result.z = r_z;
+    // assign result.valid = (ctr == `B*3);
+    // assign result.distance = partial_dist2;
+    // `ifdef STORE_POINTS
+    // assign result.x = r_x;
+    // assign result.y = r_y;
+    // assign result.z = r_z;
 
-    assign debug = curr_lower_bound;
+    assign debug = mux5;
 
 endmodule
