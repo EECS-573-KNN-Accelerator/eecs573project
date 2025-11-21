@@ -26,4 +26,55 @@ typedef struct packed {
 `endif
 } knn_entry_t;
 
+
+
+//////////////////////////////////
+// ---- Memory Definitions ---- //
+//////////////////////////////////
+
+typedef logic [31:0] ADDR;
+
+//Base Addresses
+parameter ADDR K_BASE = 'h0000_1000;
+parameter ADDR V_BASE = 'h0000_2000;
+parameter ADDR Q_BASE = 'h0000_3000;
+parameter ADDR O_BASE = 'h0000_4000;
+
+`define MEM_LATENCY_IN_CYCLES (100.0/`CLOCK_PERIOD+0.49999)
+// the 0.49999 is to force ceiling(100/period). The default behavior for
+// float to integer conversion is rounding to nearest
+
+// memory tags represent a unique id for outstanding mem transactions
+// 0 is a sentinel value and is not a valid tag
+`define NUM_MEM_TAGS 15
+typedef logic [3:0] MEM_TAG;
+
+`define MEM_SIZE_IN_BYTES (64*1024)
+
+`define MEM_64BIT_LINES   (`MEM_SIZE_IN_BYTES/8)
+
+`define MEM_BLOCKS_PER_VECTOR ((`MAX_EMBEDDING_DIM*`INTEGER_WIDTH/8)/`MEM_BLOCK_SIZE_BYTES)
+
+// A memory or cache block
+typedef union packed {
+    logic [7:0][7:0]  byte_level;
+    logic [3:0][15:0] half_level;
+    logic [1:0][31:0] word_level;
+    logic      [63:0] dbbl_level;
+} MEM_BLOCK;
+
+typedef enum logic [1:0] {
+    BYTE   = 2'h0,
+    HALF   = 2'h1,
+    WORD   = 2'h2,
+    DOUBLE = 2'h3
+} MEM_SIZE;
+
+// Memory bus commands
+typedef enum logic [1:0] {
+    MEM_NONE   = 2'h0,
+    MEM_LOAD   = 2'h1,
+    MEM_STORE  = 2'h2
+} MEM_COMMAND;
+
 `endif // __GLOBAL_DEFS_SV__
