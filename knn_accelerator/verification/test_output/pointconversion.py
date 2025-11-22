@@ -1,3 +1,6 @@
+# to run: python3 [path to pointconversion.py]
+#creates output_hex.mem file with output
+
 import pandas as pd
 
 import os
@@ -5,7 +8,7 @@ import os
 script_dir = os.getcwd()  # current working directory
 
 csv_file = os.path.join(script_dir, "knn_accelerator", "verification", "test_output", "oxford_2015_knn_indices.csv")
-output_file = os.path.join(script_dir, "output_hex.txt")
+output_file = os.path.join(script_dir, "output_hex.mem")
 
 
 # header=0 considers first row as column names
@@ -60,3 +63,5 @@ with open(output_file, "w") as f:
 
 print(f"Processed {len(df)} data rows.")
 print(f"Output saved to {output_file}")
+
+
