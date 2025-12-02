@@ -13,8 +13,7 @@ module prev_knn_cache (
     output knn_entry_t entry_to_compute,   // send to parallelDistCompare
     output entry_valid,
 
-    output logic prev_knn_cache_valid,
-
+    output logic prev_knn_cache_valid
 );
 
     knn_entry_t knn_mem [`K-1:0];

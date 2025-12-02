@@ -33,22 +33,27 @@ module bitNN (
         .done(done)
     );
 
-    BDU [`NUM_BDU-1:0] bdu_array (
-        .clk(clk),
-        .rst(rst),
-        .valid(),
-        .q_bit(),
-        .r_bit(),
-        .code(),
-        .b(),
-        .threshold(),
-        .terminate(),
-        .done(),
-        .partial_distance_output(),
-        .ref_coor_x(),
-        .ref_coor_y(),
-        .ref_coor_z()
-    );
+    BDU bdu_stuff [`NUM_BDU-1:0]//???
+    generate
+        for(genvar i = 0; i < `NUM_BDU; i++) begin
+            BDU bdu_array (
+                .clk(clk),
+                .rst(rst),
+                .valid(),
+                .q_bit(),
+                .r_bit(),
+                .code(),
+                .b(),
+                .threshold(),
+                .terminate(),
+                .done(),
+                .partial_distance_output(),
+                .ref_coor_x(),
+                .ref_coor_y(),
+                .ref_coor_z()
+            );
+        end
+    endgenerate
 
     topK topk_inst (
         .clk(clk),
