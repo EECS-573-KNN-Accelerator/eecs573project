@@ -3,7 +3,7 @@
 module topK (
     input logic clk,
     input logic reset,
-    input logic bdu_done,
+    input logic inputs_valid, // signal indicating new point_in is valid
     input logic [`DIST_WIDTH-1:0] running_mean,
     input knn_entry_t point_in, // new point to consider for KNN, valid is bdu_terminate
 
@@ -28,7 +28,7 @@ always_ff @(posedge clk or posedge reset) begin
             knn_buffer[i].distance <= {`DIST_WIDTH{1'b1}}; // Set to max distance
         end
     end
-    else if (bdu_done) begin
+    else if (inputs_valid) begin
         // Compare new point distance with KNN buffer entries
         inserted = 1'b0;
         for (int i = 0; i < `K; i++) begin

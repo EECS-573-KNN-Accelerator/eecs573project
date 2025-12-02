@@ -10,17 +10,12 @@ module prev_knn_cache (
 
     input new_query, // from control logic
 
-    output knn_entry_t entry_to_compute,   // send to parallelDistCompare
-    output entry_valid,
-
-    output logic prev_knn_cache_valid
+    output knn_entry_t entry_to_compute   // send to parallelDistCompare
 );
 
     knn_entry_t knn_mem [`K-1:0];
     logic [$clog2(`K):0] read_ptr;
     logic reading;
-
-    assign prev_knn_cache_valid = !top_k_done;
 
     always_ff@(posedge clk) begin
         if(rst) begin
@@ -28,7 +23,7 @@ module prev_knn_cache (
             read_ptr <= 0;
         end else begin
             knn_mem <= top_k_done ? top_k_entry : knn_mem;
-            reading <= new_query ? 1'b1 : read_ptr == `K-1 ? 0 : reading;
+            reading <= new_query ? 1'b1 : (read_ptr == `K-1 ? 0 : reading);
 
             if(reading) begin
                 read_ptr <= read_ptr == `K-1 ? 0 : read_ptr + 1'b1;
