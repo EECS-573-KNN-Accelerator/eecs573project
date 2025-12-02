@@ -72,7 +72,7 @@ module bitNN (
         .knn_buffer_out(knn_buffer_out)
     )
     
-    prev_knn_cache prev_knn_cache_inst ( //TODO copilot did this whole thing, idk how the module works lol
+    prev_knn_cache prev_knn_cache_inst (
         .clk(clk),
         .rst(reset),
         .top_k_done(), // connect to entire KNN done signal
