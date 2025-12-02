@@ -9,15 +9,13 @@ module comparator(
 	input knn_entry_t prev_knn_point_in, //distance from the previous neighbor to the new query point
 
 	input [`B-1:0] running_mean,
-    input running_mean_valid,
 
 	// Output is a knn_entry_t
-	output knn_entry_t prev_knn_point_out,
-	output vaild_out
+	output knn_entry_t prev_knn_point_out
 );
 
     wire taken;
-    assign taken = prev_knn_point_in.distance <= running_mean;
+    assign taken = (prev_knn_point_in.distance <= running_mean);
 
 	//assign prev_knn_point_out = prev_knn_point_in; 
     assign prev_knn_point_out.valid = prev_knn_point_in.valid && taken;
@@ -26,7 +24,5 @@ module comparator(
     assign prev_knn_point_out.y = prev_knn_point_in.y;
     assign prev_knn_point_out.z = prev_knn_point_in.z;
     assign prev_knn_point_out.addr = prev_knn_point_in.addr;
-
-	assign vaild_out = prev_knn_point_in.valid && running_mean_valid; 
-
+    
 endmodule

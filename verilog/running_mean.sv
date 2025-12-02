@@ -8,7 +8,6 @@ module running_mean (
     input [`B-1:0] kth_distance,
 
     output [`B-1:0] running_mean_out,
-    output running_mean_valid
 );
     logic [`W +`B-1:0] running_sum;
     logic [`W-1:0] q_ctr;
@@ -25,8 +24,6 @@ module running_mean (
             running_sum <= top_k_done ? (&q_ctr ? running_sum - running_mean_out + kth_distance : running_sum + kth_distance) : running_sum;
         end
     end
-
-    assign running_mean_valid = !top_k_done;
 
 
 endmodule

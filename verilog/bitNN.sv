@@ -16,9 +16,20 @@ module bitNN (
     output logic       done
 );
 
+    logic [`DIST_WIDTH-1:0] running_mean;
+    knn_entry_t knn_buffer_out [`K-1:0];
+    logic [`DIST_WIDTH-1:0] threshold;
+
+    knn_entry_t BDU_output_point;
+    logic bdus_done;
+    knn_entry_t topK_input_point;
+    knn_entry_t comparator_output_point;
+
+    assign topK_input_point = ? comparator_output_point : BDU_output_point; //TODO need control logic to decide between comparator output (prev KNN) and BDU output
+
     memory_controller mem_ctrl_inst (
         .clk(clk),
-        .rst(rst),
+        .rst(reset),
 
         .mem2proc_transaction_tag(mem2proc_transaction_tag),
         .mem2proc_data(mem2proc_data),
@@ -33,37 +44,49 @@ module bitNN (
         .done(done)
     );
 
-    BDU bdu_stuff [`NUM_BDU-1:0]//???
-    generate
-        for(genvar i = 0; i < `NUM_BDU; i++) begin
-            BDU bdu_array (
-                .clk(clk),
-                .rst(rst),
-                .valid(),
-                .q_bit(),
-                .r_bit(),
-                .code(),
-                .b(),
-                .threshold(),
-                .terminate(),
-                .done(),
-                .partial_distance_output(),
-                .ref_coor_x(),
-                .ref_coor_y(),
-                .ref_coor_z()
-            );
-        end
-    endgenerate
+    BDUArray bdu_array_inst (
+        .clk(clk),
+        .rst(reset),
+        .BDU_inputs(), // connect to BDU inputs
+        .threshold_in(threshold), // connect to threshold from topK
+        .shift(BDU_output_point), // connect to point_in of topK
+        .alldone(bdus_done)
+    );
 
     topK topk_inst (
         .clk(clk),
         .reset(reset),
-        .bdu_done(), // connect to BDU done signal 
-        .running_mean(), // connect to running mean signal
-        .point_in(), // connect to BDU output point
-        .threshold(), // connect to threshold output
-        .knn_buffer_out()
+        .bdu_done(bdus_done), // connect to BDU done signal 
+        .running_mean(running_mean), // connect to running mean signal
+        .point_in(topK_input_point), // connect to BDU output point
+        .threshold(threshold), // connect to threshold output
+        .knn_buffer_out(knn_buffer_out)
     )
+    
+    prev_knn_cache prev_knn_cache_inst ( //TODO copilot did this whole thing, idk how the module works lol
+        .clk(clk),
+        .rst(reset),
+        .top_k_done(), // connect to entire KNN done signal
+        .top_k_entry(knn_buffer_out), // connect to topK knn buffer output
+        .new_query(), // connect to control logic new query signal
+        .entry_to_compute(), // connect to parallelDistCompare input
+        .entry_valid(), // connect to parallelDistCompare valid signal
+        .prev_knn_cache_valid() // connect to control logic prev_knn_cache_valid signal
+    );
+
+    comparator comparator_inst (
+        .prev_knn_point_in(), // connect to prev_knn_cache output
+        .running_mean(running_mean), // connect to running mean signal
+        .prev_knn_point_out(comparator_output_point) // connect to topk input
+    )
+
+    running_mean running_mean_generator (
+        .clk(clk),
+        .rst(reset),
+        .top_k_done(), // connect to entire KNN done signal
+        .kth_distance(knn_buffer_out[`K-1]), // connect to topK kth distance output
+        .running_mean_out(running_mean) // connect to topK running mean input
+    );
 
 
 endmodule

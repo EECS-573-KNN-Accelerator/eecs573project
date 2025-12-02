@@ -6,17 +6,17 @@ module BDUArray (
     
     input logic [`B-1:0] threshold_in, 
 
-    output knn_entry_t shift
-
+    output knn_entry_t shift,
+    output logic alldone
 ); 
 
-logic alldone; 
+logic [$clog2(`NUM_BDU)-1:0] ctr;
 logic [`NUM_BDU-1:0] dones;
 knn_entry_t BDU_outputs [`NUM_BDU]; 
 knn_entry_t [`NUM_BDU-1:0] syst_arr;
 
 assign alldone = &dones;
-
+assign all_counted = (ctr == `NUM_BDU);
 
 
 genvar i;
@@ -24,7 +24,7 @@ generate
     for(i = 0; i < `NUM_BDU; i++) begin
         BDU bdu1(
             .clk(clk),
-            .rst(rst),
+            .rst(rst || all_counted),
             .valid(BDU_inputs[i].valid),
             .q_bit(BDU_inputs[i].q_bit), 
             .r_bit(BDU_inputs[i].r_bit), 
@@ -43,15 +43,17 @@ assign shift = syst_arr[0];
 always_ff @(posedge clk) begin
     if(rst) begin
         syst_arr <= 1'b0; 
+        ctr <= 0;
     end
     else begin
-        if(alldone) begin
+        if(alldone && ctr == 0) begin // latch outputs into systolic array
             syst_arr <= BDU_outputs
         end
         else begin
             for (int j = 0; j < `NUM_BDU-2; j++) begin
                 syst_arr[j] <= syst_arr[j+1];
             end
+            ctr <= alldone ? ctr + 1'b1 : ctr;
         end
     end
 end
