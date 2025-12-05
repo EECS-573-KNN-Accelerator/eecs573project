@@ -17,6 +17,7 @@ module memory_controller #(
 
     // data signals
     input  logic       bdus_done,
+    input  logic       new_query,
     output BDU_Input   BDU_inputs [`NUM_BDU],
     output logic       topK_input_sel,
     output logic       topK_inputs_valid_sel,

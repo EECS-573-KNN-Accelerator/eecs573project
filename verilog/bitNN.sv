@@ -22,6 +22,7 @@ module bitNN (
 
     knn_entry_t BDU_output_point;
     logic bdus_done;
+    logic new_query;
     knn_entry_t topK_input_point;
     logic inputs_valid; // NOTE: Might end up with off by N cycles depending on how pipelining works w/ prev KNN -> topK
     logic topK_done;
@@ -47,7 +48,7 @@ module bitNN (
         .bdus_done(bdus_done),
 
         // query point finished (route to prev_knn_cache, running mean)
-        .query
+        .new_query(new_query),
         // query point xyz bit parallel (route to parallelDistCompute)
         // new query point signal 1 cycle high (route to prev_knn_cache)
 
@@ -78,12 +79,19 @@ module bitNN (
         .knn_buffer_out(knn_buffer_out)
     )
     
+    // prev_knn_cache prev_knn_cache_inst (
+    //     .clk(clk),
+    //     .rst(reset),
+    //     .top_k_done(topK_done), // connect to entire KNN done signal
+    //     .top_k_entry(knn_buffer_out), // connect to topK knn buffer output
+    //     .new_query(), // connect to control logic new query signal
+    //     .entry_to_compute(prev_knn_to_compute) // connect to parallelDistCompare input
+    // );
     prev_knn_cache prev_knn_cache_inst (
         .clk(clk),
         .rst(reset),
         .top_k_done(topK_done), // connect to entire KNN done signal
         .top_k_entry(knn_buffer_out), // connect to topK knn buffer output
-        .new_query(), // connect to control logic new query signal
         .entry_to_compute(prev_knn_to_compute) // connect to parallelDistCompare input
     );
 
@@ -91,6 +99,7 @@ module bitNN (
         .qp_x(), // connect to query point x
         .qp_y(), // connect to query point y
         .qp_z(), // connect to query point z
+        .new_query(),
         .prev_knn_point_in(prev_knn_to_compute), // connect to prev_knn_cache output
         .prev_knn_point_out(comparator_input_point) // connect to comparator input
     );

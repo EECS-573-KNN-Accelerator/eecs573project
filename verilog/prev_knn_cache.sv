@@ -1,4 +1,40 @@
-`define K 10
+// module prev_knn_cache (
+
+//     input clk,
+//     input rst,
+
+//     input top_k_done,
+//     input knn_entry_t top_k_entry [`K-1:0],
+
+//     input new_query, // from control logic
+
+//     output knn_entry_t entry_to_compute   // send to parallelDistCompare
+// );
+
+//     knn_entry_t knn_mem [`K-1:0];
+//     logic [$clog2(`K):0] read_ptr;
+//     logic reading;
+
+//     always_ff@(posedge clk) begin
+//         if(rst) begin
+//             knn_mem <= '0;
+//             read_ptr <= 0;
+//         end else begin
+//             knn_mem <= top_k_done ? top_k_entry : knn_mem;
+//             reading <= new_query ? 1'b1 : (read_ptr == `K-1 ? 0 : reading);
+
+//             if(reading) begin
+//                 read_ptr <= read_ptr == `K-1 ? 0 : read_ptr + 1'b1;
+//             end
+//         end
+//     end
+
+//     assign entry_to_compute = knn_mem[read_ptr];
+
+
+// endmodule
+
+
 
 module prev_knn_cache (
 
@@ -10,12 +46,10 @@ module prev_knn_cache (
 
     input new_query, // from control logic
 
-    output knn_entry_t entry_to_compute   // send to parallelDistCompare
+    output knn_entry_t prev_knn [`K-1:0]   // send to parallelDistCompare
 );
 
     knn_entry_t knn_mem [`K-1:0];
-    logic [$clog2(`K):0] read_ptr;
-    logic reading;
 
     always_ff@(posedge clk) begin
         if(rst) begin
@@ -23,15 +57,10 @@ module prev_knn_cache (
             read_ptr <= 0;
         end else begin
             knn_mem <= top_k_done ? top_k_entry : knn_mem;
-            reading <= new_query ? 1'b1 : (read_ptr == `K-1 ? 0 : reading);
-
-            if(reading) begin
-                read_ptr <= read_ptr == `K-1 ? 0 : read_ptr + 1'b1;
-            end
         end
     end
 
-    assign entry_to_compute = knn_mem[read_ptr];
+    assign prev_knn = knn_mem;
 
 
 endmodule
