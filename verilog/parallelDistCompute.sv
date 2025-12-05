@@ -1,35 +1,52 @@
-module parallelDistCompute (
-    input [`BIT_WIDTH-1:0] qp_x,
-    input [`BIT_WIDTH-1:0] qp_y,
-    input [`BIT_WIDTH-1:0] qp_z,
-
-    input knn_entry_t prev_knn_point_in [0:`K-1], 
-
-    output knn_entry_t prev_knn_point_out, // add in the distance squared!!
+module parallelDistCompute #(
+    parameter BIT_WIDTH = 16,
+    parameter K = 8
+)(
+    input logic clk, 
+    input logic reset, 
+    input logic start, 
+    // Query point coordinates
+    input [BIT_WIDTH-1:0] qp_x,
+    input [BIT_WIDTH-1:0] qp_y,
+    input [BIT_WIDTH-1:0] qp_z,
+    // Previous KNN points
+    input knn_entry_t prev_knn_point_in [0:K-1],
+    
+    output logic valid_out,
+    output knn_entry_t prev_knn_point_out
 );
 
-    //Intermediate Values
-    logic [`BIT_WIDTH-1:0] delta_x, delta_y, delta_z;
+    logic [$clog2(K)-1:0] compute_idx;
+    logic signed [BIT_WIDTH-1:0] delta_x, delta_y, delta_z;
+    logic [2*BIT_WIDTH-1:0] distance_squared;
 
-    assign delta_x = prev_knn_point_in.x - qp_x; 
-    assign delta_y = prev_knn_point_in.x - qp_x;
-    assign delta_z = prev_knn_point_in.x - qp_x;
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            compute_idx <= 0;
+            valid_out <= 1'b0;
+        end else if (start) begin
+            if (compute_idx < K) begin
+                delta_x <= $signed(prev_knn_point_in[compute_idx].x) - $signed(qp_x);
+                delta_y <= $signed(prev_knn_point_in[compute_idx].y) - $signed(qp_y);
+                delta_z <= $signed(prev_knn_point_in[compute_idx].z) - $signed(qp_z);
 
-    logic [`BIT_WIDTH-1:0] abs_x, ab_y, abs_z;
+                distance_squared <= delta_x * delta_x + delta_y * delta_y + delta_z * delta_z;
 
-    assign abs_x = delta_x[`BIT_WIDTH-1] ? (~delta_x + 1) ? delta_x; 
-    assign abs_y = delta_y[`BIT_WIDTH-1] ? (~delta_y + 1) ? delta_y; 
-    assign abs_z = delta_z[`BIT_WIDTH-1] ? (~delta_z + 1) ? delta_z; 
+                prev_knn_point_out.x        <= prev_knn_point_in[compute_idx].x;
+                prev_knn_point_out.y        <= prev_knn_point_in[compute_idx].y;
+                prev_knn_point_out.z        <= prev_knn_point_in[compute_idx].z;
+                prev_knn_point_out.addr     <= prev_knn_point_in[compute_idx].addr;
+                prev_knn_point_out.distance <= distance_squared;
+                prev_knn_point_out.valid    <= prev_knn_point_in[compute_idx].valid;
 
-
-    // Assign the calulated distance 
-    assign prev_knn_point_out.distance = (abs_f_x << 1) + (abs_f_y << 1) + (abs_f_z << 1); 
-
-    // Pass through the other values 
-    assign prev_knn_point_out.x = prev_knn_point_in.x;
-    assign prev_knn_point_out.y = prev_knn_point_in.y;
-    assign prev_knn_point_out.z = prev_knn_point_in.z;
-    assign prev_knn_point_out.point_id = prev_knn_point_in.point_id;
-    assign prev_knn_point_out.valid = prev_knn_point_in.valid;
+                valid_out <= 1'b1;
+                compute_idx <= compute_idx + 1;
+            end else begin
+                valid_out <= 1'b0; // finished all points
+            end
+        end else begin
+            valid_out <= 1'b0; // idle
+        end
+    end
 
 endmodule
