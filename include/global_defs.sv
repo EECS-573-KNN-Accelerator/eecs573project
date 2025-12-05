@@ -3,11 +3,12 @@
 
 `define BIT_WIDTH 16 // bit width for each dimension
 `define DIST_WIDTH 32
-`define NUM_BDU 8
+`define NUM_BDU 64
 `define K 4 // Max number of nearest neighbors to find
-`define NUM_POINTS 1024 // Number of points in the dataset
+`define NUM_POINTS 4096 // Number of points in the dataset
 `define ID_WIDTH $clog2(`NUM_POINTS) // Width of point ID field
 `define F 18 // Something for BDU.sv?? TODO @YC @Aarti
+`define MEMORY_BIT_WIDTH 64
 // This is useful, because if we use a parallel comparator to compare between previous KNN cache and
 // new query, we won't need to refetch from memory
 // However, we end up needing BIT_WIDTH * 3 * K more bits in the KNN buffer and the side buffer???
@@ -40,10 +41,9 @@ typedef union packed {
 typedef logic [31:0] ADDR;
 
 //Base Addresses
-parameter ADDR K_BASE = 'h0000_1000;
-parameter ADDR V_BASE = 'h0000_2000;
-parameter ADDR Q_BASE = 'h0000_3000;
-parameter ADDR O_BASE = 'h0000_4000;
+parameter ADDR R_BASE = 'h0000_0000;
+parameter ADDR Q_BASE = 'h0000_0000; //FILL IN LATER
+parameter ADDR O_BASE = 'h0000_0000;
 
 `define MEM_LATENCY_IN_CYCLES 0
 
