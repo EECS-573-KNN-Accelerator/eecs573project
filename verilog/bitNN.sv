@@ -15,6 +15,7 @@ module bitNN (
     output logic       done
 );
 
+    BDU_Input BDU_inputs [`NUM_BDU]; 
     logic [`DIST_WIDTH-1:0] running_mean;
     knn_entry_t knn_buffer_out [`K-1:0];
     logic [`DIST_WIDTH-1:0] threshold;
@@ -23,12 +24,13 @@ module bitNN (
     logic bdus_done;
     knn_entry_t topK_input_point;
     logic inputs_valid; // NOTE: Might end up with off by N cycles depending on how pipelining works w/ prev KNN -> topK
+    logic topK_done;
 
     knn_entry_t comparator_input_point;
     knn_entry_t comparator_output_point;
 
-    assign topK_input_point = ? comparator_output_point : BDU_output_point; //TODO need control logic to decide between comparator output (prev KNN) and BDU output
-    assign inputs_valid = ? 1'b1 : bdus_done; // TODO need control logic to decide if prev_knn_cache is being sent to topK
+    assign topK_input_point = topK_input_sel ? comparator_output_point : BDU_output_point; //TODO need control logic to decide between comparator output (prev KNN) and BDU output
+    assign inputs_valid = topK_inputs_valid_sel ? 1'b1 : bdus_done; // TODO need control logic to decide if prev_knn_cache is being sent to topK
 
     memory_controller mem_ctrl_inst (
         .clk(clk),
@@ -41,14 +43,18 @@ module bitNN (
         .proc2mem_addr(proc2mem_addr),
         .proc2mem_data(proc2mem_data),
 
-        // bdu inputs (route to BDU array)
+        .BDU_inputs(BDU_inputs),
+        .bdus_done(bdus_done),
 
         // query point finished (route to prev_knn_cache, running mean)
-
+        .query
         // query point xyz bit parallel (route to parallelDistCompute)
         // new query point signal 1 cycle high (route to prev_knn_cache)
 
         // logic to select between prev_knn_cache output and BDU output going into topK input
+        .topK_input_sel(topK_input_sel),
+        .topK_inputs_valid_sel(topK_inputs_valid_sel),
+        .topK_done(topK_done),
 
         .done(done)
     );
@@ -56,7 +62,7 @@ module bitNN (
     BDUArray bdu_array_inst (
         .clk(clk),
         .rst(reset),
-        .BDU_inputs(), // connect to BDU inputs
+        .BDU_inputs(BDU_inputs), // connect to BDU inputs
         .threshold_in(threshold), // connect to threshold from topK
         .shift(BDU_output_point), // connect to point_in of topK
         .alldone(bdus_done)
@@ -75,7 +81,7 @@ module bitNN (
     prev_knn_cache prev_knn_cache_inst (
         .clk(clk),
         .rst(reset),
-        .top_k_done(), // connect to entire KNN done signal
+        .top_k_done(topK_done), // connect to entire KNN done signal
         .top_k_entry(knn_buffer_out), // connect to topK knn buffer output
         .new_query(), // connect to control logic new query signal
         .entry_to_compute(prev_knn_to_compute) // connect to parallelDistCompare input
@@ -98,7 +104,7 @@ module bitNN (
     running_mean running_mean_generator (
         .clk(clk),
         .rst(reset),
-        .top_k_done(), // connect to entire KNN done signal
+        .top_k_done(topK_done), // connect to entire KNN done signal
         .kth_distance(knn_buffer_out[`K-1]), // connect to topK kth distance output
         .running_mean_out(running_mean) // connect to topK running mean input
     );

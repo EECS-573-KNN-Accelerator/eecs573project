@@ -50,10 +50,17 @@ always_ff @(posedge clk) begin
             syst_arr <= BDU_outputs
         end
         else begin
-            for (int j = 0; j < `NUM_BDU-2; j++) begin
-                syst_arr[j] <= syst_arr[j+1];
+            // for (int j = 0; j < `NUM_BDU-2; j++) begin
+            //     syst_arr[j] <= syst_arr[j+1];
+            // end
+            // ctr <= alldone ? ctr + 1'b1 : ctr;
+
+            if(alldone) begin
+                for (int j = 0; j < `NUM_BDU-2; j++) begin
+                    syst_arr[j] <= syst_arr[j+1];
+                end
+                ctr <= ctr + 1'b1;
             end
-            ctr <= alldone ? ctr + 1'b1 : ctr;
         end
     end
 end

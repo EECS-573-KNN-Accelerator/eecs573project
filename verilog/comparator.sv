@@ -1,7 +1,3 @@
-
-`define B 32 // bit width for each dimension
-`define F 18
-
 // Comparing the prev Knn to the running_mean to find the valid/invalid bit and then all the points from the BDU
 // Sends the prev_knn into the topK along with x,y,z and whether or not it is valid (less than running mean)
 
@@ -23,6 +19,6 @@ module comparator(
     assign prev_knn_point_out.x = prev_knn_point_in.x;
     assign prev_knn_point_out.y = prev_knn_point_in.y;
     assign prev_knn_point_out.z = prev_knn_point_in.z;
-    assign prev_knn_point_out.addr = prev_knn_point_in.addr;
+    assign prev_knn_point_out.point_id = prev_knn_point_in.point_id;
     
 endmodule

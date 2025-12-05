@@ -1,10 +1,8 @@
-module memory_controller import sys_defs_pkg::*; #(
+module memory_controller #(
     // Addressing: base addresses for Reference Points, Query Points, and KNN IDs
     parameter ADDR R_BASE          = R_BASE,
-    parameter ADDR V_BASE          = V_BASE,
     parameter ADDR Q_BASE          = Q_BASE,
-    parameter ADDR O_BASE          = O_BASE,
-    parameter int  VECTOR_BYTES    = (`MEM_BLOCKS_PER_VECTOR*8)
+    parameter ADDR O_BASE          = O_BASE
 )(
     input clk,
     input rst,
@@ -17,14 +15,25 @@ module memory_controller import sys_defs_pkg::*; #(
     output ADDR        proc2mem_addr,    // Address sent to memory
     output MEM_BLOCK   proc2mem_data,     // Data sent to memory
 
-    
-
-    // Data signals to/from Q K V and O SRAMs
-    input  O_VECTOR_T  drained_vector,
-    output Q_VECTOR_T  loaded_vector,
+    // data signals
+    input  logic       bdus_done,
+    output BDU_Input   BDU_inputs [`NUM_BDU],
+    output logic       topK_input_sel,
+    output logic       topK_inputs_valid_sel,
 
     output logic       done
 );
+
+    always_comb begin
+        proc2mem_command = NONE;
+        proc2mem_addr = '0;
+        proc2mem_data = '0;
+        BDU_inputs = '0;
+
+        
+    end
+
+
 
 
 endmodule

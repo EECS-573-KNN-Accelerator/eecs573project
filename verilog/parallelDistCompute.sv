@@ -29,7 +29,7 @@ module parallelDistCompute (
     assign prev_knn_point_out.x = prev_knn_point_in.x;
     assign prev_knn_point_out.y = prev_knn_point_in.y;
     assign prev_knn_point_out.z = prev_knn_point_in.z;
-    assign prev_knn_point_out.addr = prev_knn_point_in.addr;
+    assign prev_knn_point_out.point_id = prev_knn_point_in.point_id;
     assign prev_knn_point_out.valid = prev_knn_point_in.valid;
 
 endmodule

@@ -13,8 +13,8 @@ module BDU (
     input logic [$clog2(`BIT_WIDTH+1)-1:0] b, // which bit is this, MSB = 1, LSB = `BIT_WIDTH, used for 2(`BIT_WIDTH-b) calculation
     input logic [`BIT_WIDTH-1:0] threshold, // threshold for distance comparison (kth dist^2), the last KNN value
 
-    input knn_entry_t north_input,
-    input logic shift,
+    // input knn_entry_t north_input,
+    // input logic shift,
 
     // output knn_entry_t result;
 
@@ -117,18 +117,31 @@ module BDU (
             ctr <= 0;
 
         end else begin
-            f_x <= shift ? 0 : valid ? mux1 : f_x;
-            f_y <= shift ? 0 : valid ? mux2 : f_y;
-            f_z <= shift ? 0 : valid ? mux3 : f_z;
-            partial_dist2 <= shift ? 0 : valid ? mux4 + mux5 + (mux8 << 2) : partial_dist2; 
+            // f_x <= shift ? 0 : valid ? mux1 : f_x;
+            // f_y <= shift ? 0 : valid ? mux2 : f_y;
+            // f_z <= shift ? 0 : valid ? mux3 : f_z;
+            // partial_dist2 <= shift ? 0 : valid ? mux4 + mux5 + (mux8 << 2) : partial_dist2; 
             
-            ctr <= shift ? 0 : valid ? ctr + 1'b1 : ctr;
-            q_x <= shift ? 0 : valid && S1 ? {q_x[`BIT_WIDTH-2:0], q_bit} : q_x;
-            q_y <= shift ? 0 : valid && S2 ? {q_y[`BIT_WIDTH-2:0], q_bit} : q_y;
-            q_z <= shift ? 0 : valid && S3 ? {q_z[`BIT_WIDTH-2:0], q_bit} : q_z;
-            r_x <= shift ? 0 : valid && S1 ? {r_x[`BIT_WIDTH-2:0], r_bit} : r_x;
-            r_y <= shift ? 0 : valid && S2 ? {r_y[`BIT_WIDTH-2:0], r_bit} : r_y;
-            r_z <= shift ? 0 : valid && S3 ? {r_z[`BIT_WIDTH-2:0], r_bit} : r_z;
+            // ctr <= shift ? 0 : valid ? ctr + 1'b1 : ctr;
+            // q_x <= shift ? 0 : valid && S1 ? {q_x[`BIT_WIDTH-2:0], q_bit} : q_x;
+            // q_y <= shift ? 0 : valid && S2 ? {q_y[`BIT_WIDTH-2:0], q_bit} : q_y;
+            // q_z <= shift ? 0 : valid && S3 ? {q_z[`BIT_WIDTH-2:0], q_bit} : q_z;
+            // r_x <= shift ? 0 : valid && S1 ? {r_x[`BIT_WIDTH-2:0], r_bit} : r_x;
+            // r_y <= shift ? 0 : valid && S2 ? {r_y[`BIT_WIDTH-2:0], r_bit} : r_y;
+            // r_z <= shift ? 0 : valid && S3 ? {r_z[`BIT_WIDTH-2:0], r_bit} : r_z;
+
+            f_x <= valid ? mux1 : f_x;
+            f_y <= valid ? mux2 : f_y;
+            f_z <= valid ? mux3 : f_z;
+            partial_dist2 <= valid ? mux4 + mux5 + (mux8 << 2) : partial_dist2; 
+            
+            ctr <= valid ? ctr + 1'b1 : ctr;
+            q_x <= valid && S1 ? {q_x[`BIT_WIDTH-2:0], q_bit} : q_x;
+            q_y <= valid && S2 ? {q_y[`BIT_WIDTH-2:0], q_bit} : q_y;
+            q_z <= valid && S3 ? {q_z[`BIT_WIDTH-2:0], q_bit} : q_z;
+            r_x <= valid && S1 ? {r_x[`BIT_WIDTH-2:0], r_bit} : r_x;
+            r_y <= valid && S2 ? {r_y[`BIT_WIDTH-2:0], r_bit} : r_y;
+            r_z <= valid && S3 ? {r_z[`BIT_WIDTH-2:0], r_bit} : r_z;
         end
     end
 
