@@ -31,7 +31,7 @@ typedef union packed {
   logic r_bit; 
   logic [1:0] code; 
   logic [$clog2(`B+1)-1:0] b; // which bit this is 
-  logic [`B-1:0] threshold
+  logic [`ID_WIDTH-1:0] point_id;
 }BDU_Input; 
 
 //////////////////////////////////
