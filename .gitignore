@@ -6,7 +6,7 @@
 *.zip
 *.gz
 *.tgz
-
+*.npy
 # verilog compilation
 *simv
 *.daidir
