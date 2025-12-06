@@ -51,6 +51,6 @@ def build_knn_table_from_csv(input_csv, k, output_basename="knn_indices"):
 
 if __name__ == "__main__":
     # Write your input into a file named "input_points.csv" in the same directory
-    input_csv = "/home/yunqizh/Documents/eecs573/knn_accelerator/verification/datasets/first3_features_scaled_int.csv"
+    input_csv = "/home/aphatke/EECS573/eecs573project/knn_accelerator/verification/datasets/synthetic_knn_data.csv"
     k = 10
     build_knn_table_from_csv(input_csv, k, "example_knn_output")
