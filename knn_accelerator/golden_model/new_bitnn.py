@@ -44,37 +44,65 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
             cycles += 1
             
             if threshold <= currLower:
-                print(dist2, currLower)
+                # print(dist2, currLower)
                 return False, cycles, dist2
-    
-    print(dist2)
     
     return True, cycles, dist2
 
 
 
-def TopKupdate (oldTopK, r_coor, newdist2):
+def TopKupdate (oldTopK, r_coor, newdist2, valid, prevThreshold):
     newTopK = []
     newTopK = oldTopK
-    newTopK.append((newdist2, r_coor))
+    newTopK.append((newdist2, r_coor, valid))
     newTopK.sort()
     if(len(newTopK) > K):
         newTopK = newTopK[:K]
-
-    threshold = newTopK[-1][0]
+    
+    if newTopK[-1][2] is False:
+        threshold = prevThreshold
+    else:
+        threshold = newTopK[-1][0]
 
     return newTopK, threshold
 
 
-def recomputeTopK(newQ, oldTopK):
+def recomputeTopK(newQ, oldTopK, meanThreshold):
 
-    newdist2 = 0
+    newTopK = []
+    cycles = 0
 
     for k in oldTopK:
         newdist2 = 0
         newdist2 += (newQ[0] - k[1][0]) ** 2
         newdist2 += (newQ[1] - k[1][1]) ** 2
         newdist2 += (newQ[2] - k[1][2]) ** 2
+        cycles += 1
+
+        if(newdist2 > meanThreshold):
+            newTopK.append((newdist2, k[1], False))
+        else:
+            newTopK.append((newdist2, k[1], True))
+    
+    newTopK.sort()
+
+    if len(newTopK) == 0 or newTopK[-1][2] is False:
+        threshold = meanThreshold
+    else:
+        threshold = newTopK[-1][0]
+
+    return newTopK, threshold, cycles
+
+
+def runningMeanDistance(lastkthdist):
+
+    total = 0
+
+    for dist in lastkthdist:
+        total += dist
+    
+    return total / len(lastkthdist)
+
 
 
 def simulateBitNN(q_list, r_list):
@@ -82,23 +110,26 @@ def simulateBitNN(q_list, r_list):
     total_cycles = 0
 
     prevTopK = []
+
+    lastkthdist = [99999]*10 # choose 10 arbitrarily
     
     for q in q_list:
-        threshold = 9999999
-        TopK = []
+        meanThreshold = runningMeanDistance(lastkthdist)
+        TopK, threshold, added_cycles = recomputeTopK(q, prevTopK, meanThreshold)
+        total_cycles += added_cycles
         for r in range(0, len(r_list), 4):
             done = [False, False, False, False]
             cycles = [0,0,0,0]
             dist2 = [0,0,0,0]
 
             for i in range(4):
-                print("r: ", r)
-                print(r+i)
                 done[i], cycles[i], dist2[i] = BDU(q, r_list[r+i], threshold)
 
             for i in range(4):
                 if done[i]:
-                    TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i])
+                    TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i], True, meanThreshold)
+                else:
+                    TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i], False, meanThreshold)
         
 
             max_cycles = max(cycles)
@@ -108,14 +139,15 @@ def simulateBitNN(q_list, r_list):
         
         print("topk: ", TopK)
         prevTopK = TopK
+        lastkthdist = lastkthdist[1:] + [threshold]
     
     return total_cycles
 
 
 if __name__ == "__main__":
-    q_list = [[0,0,1]]
+    q_list = [[0,0,1], [0,0,2], [0,0,3]]
     # r_list = [[0,0,2], [0,0,3], [23,24,25], [3,4,5,6], [1500,1324,9288], [5162,1221,3230], [5463,5438,6363], [1234,1234,8272]]
-    r_list = [[0,0,2], [123,120,123], [23,24,25], [222,334,115], [15,13,92], [51,12,32], [0,0,3], [2,4,2]]
+    r_list = [[2342,2323,2322], [1233,1230,1233], [2333,2433,2335], [2322,3334,1315], [15,13,92], [1,4,3], [0,0,3], [2,4,2]]
 
     total_cycles = simulateBitNN(q_list, r_list)
 
