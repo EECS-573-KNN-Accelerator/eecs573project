@@ -209,34 +209,34 @@ def simulateBitNN(q_list, r_list):
     save_graph(query_indices, early_list,
                "Early Terminated BDUs per Query",
                "Early Terminations",
-               "early_terminations.png")
+               "new_bitnn_early_terminations.png")
 
     save_graph(query_indices, full_list,
                "Full BDU Evaluations per Query",
                "Full Evaluations",
-               "full_terminations.png")
+               "new_bitnn_full_terminations.png")
 
     save_graph(query_indices, avg_cycles_list,
                "Average BDU Cycles per Query",
                "Average Cycles",
-               "avg_cycles.png")
+               "new_bitnn_avg_cycles.png")
 
     save_graph(query_indices, max_cycles_list,
                "Max BDU Cycles per Query",
                "Max Cycles",
-               "max_cycles.png")
+               "new_bitnn_max_cycles.png")
 
     save_graph(query_indices, threshold_list,
                "TopK Threshold per Query",
                "Threshold Value",
-               "thresholds.png")
+               "new_bitnn_thresholds.png")
 
     print("\nSaved graphs:")
-    print(" early_terminations.png")
-    print(" full_terminations.png")
-    print(" avg_cycles.png")
-    print(" max_cycles.png")
-    print(" thresholds.png")
+    print(" new_bitnn_early_terminations.png")
+    print(" new_bitnn_full_terminations.png")
+    print(" new_bitnn_avg_cycles.png")
+    print(" new_bitnn_max_cycles.png")
+    print(" new_bitnn_thresholds.png")
 
     return total_cycles
 
