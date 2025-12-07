@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 K = 3
 NUM_BITS = 32
 NUM_BDU = 64
-RUNNINGMEANMULTIPLIER = 15
+RUNNINGMEANMULTIPLIER = 2
 
 # BDU Module
 def BDU(q_coor_tuple, r_coor_tuple, threshold):
@@ -175,7 +175,7 @@ def simulateBitNN(q_list, r_list):
             # Update TopK
             for i in range(NUM_BDU):
                 TopK, threshold = TopKupdate(
-                    TopK, r_list[r+i], dist2[i], done[i], meanThreshold
+                    TopK, r_list[r+i], dist2[i], done[i], threshold #threshold
                 )
 
             query_cycles.extend(cycles)
