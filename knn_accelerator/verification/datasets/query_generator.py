@@ -58,17 +58,12 @@ def generate_query_points(
 
 def save_query_points(filename, query_points):
     """
-    Save query points in q_list = [...] format
+    Save query points in CSV format (same as synthetic_knn_data.csv)
     """
     with open(filename, "w", newline="") as f:
-        f.write("q_list = [\n")
-        for i, point in enumerate(query_points):
-            f.write(f"    [{point[0]}, {point[1]}, {point[2]}]")
-            if i < len(query_points) - 1:
-                f.write(",\n")
-            else:
-                f.write("\n")
-        f.write("]\n")
+        writer = csv.writer(f)
+        for point in query_points:
+            writer.writerow(point)
 
 
 if __name__ == "__main__":
@@ -89,14 +84,14 @@ if __name__ == "__main__":
     )
     
     # Save query points
-    save_query_points("python_sim_queries.csv", query_points)
+    save_query_points("synthetic_knn_query.csv", query_points)
     
     print(f"\nGenerated {len(query_points)} query points")
     print(f"Query point range:")
     print(f"  X: [{query_points[:, 0].min()}, {query_points[:, 0].max()}]")
     print(f"  Y: [{query_points[:, 1].min()}, {query_points[:, 1].max()}]")
     print(f"  Z: [{query_points[:, 2].min()}, {query_points[:, 2].max()}]")
-    print("Saved to python_sim_queries.csv")
+    print("Saved to synthetic_knn_query.csv")
     
     print("\nFirst 5 query points:")
     print(query_points[:5])

@@ -99,10 +99,25 @@ def simulateBitNN(q_list, r_list):
 
 
 if __name__ == "__main__":
-    q_list = [[0,0,1], [0,0,2], [0,0,3]]
-    r_list = [[0,0,2], [0,0,3], [23,24,25], [3,4,5,6], [1500,1324,9288], [5162,1221,3230], [5463,5438,6363], [1234,1234,8272]]
-    # r_list = [[2342,2323,2322], [1233,1230,1233], [2333,2433,2335], [2322,3334,1315], [15,13,92], [1,4,3], [0,0,3], [2,4,2]]
-
+    import csv
+    
+    # Load reference points from synthetic_knn_data.csv
+    r_list = []
+    with open("../verification/datasets/synthetic_knn_data.csv", 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            r_list.append([int(v) for v in row])
+    
+    # Load query points from synthetic_knn_query.csv
+    q_list = []
+    with open("../verification/datasets/synthetic_knn_query.csv", 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            q_list.append([int(v) for v in row])
+    
+    print(f"Loaded {len(r_list)} reference points")
+    print(f"Loaded {len(q_list)} query points")
+    
     total_cycles = simulateBitNN(q_list, r_list)
 
     print(total_cycles)
