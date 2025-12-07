@@ -1,4 +1,5 @@
 import math
+import csv
 
 K = 3
 NUM_BITS = 32
@@ -99,7 +100,7 @@ def simulateBitNN(q_list, r_list):
 
 
 if __name__ == "__main__":
-    import csv
+    
     
     # Load reference points from synthetic_knn_data.csv
     r_list = []
@@ -107,16 +108,20 @@ if __name__ == "__main__":
         reader = csv.reader(f)
         for row in reader:
             r_list.append([int(v) for v in row])
-    
+
+    # cut to 4544 point 
+    r_list = r_list[:4544]
     # Load query points from synthetic_knn_query.csv
     q_list = []
     with open("../verification/datasets/synthetic_knn_query.csv", 'r') as f:
         reader = csv.reader(f)
         for row in reader:
             q_list.append([int(v) for v in row])
+    # cut to 4544 point
+    q_list = q_list[:4544]
     
-    print(f"Loaded {len(r_list)} reference points")
-    print(f"Loaded {len(q_list)} query points")
+    # print(f"Loaded {len(r_list)} reference points")
+    # print(f"Loaded {len(q_list)} query points")
     
     total_cycles = simulateBitNN(q_list, r_list)
 

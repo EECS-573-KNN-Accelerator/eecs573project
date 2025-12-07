@@ -1,12 +1,16 @@
 import math
+import csv
+import matplotlib.pyplot as plt
+
 
 K = 3
 NUM_BITS = 32
+NUM_BDU = 64
 
+# BDU Module
 def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
     cycles = 0
-
     f = [0,0,0]
     dist2 = 0
     lower2 = 0
@@ -24,7 +28,6 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
             r_bit = (r_coor_tuple[d] >> i) & 1
 
             dist2 += (q_bit - r_bit) ** 2
-
             dist2 += ((q_bit - r_bit)*f[d]) << 2
 
             f[d] = (f[d] << 1) + (q_bit - r_bit)
@@ -51,6 +54,7 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
 
 
+# Takes in the old TopK list and updates it with the new r_coor and its distance2
 def TopKupdate (oldTopK, r_coor, newdist2, valid, prevThreshold):
     newTopK = []
     newTopK = oldTopK
@@ -67,11 +71,12 @@ def TopKupdate (oldTopK, r_coor, newdist2, valid, prevThreshold):
     return newTopK, threshold
 
 
+# Recomputes the distances of the old TopK with the new query point
 def recomputeTopK(newQ, oldTopK, meanThreshold):
 
     newTopK = []
     cycles = 0
-
+    
     for k in oldTopK:
         newdist2 = 0
         newdist2 += (newQ[0] - k[1][0]) ** 2
@@ -84,7 +89,7 @@ def recomputeTopK(newQ, oldTopK, meanThreshold):
         else:
             newTopK.append((newdist2, k[1], True))
     
-    newTopK.sort()
+    newTopK.sort() # sort based on distance
 
     if len(newTopK) == 0 or newTopK[-1][2] is False:
         threshold = meanThreshold
@@ -93,9 +98,8 @@ def recomputeTopK(newQ, oldTopK, meanThreshold):
 
     return newTopK, threshold, cycles
 
-
+# Computes the running mean of the last kth distances
 def runningMeanDistance(lastkthdist):
-
     total = 0
 
     for dist in lastkthdist:
@@ -104,54 +108,163 @@ def runningMeanDistance(lastkthdist):
     return total / len(lastkthdist)
 
 
-
 def simulateBitNN(q_list, r_list):
 
     total_cycles = 0
-
     prevTopK = []
+    lastkthdist = [99999]*10
 
-    lastkthdist = [99999]*10 # choose 10 arbitrarily
-    
+    # >>> Stats arrays <<< 
+    query_indices = []
+    early_list = []
+    full_list = []
+    avg_cycles_list = []
+    max_cycles_list = []
+    threshold_list = []
+
+    global_bdu_calls = 0
+    global_early = 0
+    global_full = 0
+    global_max_cycle = 0
+
+    query_id = 0
+
     for q in q_list:
+        query_id += 1
         meanThreshold = runningMeanDistance(lastkthdist)
-        # print(meanThreshold)
         TopK, threshold, added_cycles = recomputeTopK(q, prevTopK, meanThreshold)
-        # print(TopK)
         total_cycles += added_cycles
-        for r in range(0, len(r_list), 4):
-            done = [False, False, False, False]
-            cycles = [0,0,0,0]
-            dist2 = [0,0,0,0]
 
-            for i in range(4):
+        query_early = 0
+        query_full = 0
+        query_cycles = []
+
+        for r in range(0, len(r_list), NUM_BDU):
+            done = [False] * NUM_BDU
+            cycles = [0] * NUM_BDU
+            dist2 = [0] * NUM_BDU
+
+            for i in range(NUM_BDU):
+                global_bdu_calls += 1
                 done[i], cycles[i], dist2[i] = BDU(q, r_list[r+i], threshold)
 
-            for i in range(4):
-                # print(r_list[r+i], dist2[i])
-                if done[i]:
-                    TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i], True, meanThreshold)
+                if done[i] is False:
+                    query_early += 1
+                    global_early += 1
                 else:
-                    TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i], False, meanThreshold)
-        
+                    query_full += 1
+                    global_full += 1
 
-            max_cycles = max(cycles)
-            total_cycles += max_cycles
+                global_max_cycle = max(global_max_cycle, cycles[i])
 
-            total_cycles += 4 # latency for shifting things into TopK
-        
-        print("topk: ", TopK)
+            # Update TopK
+            for i in range(NUM_BDU):
+                TopK, threshold = TopKupdate(
+                    TopK, r_list[r+i], dist2[i], done[i], meanThreshold
+                )
+
+            query_cycles.extend(cycles)
+            total_cycles += max(cycles)
+            total_cycles += NUM_BDU
+
+        avg_cyc = sum(query_cycles) / len(query_cycles)
+        max_cyc = max(query_cycles)
+
+        print(f"\n=== Query {query_id} Statistics ===")
+        print(f"  Early terminated BDUs : {query_early}")
+        print(f"  Full BDUs completed   : {query_full}")
+        print(f"  Avg BDU cycles        : {avg_cyc:.2f}")
+        print(f"  Max BDU cycles        : {max_cyc}")
+        print(f"  Final TopK threshold  : {threshold}")
+        print(f"  TopK list             : {TopK}")
+
+        # >>> Save stats <<<
+        query_indices.append(query_id)
+        early_list.append(query_early)
+        full_list.append(query_full)
+        avg_cycles_list.append(avg_cyc)
+        max_cycles_list.append(max_cyc)
+        threshold_list.append(threshold)
+
         prevTopK = TopK
         lastkthdist = lastkthdist[1:] + [threshold]
-    
+
+    # ============ GRAPHS ============
+    def save_graph(x, y, title, ylabel, filename):
+        plt.figure(figsize=(10, 4))
+        plt.plot(x, y)
+        plt.title(title)
+        plt.xlabel("Query Index")
+        plt.ylabel(ylabel)
+        plt.grid(True)
+
+        # Add more ticks (20 evenly spaced ticks)
+        step = max(1, len(x) // 20)
+        plt.xticks(range(0, len(x)+1, step), rotation=45)
+
+        plt.tight_layout()
+        plt.savefig(filename)
+        plt.close()
+
+    save_graph(query_indices, early_list,
+               "Early Terminated BDUs per Query",
+               "Early Terminations",
+               "early_terminations.png")
+
+    save_graph(query_indices, full_list,
+               "Full BDU Evaluations per Query",
+               "Full Evaluations",
+               "full_terminations.png")
+
+    save_graph(query_indices, avg_cycles_list,
+               "Average BDU Cycles per Query",
+               "Average Cycles",
+               "avg_cycles.png")
+
+    save_graph(query_indices, max_cycles_list,
+               "Max BDU Cycles per Query",
+               "Max Cycles",
+               "max_cycles.png")
+
+    save_graph(query_indices, threshold_list,
+               "TopK Threshold per Query",
+               "Threshold Value",
+               "thresholds.png")
+
+    print("\nSaved graphs:")
+    print(" early_terminations.png")
+    print(" full_terminations.png")
+    print(" avg_cycles.png")
+    print(" max_cycles.png")
+    print(" thresholds.png")
+
     return total_cycles
 
 
+
 if __name__ == "__main__":
-    q_list = [[0,0,1], [0,0,2], [0,0,3]]
-    # r_list = [[0,0,2], [0,0,3], [23,24,25], [3,4,5,6], [1500,1324,9288], [5162,1221,3230], [5463,5438,6363], [1234,1234,8272]]
-    r_list = [[2342,2323,2322], [1233,1230,1233], [2333,2433,2335], [2322,3334,1315], [15,13,92], [1,4,3], [0,0,3], [2,4,2]]
 
+    r_list = [] 
+    with open("../verification/datasets/synthetic_knn_data.csv", 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:  
+            r_list.append([int(v) for v in row])
+    
+    print(f"Loaded {len(r_list)} reference points")
+    r_list = r_list[:4544]
+
+    # Load query points from synthetic_knn_query.csv
+    q_list = []
+    with open("../verification/datasets/synthetic_knn_query.csv", 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            q_list.append([int(v) for v in row])
+    print(f"Loaded {len(q_list)} query points")
+    q_list = q_list[:4544]
+    
+    # print(f"Loaded {len(r_list)} reference points")
+    # print(f"Loaded {len(q_list)} query points")
+    
     total_cycles = simulateBitNN(q_list, r_list)
-
     print(total_cycles)
+    
