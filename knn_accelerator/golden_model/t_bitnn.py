@@ -3,11 +3,11 @@ import csv
 
 K = 3
 NUM_BITS = 32
+NUM_BDU = 64
 
 def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
     cycles = 0
-
     f = [0,0,0]
     dist2 = 0
     lower2 = 0
@@ -25,7 +25,6 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
             r_bit = (r_coor_tuple[d] >> i) & 1
 
             dist2 += (q_bit - r_bit) ** 2
-
             dist2 += ((q_bit - r_bit)*f[d]) << 2
 
             f[d] = (f[d] << 1) + (q_bit - r_bit)
@@ -45,10 +44,8 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
             cycles += 1
             
             if threshold <= currLower:
-                print(dist2, currLower)
-                return False, cycles, dist2
-    
-    print(dist2)
+                # print(dist2, currLower)
+                return False, cycles, currLower
     
     return True, cycles, dist2
 
@@ -72,27 +69,28 @@ def simulateBitNN(q_list, r_list):
     total_cycles = 0
     
     for q in q_list:
-        threshold = 9999999
+        threshold = 999999999
         TopK = []
-        for r in range(0, len(r_list), 4):
-            done = [False, False, False, False]
-            cycles = [0,0,0,0]
-            dist2 = [0,0,0,0]
+        for r in range(0, len(r_list), NUM_BDU):
+            done = [False] * NUM_BDU
+            cycles = [0] * NUM_BDU
+            dist2 = [0] * NUM_BDU
 
-            for i in range(4):
-                print("r: ", r)
-                print(r+i)
+            for i in range(NUM_BDU):
+                # print("r: ", r)
+                # print(r+i)
                 done[i], cycles[i], dist2[i] = BDU(q, r_list[r+i], threshold)
 
-            for i in range(4):
+            for i in range(NUM_BDU):
                 if done[i]:
+                    # print(threshold, dist2[i])
                     TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i])
         
 
             max_cycles = max(cycles)
             total_cycles += max_cycles
 
-            total_cycles += 4 # latency for shifting things into TopK
+            total_cycles += NUM_BDU # latency for shifting things into TopK
         
         print("topk: ", TopK)
     

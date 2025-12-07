@@ -112,7 +112,7 @@ def simulateBitNN(q_list, r_list):
 
     total_cycles = 0
     prevTopK = []
-    lastkthdist = [99999]*10
+    lastkthdist = [999999999]*10
 
     # >>> Stats arrays <<< 
     query_indices = []
@@ -131,7 +131,7 @@ def simulateBitNN(q_list, r_list):
 
     for q in q_list:
         query_id += 1
-        meanThreshold = runningMeanDistance(lastkthdist)
+        meanThreshold = runningMeanDistance(lastkthdist) * 2
         TopK, threshold, added_cycles = recomputeTopK(q, prevTopK, meanThreshold)
         total_cycles += added_cycles
 
