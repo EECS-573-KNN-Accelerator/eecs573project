@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 K = 3
 NUM_BITS = 32
 NUM_BDU = 64
+RUNNINGMEANMULTIPLIER = 15
 
 # BDU Module
 def BDU(q_coor_tuple, r_coor_tuple, threshold):
@@ -21,9 +22,10 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
         h = [0,0,0]
 
-        lower2 = dist2 * (2 ** (2*(i)))
-
         for d in range(3):
+            
+            h = [0,0,0]
+
             q_bit = (q_coor_tuple[d] >> i) & 1
             r_bit = (r_coor_tuple[d] >> i) & 1
 
@@ -32,12 +34,15 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
             f[d] = (f[d] << 1) + (q_bit - r_bit)
 
-            if f[d] == 0:
-                h[d] = 0
-            else:
-                h[d] = (2 * abs(f[d])) - 1
+            lower2 = dist2 * (2 ** (2*(i)))
 
-            lower2 -= h[d] * (2 ** (2*(i)))
+            for j in range(3):
+                if f[j] == 0:
+                    h[j] = 0
+                else:
+                    h[j] = (2 * abs(f[j])) - 1
+
+                lower2 -= h[j] * (2 ** (2*(i)))
 
             if dist2 > lower2:
                 currLower = dist2
@@ -46,7 +51,9 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
             cycles += 1
             
-            if threshold <= currLower:
+            if d == 2 and threshold <= currLower:
+                if r_coor_tuple == [122773, 105829, 48912]:
+                    print(i, dist2, threshold, currLower)
                 # print(dist2, currLower)
                 return False, cycles, currLower
     
@@ -58,6 +65,11 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
 def TopKupdate (oldTopK, r_coor, newdist2, valid, prevThreshold):
     newTopK = []
     newTopK = oldTopK
+
+    for k in newTopK:
+        if r_coor == k[1]:
+            return newTopK, prevThreshold # Avoiding double add
+
     newTopK.append((newdist2, r_coor, valid))
     newTopK.sort()
     if(len(newTopK) > K):
@@ -129,9 +141,12 @@ def simulateBitNN(q_list, r_list):
 
     query_id = 0
 
+    topk_count = 0
+    topk_valid = 0
+
     for q in q_list:
         query_id += 1
-        meanThreshold = runningMeanDistance(lastkthdist) * 2
+        meanThreshold = runningMeanDistance(lastkthdist) * RUNNINGMEANMULTIPLIER
         TopK, threshold, added_cycles = recomputeTopK(q, prevTopK, meanThreshold)
         total_cycles += added_cycles
 
@@ -171,12 +186,18 @@ def simulateBitNN(q_list, r_list):
         max_cyc = max(query_cycles)
 
         print(f"\n=== Query {query_id} Statistics ===")
+        print(f"  Query Coordinates     : {q}")
         print(f"  Early terminated BDUs : {query_early}")
         print(f"  Full BDUs completed   : {query_full}")
         print(f"  Avg BDU cycles        : {avg_cyc:.2f}")
         print(f"  Max BDU cycles        : {max_cyc}")
         print(f"  Final TopK threshold  : {threshold}")
         print(f"  TopK list             : {TopK}")
+
+        for i in range(K):
+            topk_count += 1
+            if TopK[i][2] is True:
+                topk_valid += 1
 
         # >>> Save stats <<<
         query_indices.append(query_id)
@@ -188,6 +209,9 @@ def simulateBitNN(q_list, r_list):
 
         prevTopK = TopK
         lastkthdist = lastkthdist[1:] + [threshold]
+    
+    percent = topk_valid / topk_count
+    print(f"\nValid Percentage: {percent}")
 
     # ============ GRAPHS ============
     def save_graph(x, y, title, ylabel, filename):
