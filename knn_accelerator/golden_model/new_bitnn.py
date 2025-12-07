@@ -45,7 +45,7 @@ def BDU(q_coor_tuple, r_coor_tuple, threshold):
             
             if threshold <= currLower:
                 # print(dist2, currLower)
-                return False, cycles, dist2
+                return False, cycles, currLower
     
     return True, cycles, dist2
 
@@ -115,7 +115,9 @@ def simulateBitNN(q_list, r_list):
     
     for q in q_list:
         meanThreshold = runningMeanDistance(lastkthdist)
+        # print(meanThreshold)
         TopK, threshold, added_cycles = recomputeTopK(q, prevTopK, meanThreshold)
+        # print(TopK)
         total_cycles += added_cycles
         for r in range(0, len(r_list), 4):
             done = [False, False, False, False]
@@ -126,6 +128,7 @@ def simulateBitNN(q_list, r_list):
                 done[i], cycles[i], dist2[i] = BDU(q, r_list[r+i], threshold)
 
             for i in range(4):
+                # print(r_list[r+i], dist2[i])
                 if done[i]:
                     TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i], True, meanThreshold)
                 else:
