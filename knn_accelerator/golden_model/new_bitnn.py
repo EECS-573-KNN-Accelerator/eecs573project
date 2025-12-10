@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 K = 3
 NUM_BITS = 32
 NUM_BDU = 64
-RUNNINGMEANMULTIPLIER = 2
+RUNNINGMEANMULTIPLIER = 3
 
 # BDU Module
 def BDU(q_coor_tuple, r_coor_tuple, threshold):

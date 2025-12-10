@@ -1,5 +1,6 @@
 import math
 import csv
+import matplotlib.pyplot as plt
 
 K = 3
 NUM_BITS = 32
@@ -74,12 +75,25 @@ def simulateBitNN(q_list, r_list):
 
     total_cycles = 0
 
+    # >>> Stats arrays for logging <<< 
+    query_indices = []
+    early_list = []
+    full_list = []
+    avg_cycles_list = []
+    max_cycles_list = []
+    threshold_list = []
+
     query_id = 0
     
     for q in q_list:
         query_id += 1
-        threshold = 999999999
+        threshold = 9999999999999
         TopK = []
+        
+        query_early = 0
+        query_full = 0
+        query_cycles = []
+        
         for r in range(0, len(r_list), NUM_BDU):
             done = [False] * NUM_BDU
             cycles = [0] * NUM_BDU
@@ -89,6 +103,12 @@ def simulateBitNN(q_list, r_list):
                 # print("r: ", r)
                 # print(r+i)
                 done[i], cycles[i], dist2[i] = BDU(q, r_list[r+i], threshold)
+                
+                # Track early vs full terminations
+                if done[i] is False:
+                    query_early += 1
+                else:
+                    query_full += 1
 
             for i in range(NUM_BDU):
                 if done[i]:
@@ -98,13 +118,78 @@ def simulateBitNN(q_list, r_list):
 
             max_cycles = max(cycles)
             total_cycles += max_cycles
+            query_cycles.extend(cycles)
 
             total_cycles += NUM_BDU # latency for shifting things into TopK
         
+        avg_cyc = sum(query_cycles) / len(query_cycles)
+        max_cyc = max(query_cycles)
+        
         print(f"\n=== Query {query_id} Statistics ===")
         print(f"  Query Coordinates     : {q}")
+        print(f"  Early terminated BDUs : {query_early}")
+        print(f"  Full BDUs completed   : {query_full}")
+        print(f"  Avg BDU cycles        : {avg_cyc:.2f}")
+        print(f"  Max BDU cycles        : {max_cyc}")
         print(f"  Final TopK threshold  : {threshold}")
         print(f"  TopK list             : {TopK}")
+        
+        # >>> Save stats <<<
+        query_indices.append(query_id)
+        early_list.append(query_early)
+        full_list.append(query_full)
+        avg_cycles_list.append(avg_cyc)
+        max_cycles_list.append(max_cyc)
+        threshold_list.append(threshold)
+    
+    # ============ GRAPHS ============
+    def save_graph(x, y, title, ylabel, filename):
+        plt.figure(figsize=(10, 4))
+        plt.plot(x, y)
+        plt.title(title)
+        plt.xlabel("Query Index")
+        plt.ylabel(ylabel)
+        plt.grid(True)
+
+        # Add more ticks (20 evenly spaced ticks)
+        step = max(1, len(x) // 20)
+        plt.xticks(range(0, len(x)+1, step), rotation=45)
+
+        plt.tight_layout()
+        plt.savefig(filename)
+        plt.close()
+
+    save_graph(query_indices, early_list,
+               "Early Terminated BDUs per Query",
+               "Early Terminations",
+               "t_bitnn_early_terminations.png")
+
+    save_graph(query_indices, full_list,
+               "Full BDU Evaluations per Query",
+               "Full Evaluations",
+               "t_bitnn_full_terminations.png")
+
+    save_graph(query_indices, avg_cycles_list,
+               "Average BDU Cycles per Query",
+               "Average Cycles",
+               "t_bitnn_avg_cycles.png")
+
+    save_graph(query_indices, max_cycles_list,
+               "Max BDU Cycles per Query",
+               "Max Cycles",
+               "t_bitnn_max_cycles.png")
+
+    save_graph(query_indices, threshold_list,
+               "TopK Threshold per Query",
+               "Threshold Value",
+               "t_bitnn_thresholds.png")
+
+    print("\nSaved graphs:")
+    print(" t_bitnn_early_terminations.png")
+    print(" t_bitnn_full_terminations.png")
+    print(" t_bitnn_avg_cycles.png")
+    print(" t_bitnn_max_cycles.png")
+    print(" t_bitnn_thresholds.png")
     
     return total_cycles
 

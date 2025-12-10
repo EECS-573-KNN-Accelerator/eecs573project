@@ -78,7 +78,7 @@ if __name__ == "__main__":
     # Generate query points with temporal spatial locality
     query_points = generate_query_points(
         ref_points,
-        n_queries=100,
+        n_queries=500,
         drift_scale=1500,      # Controls smoothness: smaller = smoother trajectory
         jump_probability=0.1   # 10% chance of jumping to distant location
     )
