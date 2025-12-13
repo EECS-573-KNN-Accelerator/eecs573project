@@ -37,6 +37,20 @@ $ python3 compare.py bitnn_out.txt specnn_out.txt
 
 A comprehensive list of datasets is stored in the knn_accelerator/verification/datasets/ directory.
 
+Here are some example datasets that you could simulate on:
+
+1. Synthetic Data (simulates KITTI and SLAM data features such as query point spatial locality)
+    - Query Point Dataset: knn_accelerator/verification/datasets/synthetic_knn_query.csv
+    - Reference Point Dataset: knn_accelerator/verification/datasets/synthetic_knn_data.csv
+    - Simulated Result: 1.1x speedup with 62.87% accuracy on running mean threshold multiplier set as 2
+
+2. Real-World 3D Point Cloud Dataset (consistent point cloud sparsity)
+    - Query Point Dataset: 3d_points_data_256points_16pointsclustered.csv
+    - Reference Point Dataset: 3d_points_data_1024points_16pointsclustered.csv
+    - Simulated Result: 1.07x speedup with 77.6% accuracy on running mean threshold multiplier set as 1.1
+
+The Python models should work on any other datasets that follow the same CSV formatting as the datasets mentioned above (dataset size should also be divisible by 64).
+
 ## RTL Simulation Run Makefile Instructions
 
 The full backend of the pipeline is implemented, so you can run tests to verify the BDU and TopK units using the makefile with commands of the form make <module_name>.out

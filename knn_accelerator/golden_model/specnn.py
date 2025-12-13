@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 K = 3
 NUM_BITS = 32
 NUM_BDU = 64
-RUNNINGMEANMULTIPLIER = 3
+RUNNINGMEANMULTIPLIER = 2
 QUERY_POINT_DATASET_FILE = "../verification/datasets/synthetic_knn_query.csv"
 REF_POINT_DATASET_FILE = "../verification/datasets/synthetic_knn_data.csv"
 
@@ -232,34 +232,34 @@ def simulateBitNN(q_list, r_list):
     save_graph(query_indices, early_list,
                "Early Terminated BDUs per Query",
                "Early Terminations",
-               "new_bitnn_early_terminations.png")
+               "specnn_early_terminations.png")
 
     save_graph(query_indices, full_list,
                "Full BDU Evaluations per Query",
                "Full Evaluations",
-               "new_bitnn_full_terminations.png")
+               "specnn_full_terminations.png")
 
     save_graph(query_indices, avg_cycles_list,
                "Average BDU Cycles per Query",
                "Average Cycles",
-               "new_bitnn_avg_cycles.png")
+               "specnn_avg_cycles.png")
 
     save_graph(query_indices, max_cycles_list,
                "Max BDU Cycles per Query",
                "Max Cycles",
-               "new_bitnn_max_cycles.png")
+               "specnn_max_cycles.png")
 
     save_graph(query_indices, threshold_list,
                "TopK Threshold per Query",
                "Threshold Value",
-               "new_bitnn_thresholds.png")
+               "specnn_thresholds.png")
 
     print("\nSaved graphs:")
-    print(" new_bitnn_early_terminations.png")
-    print(" new_bitnn_full_terminations.png")
-    print(" new_bitnn_avg_cycles.png")
-    print(" new_bitnn_max_cycles.png")
-    print(" new_bitnn_thresholds.png")
+    print(" specnn_early_terminations.png")
+    print(" specnn_full_terminations.png")
+    print(" specnn_avg_cycles.png")
+    print(" specnn_max_cycles.png")
+    print(" specnn_thresholds.png")
 
     percent = topk_valid / topk_count
     print(f"\nValid Percentage: {percent}")

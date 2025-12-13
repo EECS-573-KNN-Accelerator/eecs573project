@@ -1,0 +1,2317 @@
+Loaded 1024 reference points
+Loaded 256 query points
+
+=== Query 1 Statistics ===
+  Query Coordinates     : [12599, 57234, 1360]
+  Early terminated BDUs : 1004
+  Full BDUs completed   : 20
+  Avg BDU cycles        : 55.90
+  Max BDU cycles        : 96
+  Final TopK threshold  : 58829066
+  TopK list             : [(45021250, [13499, 58349, 7915], True), (48824793, [12115, 52058, 6029], True), (58829066, [19208, 59501, 4524], True)]
+
+=== Query 2 Statistics ===
+  Query Coordinates     : [32577, 11641, 40648]
+  Early terminated BDUs : 990
+  Full BDUs completed   : 34
+  Avg BDU cycles        : 56.67
+  Max BDU cycles        : 96
+  Final TopK threshold  : 37755131
+  TopK list             : [(33376056, [29983, 15839, 43652], True), (35029621, [27498, 12225, 37666], True), (37755131, [37308, 12054, 44547], True)]
+
+=== Query 3 Statistics ===
+  Query Coordinates     : [65142, 44042, 34494]
+  Early terminated BDUs : 997
+  Full BDUs completed   : 27
+  Avg BDU cycles        : 56.69
+  Max BDU cycles        : 96
+  Final TopK threshold  : 56006489
+  TopK list             : [(4779870, [63493, 44917, 33356], True), (22677998, [62375, 43964, 38369], True), (56006489, [59580, 40515, 38048], True)]
+
+=== Query 4 Statistics ===
+  Query Coordinates     : [61345, 51383, 36096]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.98
+  Max BDU cycles        : 96
+  Final TopK threshold  : 53930660
+  TopK list             : [(13657819, [59484, 52886, 33279], True), (45001581, [58629, 49122, 41798], True), (53930660, [63493, 44917, 33356], True)]
+
+=== Query 5 Statistics ===
+  Query Coordinates     : [42023, 29396, 17004]
+  Early terminated BDUs : 1003
+  Full BDUs completed   : 21
+  Avg BDU cycles        : 56.75
+  Max BDU cycles        : 96
+  Final TopK threshold  : 39865993
+  TopK list             : [(34939245, [38043, 25977, 19726], True), (38116502, [37705, 28763, 12637], True), (39865993, [37923, 27689, 12516], True)]
+
+=== Query 6 Statistics ===
+  Query Coordinates     : [42452, 12647, 57536]
+  Early terminated BDUs : 1007
+  Full BDUs completed   : 17
+  Avg BDU cycles        : 55.49
+  Max BDU cycles        : 96
+  Final TopK threshold  : 39725989
+  TopK list             : [(31484907, [47827, 11668, 58815], True), (34133601, [42739, 12043, 51732], True), (39725989, [38819, 16917, 60416], True)]
+
+=== Query 7 Statistics ===
+  Query Coordinates     : [4517, 7286, 6329]
+  Early terminated BDUs : 1011
+  Full BDUs completed   : 13
+  Avg BDU cycles        : 55.11
+  Max BDU cycles        : 96
+  Final TopK threshold  : 54296054
+  TopK list             : [(7009604, [5037, 9588, 5129], True), (39020449, [5147, 5601, 12311], True), (54296054, [590, 1420, 8442], True)]
+
+=== Query 8 Statistics ===
+  Query Coordinates     : [29891, 45364, 52563]
+  Early terminated BDUs : 1010
+  Full BDUs completed   : 14
+  Avg BDU cycles        : 55.88
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29462893
+  TopK list             : [(24226452, [30433, 50256, 52531], True), (26669449, [34481, 47557, 51673], True), (29462893, [29183, 41391, 56193], True)]
+
+=== Query 9 Statistics ===
+  Query Coordinates     : [30801, 14034, 58001]
+  Early terminated BDUs : 1015
+  Full BDUs completed   : 9
+  Avg BDU cycles        : 55.15
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34907621
+  TopK list             : [(11853365, [31285, 13556, 61376], True), (17175014, [31888, 18033, 57963], True), (34907621, [35405, 17400, 59544], True)]
+
+=== Query 10 Statistics ===
+  Query Coordinates     : [48118, 32512, 19623]
+  Early terminated BDUs : 1014
+  Full BDUs completed   : 10
+  Avg BDU cycles        : 56.07
+  Max BDU cycles        : 96
+  Final TopK threshold  : 54106505
+  TopK list             : [(16445761, [51970, 33553, 18899], True), (18341748, [51130, 30022, 17871], True), (54106505, [49998, 33496, 12580], True)]
+
+=== Query 11 Statistics ===
+  Query Coordinates     : [21645, 34895, 10754]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.37
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30854853
+  TopK list             : [(14680691, [20168, 34324, 14243], True), (19490978, [22542, 31207, 13009], True), (30854853, [19137, 39125, 13337], True)]
+
+=== Query 12 Statistics ===
+  Query Coordinates     : [52824, 58160, 28255]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 54.81
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28409674
+  TopK list             : [(16451003, [50023, 55229, 28134], True), (20227206, [51911, 57954, 23856], True), (28409674, [54005, 53792, 25438], True)]
+
+=== Query 13 Statistics ===
+  Query Coordinates     : [28578, 35645, 23568]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.82
+  Max BDU cycles        : 96
+  Final TopK threshold  : 44488862
+  TopK list             : [(17302710, [31259, 34860, 26650], True), (25066206, [27083, 34186, 19018], True), (44488862, [29713, 29219, 22187], True)]
+
+=== Query 14 Statistics ===
+  Query Coordinates     : [11274, 12727, 15165]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.70
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32358809
+  TopK list             : [(13802418, [14621, 11682, 16393], True), (32044338, [5849, 12039, 13702], True), (32358809, [6516, 11454, 12319], True)]
+
+=== Query 15 Statistics ===
+  Query Coordinates     : [2611, 18890, 38286]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.15
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33366293
+  TopK list             : [(21978914, [6624, 17678, 36187], True), (25500937, [1444, 14068, 37344], True), (33366293, [212, 14614, 35232], True)]
+
+=== Query 16 Statistics ===
+  Query Coordinates     : [24835, 62031, 39330]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.26
+  Max BDU cycles        : 96
+  Final TopK threshold  : 23204030
+  TopK list             : [(10408180, [26395, 59355, 40232], True), (22634987, [25192, 64084, 35053], True), (23204030, [22037, 60076, 35931], True)]
+
+=== Query 17 Statistics ===
+  Query Coordinates     : [5991, 64597, 49012]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.89
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29351276
+  TopK list             : [(1356830, [6420, 64764, 47942], True), (25186685, [8337, 62757, 53049], True), (29351276, [621, 64247, 49638], True)]
+
+=== Query 18 Statistics ===
+  Query Coordinates     : [45926, 39691, 12156]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.27
+  Max BDU cycles        : 96
+  Final TopK threshold  : 37456189.760000005
+  TopK list             : [(6895430, [46280, 41408, 10201], True), (26591070, [50121, 37572, 10034], True), (38813696, [44030, 43331, 17099], False)]
+
+=== Query 19 Statistics ===
+  Query Coordinates     : [50859, 40006, 7611]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.86
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28372372
+  TopK list             : [(12339929, [50121, 37572, 10034], True), (17042027, [54500, 38167, 6976], True), (28372372, [55629, 40182, 5247], True)]
+
+=== Query 20 Statistics ===
+  Query Coordinates     : [53144, 21841, 55613]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.83
+  Max BDU cycles        : 75
+  Final TopK threshold  : 37616575.01360001
+  TopK list             : [(37748736, [46184, 15806, 52721], False), (37748736, [56112, 14415, 62334], False), (37748736, [60383, 20555, 58701], False)]
+
+=== Query 21 Statistics ===
+  Query Coordinates     : [46672, 27845, 20751]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.59
+  Max BDU cycles        : 96
+  Final TopK threshold  : 35802682.715096
+  TopK list             : [(29517979, [46525, 22706, 22508], True), (32907493, [51130, 30022, 17871], True), (36228096, [52370, 26396, 22209], False)]
+
+=== Query 22 Statistics ===
+  Query Coordinates     : [18231, 46192, 33853]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.83
+  Max BDU cycles        : 96
+  Final TopK threshold  : 36346943.983756565
+  TopK list             : [(6303165, [17255, 44642, 35570], True), (30234174, [17194, 51138, 31686], True), (36498944, [12741, 44766, 31705], False)]
+
+=== Query 23 Statistics ===
+  Query Coordinates     : [53690, 27419, 20757]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.15
+  Max BDU cycles        : 96
+  Final TopK threshold  : 21658205
+  TopK list             : [(4897233, [52370, 26396, 22209], True), (6308342, [55576, 27814, 19146], True), (21658205, [51130, 30022, 17871], True)]
+
+=== Query 24 Statistics ===
+  Query Coordinates     : [14773, 64894, 3157]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.62
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34708671.41196978
+  TopK list             : [(15734006, [17099, 64875, 6370], True), (38273024, [19208, 59501, 4524], False), (47185920, [13499, 58349, 7915], False)]
+
+=== Query 25 Statistics ===
+  Query Coordinates     : [2922, 19069, 38027]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.12
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31873934
+  TopK list             : [(19025285, [6624, 17678, 36187], True), (27660974, [1444, 14068, 37344], True), (31873934, [3025, 24687, 37478], True)]
+
+=== Query 26 Statistics ===
+  Query Coordinates     : [52558, 20687, 64608]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.76
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34802996.78728646
+  TopK list             : [(33690062, [58243, 21286, 63602], True), (35310592, [49557, 25415, 62515], False), (37748736, [53696, 29480, 65276], False)]
+
+=== Query 27 Statistics ===
+  Query Coordinates     : [59359, 723, 41400]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.75
+  Max BDU cycles        : 96
+  Final TopK threshold  : 35851013
+  TopK list             : [(8607830, [58784, 3065, 39729], True), (17838905, [60719, 262, 45372], True), (35851013, [65163, 1052, 42834], True)]
+
+=== Query 28 Statistics ===
+  Query Coordinates     : [42982, 5427, 19066]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.08
+  Max BDU cycles        : 96
+  Final TopK threshold  : 10203726
+  TopK list             : [(9601802, [42309, 3080, 17158], True), (10005804, [42568, 3585, 21604], True), (10203726, [42812, 2876, 20981], True)]
+
+=== Query 29 Statistics ===
+  Query Coordinates     : [55250, 57004, 15576]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27127907
+  TopK list             : [(7204493, [56494, 56135, 17790], True), (22510261, [53819, 59894, 12096], True), (27127907, [56357, 61007, 12433], True)]
+
+=== Query 30 Statistics ===
+  Query Coordinates     : [60821, 40938, 21885]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.98
+  Max BDU cycles        : 72
+  Final TopK threshold  : 33659192.04028797
+  TopK list             : [(35651584, [61928, 34133, 26200], False), (37748736, [58014, 31449, 24364], False), (37748736, [62071, 33051, 22989], False)]
+
+=== Query 31 Statistics ===
+  Query Coordinates     : [46327, 35673, 33]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.09
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33223879.91322365
+  TopK list             : [(4778113, [46594, 37791, 503], True), (33554432, [38097, 27965, 667], False), (33554432, [38478, 27289, 7241], False)]
+
+=== Query 32 Statistics ===
+  Query Coordinates     : [60146, 25483, 59960]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.82
+  Max BDU cycles        : 96
+  Final TopK threshold  : 24951441
+  TopK list             : [(5415014, [62013, 26872, 59958], True), (8598525, [61078, 22728, 60334], True), (24951441, [60208, 21704, 63226], True)]
+
+=== Query 33 Statistics ===
+  Query Coordinates     : [37181, 42620, 65198]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.22
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25481121
+  TopK list             : [(4837275, [39158, 43565, 65387], True), (17534205, [39651, 45559, 63526], True), (25481121, [35391, 44631, 60928], True)]
+
+=== Query 34 Statistics ===
+  Query Coordinates     : [3283, 63751, 40435]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.72
+  Max BDU cycles        : 69
+  Final TopK threshold  : 32107227.03680447
+  TopK list             : [(33554432, [35, 56828, 48961], False), (33554432, [77, 53442, 30827], False), (33554432, [7220, 56343, 46537], False)]
+
+=== Query 35 Statistics ===
+  Query Coordinates     : [15970, 65495, 42805]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 66
+  Final TopK threshold  : 31821068.155536283
+  TopK list             : [(33554432, [7644, 59107, 51905], False), (33554432, [13671, 58895, 35615], False), (33554432, [18369, 53593, 52567], False)]
+
+=== Query 36 Statistics ===
+  Query Coordinates     : [43948, 59657, 63364]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.84
+  Max BDU cycles        : 96
+  Final TopK threshold  : 14828870
+  TopK list             : [(8767630, [42517, 58919, 60879], True), (14379629, [46414, 57124, 61992], True), (14828870, [46525, 61311, 61029], True)]
+
+=== Query 37 Statistics ===
+  Query Coordinates     : [1050, 56704, 41939]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.76
+  Max BDU cycles        : 72
+  Final TopK threshold  : 29618098.966043763
+  TopK list             : [(33554432, [621, 64247, 49638], False), (33554432, [1605, 49200, 48164], False), (33554432, [3757, 45089, 49309], False)]
+
+=== Query 38 Statistics ===
+  Query Coordinates     : [21759, 49620, 11543]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28932478.42230858
+  TopK list             : [(21944741, [23000, 53294, 14171], True), (28647270, [18073, 50477, 15328], True), (29839360, [25461, 47662, 15178], False)]
+
+=== Query 39 Statistics ===
+  Query Coordinates     : [60983, 3336, 25875]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.77
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30992641.188762523
+  TopK list             : [(14563761, [57630, 1880, 26971], True), (17928905, [61151, 2981, 30091], True), (31015232, [56456, 6216, 27438], False)]
+
+=== Query 40 Statistics ===
+  Query Coordinates     : [33892, 14018, 20250]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.04
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31417761.949526403
+  TopK list             : [(25087370, [31839, 13737, 15690], True), (26178305, [31421, 17858, 22558], True), (33554432, [25183, 18161, 9522], False)]
+
+=== Query 41 Statistics ===
+  Query Coordinates     : [64612, 17606, 2143]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.66
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31171204.639542628
+  TopK list             : [(20155870, [64435, 22076, 1764], True), (33554432, [55924, 28016, 5029], False), (33554432, [57270, 8454, 242], False)]
+
+=== Query 42 Statistics ===
+  Query Coordinates     : [19876, 61566, 63388]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.70
+  Max BDU cycles        : 75
+  Final TopK threshold  : 30945410.35943771
+  TopK list             : [(31129600, [16151, 64102, 59142], False), (31850496, [19208, 64453, 58377], False), (33554432, [12652, 53299, 54829], False)]
+
+=== Query 43 Statistics ===
+  Query Coordinates     : [10850, 2209, 20348]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.68
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31604746.988975856
+  TopK list             : [(14156605, [13655, 4351, 19044], True), (33554432, [590, 1420, 8442], False), (33554432, [5147, 5601, 12311], False)]
+
+=== Query 44 Statistics ===
+  Query Coordinates     : [2083, 23254, 3218]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.73
+  Max BDU cycles        : 96
+  Final TopK threshold  : 17849141
+  TopK list             : [(9862574, [5186, 22787, 3344], True), (13407686, [2785, 26783, 3897], True), (17849141, [1089, 23813, 7286], True)]
+
+=== Query 45 Statistics ===
+  Query Coordinates     : [9967, 24557, 16044]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.89
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28778241
+  TopK list             : [(16009914, [7838, 27825, 16937], True), (28104521, [10153, 19287, 16589], True), (28778241, [11823, 19725, 14635], True)]
+
+=== Query 46 Statistics ===
+  Query Coordinates     : [63053, 4603, 22096]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.71
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30375245.39660572
+  TopK list             : [(27150333, [63490, 5843, 17054], True), (33554432, [55349, 15281, 20932], False), (33554432, [56051, 7332, 13055], False)]
+
+=== Query 47 Statistics ===
+  Query Coordinates     : [29368, 54005, 64455]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.73
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32085346.69023235
+  TopK list             : [(13390060, [26614, 56255, 65317], True), (33554432, [36891, 48683, 63564], False), (33554432, [39651, 45559, 63526], False)]
+
+=== Query 48 Statistics ===
+  Query Coordinates     : [61561, 35971, 63404]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.76
+  Max BDU cycles        : 96
+  Final TopK threshold  : 15261044
+  TopK list             : [(476858, [61334, 36623, 63389], True), (8739554, [61520, 36939, 60611], True), (15261044, [62191, 37811, 60016], True)]
+
+=== Query 49 Statistics ===
+  Query Coordinates     : [45973, 17624, 27281]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.64
+  Max BDU cycles        : 96
+  Final TopK threshold  : 20742038
+  TopK list             : [(4730016, [45665, 17428, 29425], True), (15668549, [46839, 18896, 30928], True), (20742038, [49222, 18910, 24360], True)]
+
+=== Query 50 Statistics ===
+  Query Coordinates     : [43467, 16901, 23709]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.50
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29725319.802675277
+  TopK list             : [(17618630, [45252, 15132, 20347], True), (30408704, [49423, 16451, 21022], False), (31457280, [45210, 10885, 26854], False)]
+
+=== Query 51 Statistics ===
+  Query Coordinates     : [52757, 59958, 60226]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 96
+  Final TopK threshold  : 24921027
+  TopK list             : [(5536781, [52146, 58836, 58250], True), (17350672, [48597, 59802, 60370], True), (24921027, [55900, 59851, 56349], True)]
+
+=== Query 52 Statistics ===
+  Query Coordinates     : [30413, 31750, 24187]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.59
+  Max BDU cycles        : 96
+  Final TopK threshold  : 18769985
+  TopK list             : [(10895961, [29713, 29219, 22187], True), (16454185, [31259, 34860, 26650], True), (18769985, [31861, 30855, 28171], True)]
+
+=== Query 53 Statistics ===
+  Query Coordinates     : [3182, 19525, 38673]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.02
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27512334.836633813
+  TopK list             : [(21438969, [6624, 17678, 36187], True), (27557888, [3025, 24687, 37478], False), (29622272, [1444, 14068, 37344], False)]
+
+=== Query 54 Statistics ===
+  Query Coordinates     : [65213, 25673, 16802]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.96
+  Max BDU cycles        : 69
+  Final TopK threshold  : 27062169.499876186
+  TopK list             : [(28835840, [62176, 29813, 20334], False), (29884416, [64184, 30711, 20630], False), (33554432, [53734, 32583, 26087], False)]
+
+=== Query 55 Statistics ===
+  Query Coordinates     : [31286, 3181, 1960]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.63
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28075602.63486257
+  TopK list             : [(17268041, [31777, 5825, 5128], True), (20133782, [34535, 6251, 1569], True), (33554432, [21197, 11977, 6522], False)]
+
+=== Query 56 Statistics ===
+  Query Coordinates     : [15002, 57304, 64990]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.53
+  Max BDU cycles        : 78
+  Final TopK threshold  : 27998312.41469745
+  TopK list             : [(28729344, [10640, 59069, 62161], False), (33554432, [6283, 46328, 63538], False), (33554432, [6454, 48548, 61887], False)]
+
+=== Query 57 Statistics ===
+  Query Coordinates     : [11331, 24347, 20954]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.08
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27736849.786687545
+  TopK list             : [(15219805, [12144, 28017, 21998], True), (26982056, [8907, 26149, 25180], True), (28311552, [7838, 27825, 16937], False)]
+
+=== Query 58 Statistics ===
+  Query Coordinates     : [41375, 22279, 679]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27258515.12729761
+  TopK list             : [(11355203, [42994, 24490, 2640], True), (27230554, [36755, 19906, 174], True), (27787264, [44284, 27561, 1281], False)]
+
+=== Query 59 Statistics ===
+  Query Coordinates     : [27264, 30519, 27736]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.57
+  Max BDU cycles        : 96
+  Final TopK threshold  : 21434530
+  TopK list             : [(18594245, [23008, 30072, 28266], True), (19004301, [31109, 29243, 29346], True), (21434530, [31861, 30855, 28171], True)]
+
+=== Query 60 Statistics ===
+  Query Coordinates     : [33270, 38692, 40432]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.74
+  Max BDU cycles        : 96
+  Final TopK threshold  : 15927954
+  TopK list             : [(10314269, [31587, 40958, 41964], True), (12748898, [36653, 39592, 39729], True), (15927954, [32782, 35111, 42125], True)]
+
+=== Query 61 Statistics ===
+  Query Coordinates     : [53117, 4668, 51062]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.59
+  Max BDU cycles        : 75
+  Final TopK threshold  : 27136700.833006073
+  TopK list             : [(27279360, [57570, 3877, 48054], False), (27918336, [48807, 6682, 54268], False), (28917760, [54402, 7862, 55320], False)]
+
+=== Query 62 Statistics ===
+  Query Coordinates     : [5628, 46726, 53594]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.73
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27380424.954636738
+  TopK list             : [(24541635, [3757, 45089, 49309], True), (27787264, [7198, 44338, 48384], False), (30408704, [1605, 49200, 48164], False)]
+
+=== Query 63 Statistics ===
+  Query Coordinates     : [6171, 41427, 26824]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.24
+  Max BDU cycles        : 96
+  Final TopK threshold  : 20404499
+  TopK list             : [(15053790, [3634, 40502, 29610], True), (19920995, [4310, 43992, 29967], True), (20404499, [3808, 45276, 26747], True)]
+
+=== Query 64 Statistics ===
+  Query Coordinates     : [19988, 30085, 41702]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.44
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27545711.407617062
+  TopK list             : [(9615749, [21280, 30252, 38888], True), (33554432, [11061, 30271, 35418], False), (33554432, [13428, 38904, 50542], False)]
+
+=== Query 65 Statistics ===
+  Query Coordinates     : [38860, 26281, 57389]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.12
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27598901.017468557
+  TopK list             : [(9358434, [41349, 27873, 58182], True), (24608132, [37236, 29497, 60799], True), (28114944, [42393, 27093, 53195], False)]
+
+=== Query 66 Statistics ===
+  Query Coordinates     : [16893, 35493, 12373]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.29
+  Max BDU cycles        : 96
+  Final TopK threshold  : 15589086
+  TopK list             : [(11679604, [14193, 36645, 10623], True), (14236889, [15716, 36095, 8839], True), (15589086, [20168, 34324, 14243], True)]
+
+=== Query 67 Statistics ===
+  Query Coordinates     : [27681, 36923, 13961]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.31
+  Max BDU cycles        : 96
+  Final TopK threshold  : 24205817
+  TopK list             : [(7572886, [28038, 34352, 14875], True), (17971830, [25034, 39868, 15475], True), (24205817, [31289, 34175, 12054], True)]
+
+=== Query 68 Statistics ===
+  Query Coordinates     : [845, 13604, 45105]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25793035.327402864
+  TopK list             : [(19171256, [5025, 13914, 43839], True), (33554432, [783, 24469, 56476], False), (33554432, [8136, 20105, 47371], False)]
+
+=== Query 69 Statistics ===
+  Query Coordinates     : [43457, 11773, 33646]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.03
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25631832.54941445
+  TopK list             : [(12721314, [43417, 13740, 36621], True), (27262976, [45210, 10885, 26854], False), (29229056, [38485, 11042, 36805], False)]
+
+=== Query 70 Statistics ===
+  Query Coordinates     : [18419, 31032, 62230]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.03
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26093535.829850037
+  TopK list             : [(21932426, [16459, 27967, 59281], True), (30408704, [11698, 28579, 61632], False), (33554432, [10236, 40242, 57799], False)]
+
+=== Query 71 Statistics ===
+  Query Coordinates     : [9028, 40349, 42393]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.18
+  Max BDU cycles        : 96
+  Final TopK threshold  : 24259491
+  TopK list             : [(6934741, [7021, 40175, 44089], True), (21378881, [6212, 39254, 38893], True), (24259491, [7523, 38784, 37972], True)]
+
+=== Query 72 Statistics ===
+  Query Coordinates     : [20805, 19230, 890]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.92
+  Max BDU cycles        : 66
+  Final TopK threshold  : 26895256.74950287
+  TopK list             : [(33554432, [13299, 24955, 3252], False), (33554432, [21681, 27204, 9469], False), (33554432, [22493, 24327, 5920], False)]
+
+=== Query 73 Statistics ===
+  Query Coordinates     : [2488, 19072, 38598]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.01
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26841888.246938147
+  TopK list             : [(24862653, [6624, 17678, 36187], True), (27049984, [1444, 14068, 37344], False), (27262976, [9000, 20265, 40331], False)]
+
+=== Query 74 Statistics ===
+  Query Coordinates     : [2965, 19541, 38118]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.03
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27550001.06410134
+  TopK list             : [(20587811, [6624, 17678, 36187], True), (26894516, [3025, 24687, 37478], True), (31981568, [212, 14614, 35232], False)]
+
+=== Query 75 Statistics ===
+  Query Coordinates     : [49489, 25871, 20779]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.11
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27550472.92631461
+  TopK list             : [(10620686, [52370, 26396, 22209], True), (21791962, [46525, 22706, 22508], True), (27894784, [51130, 30022, 17871], False)]
+
+=== Query 76 Statistics ===
+  Query Coordinates     : [12743, 25065, 48845]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.98
+  Max BDU cycles        : 72
+  Final TopK threshold  : 27545145.83628768
+  TopK list             : [(28114944, [16406, 21498, 46343], False), (33554432, [5473, 29273, 37276], False), (33554432, [6508, 35117, 48657], False)]
+
+=== Query 77 Statistics ===
+  Query Coordinates     : [54376, 2359, 38921]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.74
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28860312.41827932
+  TopK list             : [(9068274, [55463, 5123, 39418], True), (20581764, [58784, 3065, 39729], True), (33554432, [46426, 1798, 46561], False)]
+
+=== Query 78 Statistics ===
+  Query Coordinates     : [58706, 29973, 19124]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.13
+  Max BDU cycles        : 96
+  Final TopK threshold  : 20431476
+  TopK list             : [(13530600, [62176, 29813, 20334], True), (14458665, [55576, 27814, 19146], True), (20431476, [61800, 33185, 19860], True)]
+
+=== Query 79 Statistics ===
+  Query Coordinates     : [45067, 6461, 11569]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 69
+  Final TopK threshold  : 28782535.38827573
+  TopK list             : [(28835840, [51071, 7368, 13405], False), (30408704, [48613, 6991, 5733], False), (33554432, [38910, 915, 1931], False)]
+
+=== Query 80 Statistics ===
+  Query Coordinates     : [45072, 62874, 4270]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29129112.700550478
+  TopK list             : [(8518019, [45809, 60059, 4045], True), (24944346, [41596, 62203, 747], True), (33554432, [38841, 53336, 8881], False)]
+
+=== Query 81 Statistics ===
+  Query Coordinates     : [24258, 11315, 52055]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.91
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25068865
+  TopK list             : [(2628838, [24771, 11828, 53505], True), (6805089, [21700, 10878, 51789], True), (25068865, [20310, 13895, 50374], True)]
+
+=== Query 82 Statistics ===
+  Query Coordinates     : [30485, 54769, 57665]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.83
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26067874
+  TopK list             : [(20605910, [26018, 55055, 56910], True), (22164181, [27871, 51298, 55853], True), (26067874, [29438, 49786, 57289], True)]
+
+=== Query 83 Statistics ===
+  Query Coordinates     : [22782, 13846, 11823]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.81
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26008286
+  TopK list             : [(9833339, [24199, 14631, 14508], True), (20489917, [22953, 13672, 16343], True), (26008286, [24681, 14184, 7102], True)]
+
+=== Query 84 Statistics ===
+  Query Coordinates     : [22334, 16284, 43458]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.19
+  Max BDU cycles        : 96
+  Final TopK threshold  : 17987451
+  TopK list             : [(11056704, [21870, 13012, 43090], True), (17426165, [20904, 20197, 43722], True), (17987451, [19681, 16055, 40157], True)]
+
+=== Query 85 Statistics ===
+  Query Coordinates     : [14418, 38185, 61515]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.77
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28317468.439667862
+  TopK list             : [(12235157, [11982, 39015, 59146], True), (17831364, [15790, 39971, 65087], True), (28344320, [11313, 34931, 58362], False)]
+
+=== Query 86 Statistics ===
+  Query Coordinates     : [9411, 4647, 40134]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28401837.94613672
+  TopK list             : [(17179390, [8393, 642, 40455], True), (20336705, [10331, 2539, 36255], True), (30801920, [12045, 9446, 37546], False)]
+
+=== Query 87 Statistics ===
+  Query Coordinates     : [495, 9548, 44785]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 72
+  Final TopK threshold  : 28496074.078220114
+  TopK list             : [(30212096, [5207, 8224, 47777], False), (30212096, [6107, 8422, 43878], False), (33554432, [5641, 317, 35104], False)]
+
+=== Query 88 Statistics ===
+  Query Coordinates     : [35338, 56272, 34895]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.37
+  Max BDU cycles        : 81
+  Final TopK threshold  : 28456007.8608136
+  TopK list             : [(28755968, [38667, 56516, 39141], False), (29425664, [34750, 61700, 34153], False), (30408704, [29991, 52251, 31047], False)]
+
+=== Query 89 Statistics ===
+  Query Coordinates     : [43058, 40109, 55302]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.21
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29338706.3655031
+  TopK list             : [(15952562, [45254, 43444, 55213], True), (16791585, [42343, 42291, 58696], True), (30670848, [48753, 42915, 56329], False)]
+
+=== Query 90 Statistics ===
+  Query Coordinates     : [39230, 50800, 54273]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.98
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29092088
+  TopK list             : [(17033336, [36792, 50014, 51037], True), (25819115, [43179, 48135, 56040], True), (29092088, [42548, 48780, 50531], True)]
+
+=== Query 91 Statistics ===
+  Query Coordinates     : [41237, 61655, 55000]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.80
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29395812.455937557
+  TopK list             : [(17748248, [42739, 57845, 54012], True), (29622272, [45469, 57226, 54338], False), (30408704, [42517, 58919, 60879], False)]
+
+=== Query 92 Statistics ===
+  Query Coordinates     : [49576, 48357, 59940]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.84
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29871776.67609069
+  TopK list             : [(14572332, [51690, 51107, 58346], True), (24564522, [44711, 49298, 59836], True), (30408704, [48753, 42915, 56329], False)]
+
+=== Query 93 Statistics ===
+  Query Coordinates     : [48900, 36467, 56049]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.20
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30290205.97046067
+  TopK list             : [(23774862, [47461, 32017, 57428], True), (28979961, [45457, 36811, 60173], True), (33554432, [37800, 28436, 49306], False)]
+
+=== Query 94 Statistics ===
+  Query Coordinates     : [50397, 8076, 22379]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.83
+  Max BDU cycles        : 96
+  Final TopK threshold  : 16730504
+  TopK list             : [(1676774, [50842, 7266, 23286], True), (7624974, [53084, 8687, 22201], True), (16730504, [53835, 5860, 22381], True)]
+
+=== Query 95 Statistics ===
+  Query Coordinates     : [63067, 47325, 15569]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.70
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30622952.997211337
+  TopK list             : [(25447245, [61767, 50888, 12243], True), (26528182, [63433, 42326, 14384], True), (32768000, [57807, 50596, 15921], False)]
+
+=== Query 96 Statistics ===
+  Query Coordinates     : [54277, 35837, 43419]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.24
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30876556.29854112
+  TopK list             : [(17660645, [52436, 38879, 41179], True), (27828142, [54994, 40679, 45386], True), (33030144, [51515, 30151, 44371], False)]
+
+=== Query 97 Statistics ===
+  Query Coordinates     : [30596, 14351, 40109]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.10
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31148775.31730561
+  TopK list             : [(15142762, [29983, 15839, 43652], True), (20085729, [27498, 12225, 37666], True), (33062912, [25876, 16901, 37526], False)]
+
+=== Query 98 Statistics ===
+  Query Coordinates     : [5690, 64084, 7680]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.57
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31440572.45360501
+  TopK list             : [(7813942, [7148, 61951, 8747], True), (33554432, [4385, 59054, 74], False), (33554432, [11741, 64996, 14142], False)]
+
+=== Query 99 Statistics ===
+  Query Coordinates     : [3134, 19147, 38189]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.07
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31209002
+  TopK list             : [(18346065, [6624, 17678, 36187], True), (29366366, [1444, 14068, 37344], True), (31209002, [3025, 24687, 37478], True)]
+
+=== Query 100 Statistics ===
+  Query Coordinates     : [6484, 371, 40691]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.67
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31974607.078606725
+  TopK list             : [(3773418, [8393, 642, 40455], True), (31928134, [5641, 317, 35104], True), (31981568, [10331, 2539, 36255], False)]
+
+=== Query 101 Statistics ===
+  Query Coordinates     : [11301, 1962, 16974]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.71
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32291684.177253462
+  TopK list             : [(15533537, [13655, 4351, 19044], True), (16887254, [12546, 4964, 14459], True), (33554432, [590, 1420, 8442], False)]
+
+=== Query 102 Statistics ===
+  Query Coordinates     : [41284, 62817, 9066]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.76
+  Max BDU cycles        : 69
+  Final TopK threshold  : 32610230.06659821
+  TopK list             : [(33554432, [34793, 65521, 17831], False), (33554432, [35393, 60290, 1763], False), (33554432, [35682, 55028, 13465], False)]
+
+=== Query 103 Statistics ===
+  Query Coordinates     : [53443, 3329, 43956]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.77
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32911459.939554036
+  TopK list             : [(13410317, [49800, 3307, 44328], True), (27892280, [55463, 5123, 39418], True), (33554432, [45988, 4889, 50394], False)]
+
+=== Query 104 Statistics ===
+  Query Coordinates     : [7564, 38680, 6705]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.96
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26765835
+  TopK list             : [(6106035, [9161, 38115, 8504], True), (20865166, [11590, 39189, 8802], True), (26765835, [9815, 43283, 5990], True)]
+
+=== Query 105 Statistics ===
+  Query Coordinates     : [26417, 24490, 62804]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.11
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34303684.28615431
+  TopK list             : [(12966165, [26138, 24250, 59222], True), (23583091, [22634, 21691, 64003], True), (34930688, [26630, 30489, 63724], False)]
+
+=== Query 106 Statistics ===
+  Query Coordinates     : [34374, 61249, 19620]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.29
+  Max BDU cycles        : 96
+  Final TopK threshold  : 21626066
+  TopK list             : [(11077382, [37193, 62460, 18330], True), (17914566, [38140, 63042, 18901], True), (21626066, [34793, 65521, 17831], True)]
+
+=== Query 107 Statistics ===
+  Query Coordinates     : [37796, 15124, 60634]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.87
+  Max BDU cycles        : 96
+  Final TopK threshold  : 12085157
+  TopK list             : [(4308902, [38819, 16917, 60416], True), (9843818, [37751, 15156, 63771], True), (12085157, [35405, 17400, 59544], True)]
+
+=== Query 108 Statistics ===
+  Query Coordinates     : [3044, 19510, 38354]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.04
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31594012.780194897
+  TopK list             : [(20868513, [6624, 17678, 36187], True), (27569066, [3025, 24687, 37478], True), (31686656, [1444, 14068, 37344], False)]
+
+=== Query 109 Statistics ===
+  Query Coordinates     : [55803, 20707, 46038]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.19
+  Max BDU cycles        : 96
+  Final TopK threshold  : 24759002
+  TopK list             : [(16062299, [51866, 20508, 45315], True), (23007405, [58582, 18965, 49538], True), (24759002, [58428, 16616, 44974], True)]
+
+=== Query 110 Statistics ===
+  Query Coordinates     : [41144, 25078, 9670]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.08
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30901391.21611978
+  TopK list             : [(17896118, [38478, 27289, 7241], True), (25291878, [37923, 27689, 12516], True), (31150080, [46322, 23300, 8159], False)]
+
+=== Query 111 Statistics ===
+  Query Coordinates     : [28935, 38440, 56016]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.20
+  Max BDU cycles        : 96
+  Final TopK threshold  : 23189522
+  TopK list             : [(8801234, [29183, 41391, 56193], True), (14325834, [29332, 41840, 57631], True), (23189522, [28490, 41684, 59547], True)]
+
+=== Query 112 Statistics ===
+  Query Coordinates     : [22914, 43591, 1070]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.10
+  Max BDU cycles        : 72
+  Final TopK threshold  : 29782099.63174834
+  TopK list             : [(30408704, [21561, 39972, 7996], False), (30408704, [25858, 50152, 2525], False), (33095680, [17985, 46327, 4057], False)]
+
+=== Query 113 Statistics ===
+  Query Coordinates     : [54443, 59758, 11893]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 54.64
+  Max BDU cycles        : 96
+  Final TopK threshold  : 11677970
+  TopK list             : [(449081, [53819, 59894, 12096], True), (5514997, [56357, 61007, 12433], True), (11677970, [55206, 62363, 9817], True)]
+
+=== Query 114 Statistics ===
+  Query Coordinates     : [25272, 48109, 39713]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.85
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27135321.39056391
+  TopK list             : [(17359738, [21744, 49364, 41540], True), (24268472, [28950, 51251, 38781], True), (27262976, [25929, 50117, 33531], False)]
+
+=== Query 115 Statistics ===
+  Query Coordinates     : [46893, 49361, 57263]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.98
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27175964.893525936
+  TopK list             : [(11385422, [44711, 49298, 59836], True), (16792601, [43179, 48135, 56040], True), (27213876, [51690, 51107, 58346], False)]
+
+=== Query 116 Statistics ===
+  Query Coordinates     : [32395, 54907, 11253]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.95
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26391915.760336816
+  TopK list             : [(15711954, [35682, 55028, 13465], True), (18356217, [30219, 56078, 7753], True), (27262976, [38841, 53336, 8881], False)]
+
+=== Query 117 Statistics ===
+  Query Coordinates     : [61011, 3480, 41497]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.74
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25456413
+  TopK list             : [(8257578, [58784, 3065, 39729], True), (24921857, [65163, 1052, 42834], True), (25456413, [60719, 262, 45372], True)]
+
+=== Query 118 Statistics ===
+  Query Coordinates     : [46714, 59037, 12357]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 72
+  Final TopK threshold  : 28386997.393973865
+  TopK list             : [(31260672, [45637, 63775, 15826], False), (33554432, [39604, 62048, 22560], False), (33554432, [43735, 50821, 20845], False)]
+
+=== Query 119 Statistics ===
+  Query Coordinates     : [14644, 52716, 53217]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.73
+  Max BDU cycles        : 96
+  Final TopK threshold  : 17641097
+  TopK list             : [(6906497, [12652, 53299, 54829], True), (15067254, [18369, 53593, 52567], True), (17641097, [12067, 51998, 56455], True)]
+
+=== Query 120 Statistics ===
+  Query Coordinates     : [46195, 5492, 23911]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.05
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26873045
+  TopK list             : [(22114027, [42568, 3585, 21604], True), (25132310, [50842, 7266, 23286], True), (26873045, [42812, 2876, 20981], True)]
+
+=== Query 121 Statistics ===
+  Query Coordinates     : [9790, 27263, 46839]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.98
+  Max BDU cycles        : 66
+  Final TopK threshold  : 26808138.06771638
+  TopK list             : [(27262976, [12008, 33112, 46866], False), (33554432, [783, 24469, 56476], False), (33554432, [3025, 24687, 37478], False)]
+
+=== Query 122 Statistics ===
+  Query Coordinates     : [13994, 55622, 60348]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.59
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27206185.835165177
+  TopK list             : [(26418094, [10640, 59069, 62161], True), (27918336, [15231, 50468, 58185], False), (28934144, [12067, 51998, 56455], False)]
+
+=== Query 123 Statistics ===
+  Query Coordinates     : [43781, 29524, 32495]
+  Early terminated BDUs : 1018
+  Full BDUs completed   : 6
+  Avg BDU cycles        : 55.68
+  Max BDU cycles        : 96
+  Final TopK threshold  : 14830198
+  TopK list             : [(401540, [43825, 28894, 32443], True), (2994053, [44215, 29640, 34166], True), (14830198, [47207, 30375, 34034], True)]
+
+=== Query 124 Statistics ===
+  Query Coordinates     : [2896, 19033, 38442]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.01
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27269580.39754103
+  TopK list             : [(20819034, [6624, 17678, 36187], True), (27316224, [1444, 14068, 37344], False), (28311552, [4857, 13122, 36763], False)]
+
+=== Query 125 Statistics ===
+  Query Coordinates     : [56866, 58657, 31834]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27284348.888308514
+  TopK list             : [(19141556, [56264, 62241, 29398], True), (30408704, [59484, 52886, 33279], False), (33554432, [47120, 51919, 25463], False)]
+
+=== Query 126 Statistics ===
+  Query Coordinates     : [28285, 5425, 62891]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.68
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27296271.127734598
+  TopK list             : [(14298529, [27913, 1717, 62250], True), (29884416, [24254, 931, 61713], False), (37748736, [24750, 13428, 62864], False)]
+
+=== Query 127 Statistics ===
+  Query Coordinates     : [51156, 53745, 46087]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.85
+  Max BDU cycles        : 96
+  Final TopK threshold  : 15318819
+  TopK list             : [(2848321, [52035, 55053, 45483], True), (4962053, [52554, 53402, 47787], True), (15318819, [53991, 55458, 48172], True)]
+
+=== Query 128 Statistics ===
+  Query Coordinates     : [47179, 25084, 20995]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.52
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26280614.878148355
+  TopK list             : [(8371769, [46525, 22706, 22508], True), (28573696, [50672, 20692, 22846], False), (28901376, [52370, 26396, 22209], False)]
+
+=== Query 129 Statistics ===
+  Query Coordinates     : [47825, 18657, 59642]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 66
+  Final TopK threshold  : 26048912.80140755
+  TopK list             : [(27262976, [49153, 13211, 61423], False), (30408704, [51108, 15015, 55212], False), (31457280, [49557, 25415, 62515], False)]
+
+=== Query 130 Statistics ===
+  Query Coordinates     : [44935, 34396, 54247]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.24
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26973772.539562378
+  TopK list             : [(22113337, [42343, 33553, 50415], True), (22159078, [47461, 32017, 57428], True), (27262976, [45457, 36811, 60173], False)]
+
+=== Query 131 Statistics ===
+  Query Coordinates     : [63433, 24434, 51608]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.75
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26984852.56891424
+  TopK list             : [(4028046, [63027, 25315, 49851], True), (27262976, [58582, 18965, 49538], False), (33554432, [55643, 13769, 54318], False)]
+
+=== Query 132 Statistics ===
+  Query Coordinates     : [21897, 52128, 65183]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.72
+  Max BDU cycles        : 69
+  Final TopK threshold  : 27004291.164046
+  TopK list             : [(29622272, [26614, 56255, 65317], False), (33554432, [12652, 53299, 54829], False), (33554432, [15231, 50468, 58185], False)]
+
+=== Query 133 Statistics ===
+  Query Coordinates     : [29306, 10359, 30747]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.02
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26982082.75022289
+  TopK list             : [(13074786, [31974, 8410, 29278], True), (17747859, [25885, 12652, 31634], True), (27262976, [24026, 15205, 33280], False)]
+
+=== Query 134 Statistics ===
+  Query Coordinates     : [59679, 22194, 63700]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.79
+  Max BDU cycles        : 96
+  Final TopK threshold  : 13572313
+  TopK list             : [(744617, [60208, 21704, 63226], True), (2896164, [58243, 21286, 63602], True), (13572313, [61078, 22728, 60334], True)]
+
+=== Query 135 Statistics ===
+  Query Coordinates     : [42659, 62279, 48215]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.09
+  Max BDU cycles        : 72
+  Final TopK threshold  : 26812090.6590179
+  TopK list             : [(27852800, [37408, 59996, 48609], False), (28311552, [38709, 58029, 44357], False), (30736384, [47127, 59127, 50036], False)]
+
+=== Query 136 Statistics ===
+  Query Coordinates     : [64958, 6006, 43268]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.68
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26760142.25379593
+  TopK list             : [(24772497, [65163, 1052, 42834], True), (27262976, [60719, 262, 45372], False), (39845888, [58784, 3065, 39729], False)]
+
+=== Query 137 Statistics ===
+  Query Coordinates     : [51028, 55821, 42918]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.88
+  Max BDU cycles        : 96
+  Final TopK threshold  : 15843702
+  TopK list             : [(6072426, [53292, 55820, 41945], True), (8183098, [52035, 55053, 45483], True), (15843702, [50051, 52918, 40376], True)]
+
+=== Query 138 Statistics ===
+  Query Coordinates     : [64024, 34745, 53115]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26758905.207662676
+  TopK list             : [(4066025, [63093, 35325, 54807], True), (26180829, [64474, 30422, 55815], True), (28114944, [60606, 30899, 50879], False)]
+
+=== Query 139 Statistics ===
+  Query Coordinates     : [50107, 33791, 10427]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.82
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26811517.143909253
+  TopK list             : [(4734315, [49998, 33496, 12580], True), (14450606, [50121, 37572, 10034], True), (30736384, [52774, 30304, 14338], False)]
+
+=== Query 140 Statistics ===
+  Query Coordinates     : [2724, 49930, 54786]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.54
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26895403.621584438
+  TopK list             : [(25107237, [2784, 54931, 55092], True), (33554432, [35, 56828, 48961], False), (33554432, [4442, 43365, 61754], False)]
+
+=== Query 141 Statistics ===
+  Query Coordinates     : [22723, 18238, 4768]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26886783.040606868
+  TopK list             : [(25716236, [24681, 14184, 7102], True), (27435008, [25183, 18161, 9522], False), (28311552, [21197, 11977, 6522], False)]
+
+=== Query 142 Statistics ===
+  Query Coordinates     : [15872, 20552, 4693]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26875995.392493054
+  TopK list             : [(13663706, [16141, 24116, 3750], True), (18105757, [14166, 23588, 7138], True), (26923008, [13299, 24955, 3252], False)]
+
+=== Query 143 Statistics ===
+  Query Coordinates     : [20997, 1340, 8614]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.62
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26861882.85762223
+  TopK list             : [(11299809, [18875, 3874, 8001], True), (33554432, [13655, 4351, 19044], False), (33554432, [15244, 4254, 3795], False)]
+
+=== Query 144 Statistics ===
+  Query Coordinates     : [2734, 19356, 38600]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.01
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26848660.86943616
+  TopK list             : [(23770353, [6624, 17678, 36187], True), (27262976, [9000, 20265, 40331], False), (27279360, [3025, 24687, 37478], False)]
+
+=== Query 145 Statistics ===
+  Query Coordinates     : [20639, 25906, 56292]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.16
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27787317
+  TopK list             : [(10436914, [21551, 24415, 53575], True), (20906427, [20434, 24425, 51971], True), (27787317, [16558, 23286, 58358], True)]
+
+=== Query 146 Statistics ===
+  Query Coordinates     : [2654, 19272, 38130]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.03
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28416334.032582175
+  TopK list             : [(22076985, [6624, 17678, 36187], True), (28651520, [3025, 24687, 37478], False), (28696576, [1444, 14068, 37344], False)]
+
+=== Query 147 Statistics ===
+  Query Coordinates     : [55423, 20324, 30611]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.07
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28598515.128248654
+  TopK list             : [(22456385, [56376, 16400, 33091], True), (28753920, [50453, 17674, 29928], False), (30408704, [54290, 17188, 24006], False)]
+
+=== Query 148 Statistics ===
+  Query Coordinates     : [3052, 54957, 46739]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.86
+  Max BDU cycles        : 96
+  Final TopK threshold  : 21181649
+  TopK list             : [(17540214, [35, 56828, 48961], True), (19334024, [7220, 56343, 46537], True), (21181649, [5145, 52287, 43629], True)]
+
+=== Query 149 Statistics ===
+  Query Coordinates     : [3205, 18944, 38552]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.04
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29388046.389513116
+  TopK list             : [(18885542, [6624, 17678, 36187], True), (28335761, [1444, 14068, 37344], True), (29491200, [3025, 24687, 37478], False)]
+
+=== Query 150 Statistics ===
+  Query Coordinates     : [58403, 7631, 44134]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.71
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29671464.606529538
+  TopK list             : [(17244003, [55062, 9580, 45645], True), (29805056, [57570, 3877, 48054], False), (30146560, [55463, 5123, 39418], False)]
+
+=== Query 151 Statistics ===
+  Query Coordinates     : [20828, 14110, 48429]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.19
+  Max BDU cycles        : 96
+  Final TopK threshold  : 18336085
+  TopK list             : [(4097574, [20310, 13895, 50374], True), (16076122, [19841, 10262, 48972], True), (18336085, [20147, 14592, 52629], True)]
+
+=== Query 152 Statistics ===
+  Query Coordinates     : [36363, 60018, 49444]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.86
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29036254.530406743
+  TopK list             : [(1789734, [37408, 59996, 48609], True), (17159446, [32944, 57876, 48505], True), (31064064, [38709, 58029, 44357], False)]
+
+=== Query 153 Statistics ===
+  Query Coordinates     : [12748, 29211, 35445]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.15
+  Max BDU cycles        : 96
+  Final TopK threshold  : 23201990
+  TopK list             : [(3970298, [11061, 30271, 35418], True), (15764894, [13639, 30028, 39227], True), (23201990, [9546, 30680, 32160], True)]
+
+=== Query 154 Statistics ===
+  Query Coordinates     : [34613, 57427, 36428]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.30
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28871294.821238805
+  TopK list             : [(23452923, [34750, 61700, 34153], True), (24625206, [38667, 56516, 39141], True), (30408704, [33589, 54395, 42229], False)]
+
+=== Query 155 Statistics ===
+  Query Coordinates     : [1977, 46368, 39803]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.03
+  Max BDU cycles        : 66
+  Final TopK threshold  : 29093784.555937096
+  TopK list             : [(33554432, [35, 56828, 48961], False), (33554432, [77, 53442, 30827], False), (33554432, [3060, 39481, 29771], False)]
+
+=== Query 156 Statistics ===
+  Query Coordinates     : [2845, 19094, 38476]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.03
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29237495.98709018
+  TopK list             : [(21525418, [6624, 17678, 36187], True), (28504901, [1444, 14068, 37344], True), (29491200, [3025, 24687, 37478], False)]
+
+=== Query 157 Statistics ===
+  Query Coordinates     : [9885, 42787, 36512]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.25
+  Max BDU cycles        : 96
+  Final TopK threshold  : 20117739
+  TopK list             : [(10986186, [11428, 44043, 33861], True), (11179739, [9416, 43624, 33309], True), (20117739, [8192, 39116, 34569], True)]
+
+=== Query 158 Statistics ===
+  Query Coordinates     : [35001, 32639, 20850]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.51
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28394938.427978702
+  TopK list             : [(8646520, [37029, 33929, 19156], True), (28835840, [29713, 29219, 22187], False), (30408704, [38043, 25977, 19726], False)]
+
+=== Query 159 Statistics ===
+  Query Coordinates     : [20454, 26040, 52113]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.13
+  Max BDU cycles        : 96
+  Final TopK threshold  : 5981478
+  TopK list             : [(2556137, [20709, 26654, 50659], True), (2628789, [20434, 24425, 51971], True), (5981478, [21551, 24415, 53575], True)]
+
+=== Query 160 Statistics ===
+  Query Coordinates     : [64086, 16913, 55239]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.77
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26613677.742209915
+  TopK list             : [(5422994, [63162, 15076, 54146], True), (11989139, [63517, 20066, 56552], True), (28311552, [60383, 20555, 58701], False)]
+
+=== Query 161 Statistics ===
+  Query Coordinates     : [59659, 15850, 35028]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.82
+  Max BDU cycles        : 96
+  Final TopK threshold  : 22449446
+  TopK list             : [(14832558, [56376, 16400, 33091], True), (20378425, [58708, 18800, 38310], True), (22449446, [58080, 15156, 39441], True)]
+
+=== Query 162 Statistics ===
+  Query Coordinates     : [48251, 23576, 1001]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.97
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26729790.89713476
+  TopK list             : [(11842201, [51652, 23054, 947], True), (27262976, [42994, 24490, 2640], False), (27656192, [44284, 27561, 1281], False)]
+
+=== Query 163 Statistics ===
+  Query Coordinates     : [51566, 23468, 39030]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.16
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26476079.89747484
+  TopK list             : [(13819574, [51849, 24914, 35617], True), (20064782, [53015, 27678, 38539], True), (27262976, [51866, 20508, 45315], False)]
+
+=== Query 164 Statistics ===
+  Query Coordinates     : [50854, 4013, 65236]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.48
+  Max BDU cycles        : 69
+  Final TopK threshold  : 26836229.786197077
+  TopK list             : [(27787264, [46013, 1353, 63451], False), (28311552, [48669, 5778, 58986], False), (31457280, [47563, 1422, 58827], False)]
+
+=== Query 165 Statistics ===
+  Query Coordinates     : [39316, 17413, 30486]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.54
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26612372.632342484
+  TopK list             : [(10134357, [38595, 16833, 33532], True), (24732166, [35785, 16111, 33737], True), (27590656, [43061, 21704, 30690], False)]
+
+=== Query 166 Statistics ===
+  Query Coordinates     : [26400, 17050, 28997]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.48
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26339417.320747074
+  TopK list             : [(8484845, [26716, 19892, 29552], True), (14447602, [28197, 18237, 25865], True), (26361856, [24026, 15205, 33280], False)]
+
+=== Query 167 Statistics ===
+  Query Coordinates     : [34182, 62307, 19297]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.25
+  Max BDU cycles        : 96
+  Final TopK threshold  : 16362805
+  TopK list             : [(10024619, [37193, 62460, 18330], True), (12852273, [34793, 65521, 17831], True), (16362805, [38140, 63042, 18901], True)]
+
+=== Query 168 Statistics ===
+  Query Coordinates     : [18346, 8347, 24338]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25607585.92744934
+  TopK list             : [(6902494, [19359, 8557, 21923], True), (19328984, [20902, 7305, 27760], True), (26411008, [17244, 4316, 20907], False)]
+
+=== Query 169 Statistics ===
+  Query Coordinates     : [3002, 19438, 38172]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25300977.152391106
+  TopK list             : [(20156709, [6624, 17678, 36187], True), (26214400, [3025, 24687, 37478], False), (27262976, [9000, 20265, 40331], False)]
+
+=== Query 170 Statistics ===
+  Query Coordinates     : [28688, 8703, 8517]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.74
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27426122.059154127
+  TopK list             : [(4836757, [26778, 9387, 9366], True), (27697152, [31777, 5825, 5128], False), (27918336, [31089, 13774, 8126], False)]
+
+=== Query 171 Statistics ===
+  Query Coordinates     : [13511, 59881, 50066]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.64
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27515490.934017994
+  TopK list             : [(9884593, [11647, 62392, 50390], True), (17604633, [17199, 61196, 51574], True), (33554432, [15231, 50468, 58185], False)]
+
+=== Query 172 Statistics ===
+  Query Coordinates     : [25744, 46090, 10105]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.20
+  Max BDU cycles        : 87
+  Final TopK threshold  : 28072755.876759972
+  TopK list             : [(28156096, [25461, 47662, 15178], False), (30408704, [29200, 50552, 15349], False), (30801920, [24404, 46763, 15573], False)]
+
+=== Query 173 Statistics ===
+  Query Coordinates     : [61282, 51579, 26602]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.65
+  Max BDU cycles        : 66
+  Final TopK threshold  : 28220482.024518743
+  TopK list             : [(33554432, [49640, 43650, 26194], False), (33554432, [51142, 53677, 16851], False), (33554432, [51911, 57954, 23856], False)]
+
+=== Query 174 Statistics ===
+  Query Coordinates     : [8578, 57271, 4210]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.67
+  Max BDU cycles        : 72
+  Final TopK threshold  : 28412366.258493572
+  TopK list             : [(30932992, [13499, 58349, 7915], False), (31719424, [12115, 52058, 6029], False), (31850496, [4385, 59054, 74], False)]
+
+=== Query 175 Statistics ===
+  Query Coordinates     : [27129, 50622, 39548]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.43
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28585741.270446192
+  TopK list             : [(4299971, [28950, 51251, 38781], True), (29491200, [26043, 50497, 33931], False), (29753344, [25946, 51402, 33979], False)]
+
+=== Query 176 Statistics ===
+  Query Coordinates     : [45933, 37082, 49834]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.22
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28802811.82063759
+  TopK list             : [(9246262, [46196, 34859, 47776], True), (25679502, [42343, 33553, 50415], True), (29425664, [43892, 31608, 49531], False)]
+
+=== Query 177 Statistics ===
+  Query Coordinates     : [16343, 36606, 22619]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.22
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29073785.215625547
+  TopK list             : [(24938629, [17855, 39855, 26097], True), (29223936, [12255, 35561, 26050], False), (31981568, [9824, 37673, 22581], False)]
+
+=== Query 178 Statistics ===
+  Query Coordinates     : [38003, 57414, 8515]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.81
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30471993.03934436
+  TopK list             : [(17466284, [38841, 53336, 8881], True), (30736384, [35682, 55028, 13465], False), (33554432, [29200, 50552, 15349], False)]
+
+=== Query 179 Statistics ===
+  Query Coordinates     : [3863, 19614, 42338]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.01
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31007077.82165281
+  TopK list             : [(30840619, [9000, 20265, 40331], True), (31129600, [5025, 13914, 43839], False), (31457280, [6624, 17678, 36187], False)]
+
+=== Query 180 Statistics ===
+  Query Coordinates     : [50733, 34208, 20734]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.08
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31634748.895271607
+  TopK list             : [(5326419, [51970, 33553, 18899], True), (25876974, [51130, 30022, 17871], True), (33554432, [41091, 42186, 26463], False)]
+
+=== Query 181 Statistics ===
+  Query Coordinates     : [46749, 32218, 25523]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.53
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32097697.847244523
+  TopK list             : [(30112578, [43673, 36737, 26002], True), (33554432, [36898, 23580, 32498], False), (33554432, [37029, 33929, 19156], False)]
+
+=== Query 182 Statistics ===
+  Query Coordinates     : [32465, 45637, 11103]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.26
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32601740.607699446
+  TopK list             : [(23256905, [32582, 43277, 15307], True), (28435939, [36668, 44350, 8084], True), (32737536, [36683, 46206, 7227], False)]
+
+=== Query 183 Statistics ===
+  Query Coordinates     : [22726, 45776, 7369]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.15
+  Max BDU cycles        : 81
+  Final TopK threshold  : 33099928.928102784
+  TopK list             : [(33253376, [17985, 46327, 4057], False), (33554432, [13350, 40370, 10927], False), (33554432, [16624, 40683, 14953], False)]
+
+=== Query 184 Statistics ===
+  Query Coordinates     : [59651, 8845, 21553]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33636668.087497026
+  TopK list             : [(10504758, [56922, 10364, 22419], True), (34603008, [54648, 11185, 27416], False), (35651584, [55349, 15281, 20932], False)]
+
+=== Query 185 Statistics ===
+  Query Coordinates     : [18732, 63455, 63511]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28933113
+  TopK list             : [(26168331, [16151, 64102, 59142], True), (27580536, [19208, 64453, 58377], True), (28933113, [14560, 62578, 60231], True)]
+
+=== Query 186 Statistics ===
+  Query Coordinates     : [36091, 482, 251]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.65
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34249552.17893833
+  TopK list             : [(10956650, [38910, 915, 1931], True), (34996224, [34535, 6251, 1569], False), (42991616, [31777, 5825, 5128], False)]
+
+=== Query 187 Statistics ===
+  Query Coordinates     : [11999, 64878, 16907]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.92
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34848693.618351415
+  TopK list             : [(7725713, [11741, 64996, 14142], True), (35491840, [15660, 61405, 20140], False), (37289984, [16350, 61198, 20372], False)]
+
+=== Query 188 Statistics ===
+  Query Coordinates     : [39047, 31115, 23052]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.57
+  Max BDU cycles        : 96
+  Final TopK threshold  : 35483933.54265125
+  TopK list             : [(12283014, [40296, 27853, 23339], True), (27169736, [37029, 33929, 19156], True), (35651584, [35460, 26301, 27442], False)]
+
+=== Query 189 Statistics ===
+  Query Coordinates     : [2798, 18970, 38395]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.12
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33576507
+  TopK list             : [(21182804, [6624, 17678, 36187], True), (26967521, [1444, 14068, 37344], True), (33576507, [3025, 24687, 37478], True)]
+
+=== Query 190 Statistics ===
+  Query Coordinates     : [16279, 1811, 60335]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.63
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32249874
+  TopK list             : [(16171954, [14083, 2824, 63548], True), (28802450, [15035, 5186, 56352], True), (32249874, [11711, 1566, 63700], True)]
+
+=== Query 191 Statistics ===
+  Query Coordinates     : [7052, 42033, 29941]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.29
+  Max BDU cycles        : 96
+  Final TopK threshold  : 19463201
+  TopK list             : [(11356921, [4310, 43992, 29967], True), (14136246, [3634, 40502, 29610], True), (19463201, [9416, 43624, 33309], True)]
+
+=== Query 192 Statistics ===
+  Query Coordinates     : [2740, 47963, 3266]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.88
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34995753.31595643
+  TopK list             : [(14076776, [3798, 45377, 762], True), (19439174, [3371, 43716, 2264], True), (36569088, [8726, 48642, 1736], False)]
+
+=== Query 193 Statistics ===
+  Query Coordinates     : [18383, 55976, 40532]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.39
+  Max BDU cycles        : 96
+  Final TopK threshold  : 35259094.7138647
+  TopK list             : [(27090441, [13697, 58214, 40883], True), (29613794, [13684, 54003, 42440], True), (35651584, [13388, 51680, 45983], False)]
+
+=== Query 194 Statistics ===
+  Query Coordinates     : [41189, 18424, 56108]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.23
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28024245
+  TopK list             : [(25979483, [39622, 19561, 51393], True), (26446813, [38819, 16917, 60416], True), (28024245, [36822, 21414, 56224], True)]
+
+=== Query 195 Statistics ===
+  Query Coordinates     : [11178, 1051, 12058]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.55
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34879236.410673834
+  TopK list             : [(22947794, [12546, 4964, 14459], True), (32029354, [11665, 6670, 12526], True), (35127296, [14431, 5255, 8036], False)]
+
+=== Query 196 Statistics ===
+  Query Coordinates     : [58043, 47776, 4664]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.81
+  Max BDU cycles        : 96
+  Final TopK threshold  : 34642074
+  TopK list             : [(5531005, [56622, 46834, 3044], True), (27493779, [62830, 47969, 2533], True), (34642074, [53806, 48327, 8712], True)]
+
+=== Query 197 Statistics ===
+  Query Coordinates     : [9558, 21418, 63028]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.74
+  Max BDU cycles        : 96
+  Final TopK threshold  : 35576487.38616475
+  TopK list             : [(26046635, [9487, 17455, 59813], True), (35938304, [6842, 26778, 62247], False), (36962304, [3813, 23652, 59908], False)]
+
+=== Query 198 Statistics ===
+  Query Coordinates     : [25787, 9586, 30957]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.05
+  Max BDU cycles        : 96
+  Final TopK threshold  : 35656544.700624205
+  TopK list             : [(9868289, [25885, 12652, 31634], True), (36061184, [20902, 7305, 27760], False), (36569088, [24026, 15205, 33280], False)]
+
+=== Query 199 Statistics ===
+  Query Coordinates     : [11228, 60052, 50534]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.68
+  Max BDU cycles        : 96
+  Final TopK threshold  : 22000131
+  TopK list             : [(5671897, [11647, 62392, 50390], True), (15617722, [7644, 59107, 51905], True), (22000131, [8337, 62757, 53049], True)]
+
+=== Query 200 Statistics ===
+  Query Coordinates     : [31067, 3923, 24076]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.94
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28809705
+  TopK list             : [(8535194, [29300, 1830, 25092], True), (27559045, [33811, 7826, 26266], True), (28809705, [29707, 339, 27833], True)]
+
+=== Query 201 Statistics ===
+  Query Coordinates     : [50676, 60618, 42332]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.80
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30014029
+  TopK list             : [(12327426, [52957, 62705, 40668], True), (30002438, [49107, 59152, 37293], True), (30014029, [53292, 55820, 41945], True)]
+
+=== Query 202 Statistics ===
+  Query Coordinates     : [26212, 53179, 51305]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.08
+  Max BDU cycles        : 96
+  Final TopK threshold  : 19842238
+  TopK list             : [(7511594, [28400, 53998, 49872], True), (19756067, [24909, 54622, 47308], True), (19842238, [24742, 51232, 47578], True)]
+
+=== Query 203 Statistics ===
+  Query Coordinates     : [61548, 14008, 64984]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.47
+  Max BDU cycles        : 75
+  Final TopK threshold  : 33517416.373246025
+  TopK list             : [(33554432, [54181, 6756, 58151], False), (33554432, [55643, 13769, 54318], False), (33619968, [63694, 12145, 59741], False)]
+
+=== Query 204 Statistics ===
+  Query Coordinates     : [3102, 19405, 38153]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.07
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31887014
+  TopK list             : [(19252169, [6624, 17678, 36187], True), (28361078, [3025, 24687, 37478], True), (31887014, [1444, 14068, 37344], True)]
+
+=== Query 205 Statistics ===
+  Query Coordinates     : [52687, 19783, 32464]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.16
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33750736.34577797
+  TopK list             : [(15869933, [50453, 17674, 29928], True), (25446539, [56376, 16400, 33091], True), (33947648, [46839, 18896, 30928], False)]
+
+=== Query 206 Statistics ===
+  Query Coordinates     : [5110, 25831, 59998]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.81
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26909514
+  TopK list             : [(6438350, [3813, 23652, 59908], True), (8954634, [6842, 26778, 62247], True), (26909514, [1857, 29403, 58109], True)]
+
+=== Query 207 Statistics ===
+  Query Coordinates     : [18165, 51744, 13513]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.01
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26212689
+  TopK list             : [(4907978, [18073, 50477, 15328], True), (11516138, [15634, 49848, 12282], True), (26212689, [23000, 53294, 14171], True)]
+
+=== Query 208 Statistics ===
+  Query Coordinates     : [44352, 18228, 26696]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.63
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27059841
+  TopK list             : [(9811410, [45665, 17428, 29425], True), (24541217, [46839, 18896, 30928], True), (27059841, [46628, 22189, 29184], True)]
+
+=== Query 209 Statistics ===
+  Query Coordinates     : [37131, 11615, 50048]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.90
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30485051
+  TopK list             : [(12424521, [34199, 10996, 51904], True), (29704557, [37625, 16875, 48709], True), (30485051, [37308, 12054, 44547], True)]
+
+=== Query 210 Statistics ===
+  Query Coordinates     : [6896, 10530, 25737]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.66
+  Max BDU cycles        : 81
+  Final TopK threshold  : 31733705.70909264
+  TopK list             : [(32126976, [6772, 4957, 26827], False), (33554432, [2893, 640, 18418], False), (33554432, [5251, 3924, 17149], False)]
+
+=== Query 211 Statistics ===
+  Query Coordinates     : [3092, 18814, 38228]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.06
+  Max BDU cycles        : 96
+  Final TopK threshold  : 32055345.787092827
+  TopK list             : [(17931201, [6624, 17678, 36187], True), (26021876, [1444, 14068, 37344], True), (32178176, [4857, 13122, 36763], False)]
+
+=== Query 212 Statistics ===
+  Query Coordinates     : [60328, 60629, 22421]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.77
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29430101
+  TopK list             : [(17869393, [64108, 61652, 24013], True), (23381998, [63478, 57366, 20744], True), (29430101, [62922, 58996, 26897], True)]
+
+=== Query 213 Statistics ===
+  Query Coordinates     : [55824, 60540, 29729]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.69
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33334555.563673045
+  TopK list             : [(3196562, [56264, 62241, 29398], True), (33554432, [47120, 51919, 25463], False), (33554432, [49107, 59152, 37293], False)]
+
+=== Query 214 Statistics ===
+  Query Coordinates     : [64130, 19670, 18583]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.93
+  Max BDU cycles        : 75
+  Final TopK threshold  : 33314440.874620017
+  TopK list             : [(33554432, [55576, 27814, 19146], False), (33554432, [56922, 10364, 22419], False), (33554432, [57560, 24632, 11892], False)]
+
+=== Query 215 Statistics ===
+  Query Coordinates     : [13968, 37791, 22856]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.25
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29872946
+  TopK list             : [(17262285, [9824, 37673, 22581], True), (18108905, [12255, 35561, 26050], True), (29872946, [17855, 39855, 26097], True)]
+
+=== Query 216 Statistics ===
+  Query Coordinates     : [31848, 23914, 39012]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.47
+  Max BDU cycles        : 96
+  Final TopK threshold  : 33044900.89279264
+  TopK list             : [(10109705, [33637, 26442, 39732], True), (33554432, [21280, 30252, 38888], False), (33554432, [21870, 13012, 43090], False)]
+
+=== Query 217 Statistics ===
+  Query Coordinates     : [3268, 13737, 40099]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.80
+  Max BDU cycles        : 96
+  Final TopK threshold  : 17105978
+  TopK list             : [(11026562, [1444, 14068, 37344], True), (14032042, [4857, 13122, 36763], True), (17105978, [5025, 13914, 43839], True)]
+
+=== Query 218 Statistics ===
+  Query Coordinates     : [20760, 1378, 50926]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.83
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30363698
+  TopK list             : [(10200614, [21807, 1424, 53943], True), (12486645, [21642, 4798, 50815], True), (30363698, [25643, 2258, 53323], True)]
+
+=== Query 219 Statistics ===
+  Query Coordinates     : [60330, 28534, 55814]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.84
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27743668
+  TopK list             : [(20737281, [64474, 30422, 55815], True), (22767469, [62013, 26872, 59958], True), (27743668, [55854, 29470, 53200], True)]
+
+=== Query 220 Statistics ===
+  Query Coordinates     : [9424, 30954, 56943]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.88
+  Max BDU cycles        : 96
+  Final TopK threshold  : 31500257
+  TopK list             : [(21398411, [11313, 34931, 58362], True), (28182211, [6031, 35025, 57254], True), (31500257, [6114, 35455, 57477], True)]
+
+=== Query 221 Statistics ===
+  Query Coordinates     : [18781, 45209, 55487]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.24
+  Max BDU cycles        : 96
+  Final TopK threshold  : 24339734
+  TopK list             : [(4998129, [19308, 47229, 54687], True), (16951926, [21716, 46135, 52752], True), (24339734, [19318, 47338, 51069], True)]
+
+=== Query 222 Statistics ===
+  Query Coordinates     : [21349, 39851, 36523]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.66
+  Max BDU cycles        : 96
+  Final TopK threshold  : 21186833
+  TopK list             : [(3360290, [20254, 39655, 35066], True), (10696458, [21092, 36654, 37163], True), (21186833, [23223, 40577, 40664], True)]
+
+=== Query 223 Statistics ===
+  Query Coordinates     : [22559, 40572, 4947]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.17
+  Max BDU cycles        : 96
+  Final TopK threshold  : 30998771.246419426
+  TopK list             : [(10652405, [21561, 39972, 7996], True), (23173949, [27193, 39745, 5955], True), (33554432, [13269, 32462, 3612], False)]
+
+=== Query 224 Statistics ===
+  Query Coordinates     : [59525, 18531, 58488]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.80
+  Max BDU cycles        : 96
+  Final TopK threshold  : 23434334
+  TopK list             : [(4878109, [60383, 20555, 58701], True), (22040385, [63517, 20066, 56552], True), (23434334, [61078, 22728, 60334], True)]
+
+=== Query 225 Statistics ===
+  Query Coordinates     : [39130, 62070, 56607]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.76
+  Max BDU cycles        : 72
+  Final TopK threshold  : 29655023.21531333
+  TopK list             : [(30408704, [42739, 57845, 54012], False), (33554432, [37090, 54162, 48201], False), (33554432, [41031, 54737, 45359], False)]
+
+=== Query 226 Statistics ===
+  Query Coordinates     : [35664, 7767, 41528]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.05
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29631051.708997797
+  TopK list             : [(19328300, [36882, 7117, 45702], True), (20452586, [35569, 4923, 45043], True), (29721600, [37308, 12054, 44547], False)]
+
+=== Query 227 Statistics ===
+  Query Coordinates     : [14387, 12795, 52370]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.62
+  Max BDU cycles        : 72
+  Final TopK threshold  : 29255528.298780363
+  TopK list             : [(29622272, [20310, 13895, 50374], False), (30408704, [9830, 8471, 55587], False), (32112640, [20147, 14592, 52629], False)]
+
+=== Query 228 Statistics ===
+  Query Coordinates     : [59672, 6234, 10457]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 54.66
+  Max BDU cycles        : 96
+  Final TopK threshold  : 12972953
+  TopK list             : [(6395418, [58311, 8365, 10413], True), (7545292, [59974, 3516, 10199], True), (12972953, [59430, 6739, 14015], True)]
+
+=== Query 229 Statistics ===
+  Query Coordinates     : [63558, 38652, 34204]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.05
+  Max BDU cycles        : 78
+  Final TopK threshold  : 28678996.8816462
+  TopK list             : [(29822976, [60691, 38281, 38948], False), (30801920, [59580, 40515, 38048], False), (31719424, [63493, 44917, 33356], False)]
+
+=== Query 230 Statistics ===
+  Query Coordinates     : [38874, 46428, 30079]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.71
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28781883.05862728
+  TopK list             : [(14641365, [41456, 43624, 29744], True), (29622272, [42728, 46253, 34488], False), (30408704, [31938, 49341, 31490], False)]
+
+=== Query 231 Statistics ===
+  Query Coordinates     : [55510, 45901, 64561]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.74
+  Max BDU cycles        : 78
+  Final TopK threshold  : 28482861.925076287
+  TopK list             : [(29237248, [52951, 41753, 61966], False), (33554432, [45254, 43444, 55213], False), (33554432, [46414, 57124, 61992], False)]
+
+=== Query 232 Statistics ===
+  Query Coordinates     : [34802, 38296, 62813]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.20
+  Max BDU cycles        : 96
+  Final TopK threshold  : 14633034
+  TopK list             : [(2179386, [35590, 37785, 63952], True), (2285865, [35149, 38480, 61353], True), (14633034, [37393, 39164, 60136], True)]
+
+=== Query 233 Statistics ===
+  Query Coordinates     : [57631, 43920, 36228]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.20
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27091353
+  TopK list             : [(17108609, [55665, 45702, 39401], True), (18705026, [59580, 40515, 38048], True), (27091353, [62375, 43964, 38369], True)]
+
+=== Query 234 Statistics ===
+  Query Coordinates     : [23169, 942, 14868]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.59
+  Max BDU cycles        : 63
+  Final TopK threshold  : 27787872.09972854
+  TopK list             : [(33554432, [14431, 5255, 8036], False), (33554432, [14621, 11682, 16393], False), (33554432, [19359, 8557, 21923], False)]
+
+=== Query 235 Statistics ===
+  Query Coordinates     : [43375, 65423, 40189]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.05
+  Max BDU cycles        : 66
+  Final TopK threshold  : 28266761.290698677
+  TopK list             : [(30408704, [40900, 58628, 39994], False), (33554432, [32944, 57876, 48505], False), (33554432, [33589, 54395, 42229], False)]
+
+=== Query 236 Statistics ===
+  Query Coordinates     : [27187, 10389, 60215]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.81
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28114052.478991065
+  TopK list             : [(22191691, [24750, 13428, 62864], True), (25345974, [25305, 14084, 63070], True), (28133712, [31285, 13556, 61376], False)]
+
+=== Query 237 Statistics ===
+  Query Coordinates     : [60256, 61625, 13440]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.56
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27947182.563690327
+  TopK list             : [(16395846, [59091, 62686, 9710], True), (16598174, [56357, 61007, 12433], True), (28094976, [64578, 58998, 11770], False)]
+
+=== Query 238 Statistics ===
+  Query Coordinates     : [19390, 52132, 26995]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.43
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27803264.532830425
+  TopK list             : [(8162897, [22122, 51299, 27067], True), (21424025, [21360, 48682, 24620], True), (27815933, [17194, 51138, 31686], False)]
+
+=== Query 239 Statistics ===
+  Query Coordinates     : [59471, 3859, 43365]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 54.75
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25600846
+  TopK list             : [(14322901, [58784, 3065, 39729], True), (18523962, [60719, 262, 45372], True), (25600846, [57570, 3877, 48054], True)]
+
+=== Query 240 Statistics ===
+  Query Coordinates     : [46621, 25217, 32098]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 55.70
+  Max BDU cycles        : 96
+  Final TopK threshold  : 18867560
+  TopK list             : [(6823358, [44483, 25000, 30613], True), (17660229, [46628, 22189, 29184], True), (18867560, [48035, 29247, 31306], True)]
+
+=== Query 241 Statistics ===
+  Query Coordinates     : [48822, 36862, 45419]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.78
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28005426.668011688
+  TopK list             : [(16463334, [46196, 34859, 47776], True), (28009830, [52204, 40467, 47310], False), (28065792, [50774, 41248, 42861], False)]
+
+=== Query 242 Statistics ===
+  Query Coordinates     : [62691, 53848, 39799]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.73
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27952908.78973458
+  TopK list             : [(18028209, [63329, 55514, 43652], True), (30408704, [59484, 52886, 33279], False), (33554432, [53613, 49613, 45442], False)]
+
+=== Query 243 Statistics ===
+  Query Coordinates     : [11934, 41550, 17557]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.24
+  Max BDU cycles        : 96
+  Final TopK threshold  : 29418095.01660538
+  TopK list             : [(8143099, [10581, 40501, 15274], True), (29428544, [16624, 40683, 14953], False), (33554432, [1428, 42054, 10843], False)]
+
+=== Query 244 Statistics ===
+  Query Coordinates     : [59086, 31567, 53207]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.85
+  Max BDU cycles        : 96
+  Final TopK threshold  : 25110125
+  TopK list             : [(8176208, [60606, 30899, 50879], True), (14843282, [55854, 29470, 53200], True), (25110125, [55720, 34980, 54667], True)]
+
+=== Query 245 Statistics ===
+  Query Coordinates     : [56617, 53899, 45842]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 54.93
+  Max BDU cycles        : 96
+  Final TopK threshold  : 20538003
+  TopK list             : [(4938906, [55361, 55368, 46939], True), (14755257, [53991, 55458, 48172], True), (20538003, [52554, 53402, 47787], True)]
+
+=== Query 246 Statistics ===
+  Query Coordinates     : [30141, 22279, 24047]
+  Early terminated BDUs : 1020
+  Full BDUs completed   : 4
+  Avg BDU cycles        : 55.54
+  Max BDU cycles        : 96
+  Final TopK threshold  : 16619226
+  TopK list             : [(13897537, [29525, 19639, 21488], True), (14411245, [27375, 22074, 26639], True), (16619226, [30340, 24642, 20731], True)]
+
+=== Query 247 Statistics ===
+  Query Coordinates     : [15534, 10518, 19591]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.76
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27264890.132795963
+  TopK list             : [(12415669, [14621, 11682, 16393], True), (23914370, [19359, 8557, 21923], True), (33030144, [17244, 4316, 20907], False)]
+
+=== Query 248 Statistics ===
+  Query Coordinates     : [54066, 28131, 30485]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 55.11
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27189837.96539758
+  TopK list             : [(25314771, [49771, 26026, 28924], True), (30146560, [51849, 24914, 35617], False), (30408704, [51186, 29116, 36062], False)]
+
+=== Query 249 Statistics ===
+  Query Coordinates     : [64944, 11926, 49669]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 54.51
+  Max BDU cycles        : 75
+  Final TopK threshold  : 27122361.04297997
+  TopK list             : [(30375936, [63162, 15076, 54146], False), (33554432, [54181, 6756, 58151], False), (33554432, [57686, 17413, 42516], False)]
+
+=== Query 250 Statistics ===
+  Query Coordinates     : [38249, 35356, 5046]
+  Early terminated BDUs : 1021
+  Full BDUs completed   : 3
+  Avg BDU cycles        : 55.16
+  Max BDU cycles        : 96
+  Final TopK threshold  : 26852318
+  TopK list             : [(17338121, [40371, 38902, 5557], True), (21406915, [36722, 36221, 9327], True), (26852318, [41439, 33499, 8683], True)]
+
+=== Query 251 Statistics ===
+  Query Coordinates     : [14213, 55040, 4588]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 54.73
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28168051.077707764
+  TopK list             : [(15370409, [12115, 52058, 6029], True), (22528206, [13499, 58349, 7915], True), (30408704, [19035, 50832, 1535], False)]
+
+=== Query 252 Statistics ===
+  Query Coordinates     : [25948, 25760, 36975]
+  Early terminated BDUs : 1024
+  Full BDUs completed   : 0
+  Avg BDU cycles        : 55.48
+  Max BDU cycles        : 72
+  Final TopK threshold  : 28185939.762774337
+  TopK list             : [(30408704, [23406, 26895, 30772], False), (31981568, [23947, 21716, 41829], False), (33030144, [20123, 24508, 37677], False)]
+
+=== Query 253 Statistics ===
+  Query Coordinates     : [54202, 26109, 43796]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.18
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28211573.16980871
+  TopK list             : [(23888358, [51515, 30151, 44371], True), (25105437, [57826, 29379, 42665], True), (28266496, [59432, 27300, 44153], False)]
+
+=== Query 254 Statistics ===
+  Query Coordinates     : [46767, 27628, 1464]
+  Early terminated BDUs : 1022
+  Full BDUs completed   : 2
+  Avg BDU cycles        : 55.00
+  Max BDU cycles        : 96
+  Final TopK threshold  : 28078855.76666108
+  TopK list             : [(6203267, [44284, 27561, 1281], True), (25465549, [42994, 24490, 2640], True), (29622272, [51652, 23054, 947], False)]
+
+=== Query 255 Statistics ===
+  Query Coordinates     : [7525, 60936, 28953]
+  Early terminated BDUs : 1019
+  Full BDUs completed   : 5
+  Avg BDU cycles        : 54.93
+  Max BDU cycles        : 96
+  Final TopK threshold  : 11834570
+  TopK list             : [(1800941, [8057, 59890, 28302], True), (3904250, [8640, 59831, 30153], True), (11834570, [9590, 63629, 29517], True)]
+
+=== Query 256 Statistics ===
+  Query Coordinates     : [24882, 4291, 58508]
+  Early terminated BDUs : 1023
+  Full BDUs completed   : 1
+  Avg BDU cycles        : 54.71
+  Max BDU cycles        : 96
+  Final TopK threshold  : 27448038.5209938
+  TopK list             : [(21956009, [24254, 931, 61713], True), (28909568, [27913, 1717, 62250], False), (29884416, [21807, 1424, 53943], False)]
+
+Saved graphs:
+ new_bitnn_early_terminations.png
+ new_bitnn_full_terminations.png
+ new_bitnn_avg_cycles.png
+ new_bitnn_max_cycles.png
+ new_bitnn_thresholds.png
+
+Valid Percentage: 0.6302083333333334
+
+ Total Cycles:  539293
