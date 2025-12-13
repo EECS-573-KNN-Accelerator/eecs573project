@@ -22,6 +22,7 @@ module memory_controller #(
     output BDU_Input   BDU_inputs [`NUM_BDU],
     output logic       topK_input_sel,
     output logic       topK_inputs_valid_sel,
+    output logic       topK_done,
 
     input knn_entry_t knn_buffer_in [`K-1:0],   //input from topk. write back to memory
     output logic       done
@@ -48,6 +49,9 @@ module memory_controller #(
         next_batch_counter = batch_counter;
         next_bit_counter = bit_counter;
         next_bdu_ctr = bdu_ctr;
+        topK_input_sel = 1;
+        topK_inputs_valid_sel = 0;
+        topK_done = 0;
 
         unique case (state)
             RESET: begin    
@@ -82,6 +86,7 @@ module memory_controller #(
             end
             WRITE_BACK: begin
                 next_state = FETCH_Q;
+                next_query_counter = (query_counter + 1) % (`NUM_POINTS);
             end
         endcase
     end

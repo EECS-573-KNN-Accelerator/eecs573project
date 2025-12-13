@@ -44,8 +44,6 @@ module prev_knn_cache (
     input top_k_done,
     input knn_entry_t top_k_entry [`K-1:0],
 
-    input new_query, // from control logic
-
     output knn_entry_t prev_knn [`K-1:0]   // send to parallelDistCompare
 );
 

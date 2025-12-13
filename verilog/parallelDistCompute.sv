@@ -1,6 +1,6 @@
 module parallelDistCompute #(
-    parameter BIT_WIDTH = 16,
-    parameter K = 8
+    parameter BIT_WIDTH = `BIT_WIDTH,
+    parameter K = `K
 )(
     input logic clk, 
     input logic reset, 

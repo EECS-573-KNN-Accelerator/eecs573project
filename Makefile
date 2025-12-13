@@ -210,23 +210,6 @@ $(MODULES:=.cov.verdi): %.cov.verdi: build/%.cov.simv
 .PHONY: %.cov %.cov.verdi
 
 
-####################################
-# ---- Executable Compilation ---- #
-####################################
-
-########################################
-# ---- Program Memory Compilation ---- #
-########################################
-
-#FILL IN THIS SECTION WITH OUR MEM GENERATOR SCRIPTS
-
-
-###############################
-# ---- Program Execution ---- #
-###############################
-
-#GOTTA FIGURE THIS ONE OUT
-
 ################################
 # ---- Output Directories ---- #
 ################################

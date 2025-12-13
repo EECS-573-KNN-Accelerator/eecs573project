@@ -16,6 +16,7 @@ module bitNN (
 );
 
     BDU_Input BDU_inputs [`NUM_BDU]; 
+    knn_entry_t prev_knn [`K-1:0];
     logic [`DIST_WIDTH-1:0] running_mean;
     knn_entry_t knn_buffer_out [`K-1:0];
     logic [`DIST_WIDTH-1:0] threshold;
@@ -30,8 +31,8 @@ module bitNN (
     knn_entry_t comparator_input_point;
     knn_entry_t comparator_output_point;
 
-    assign topK_input_point = topK_input_sel ? comparator_output_point : BDU_output_point; //TODO need control logic to decide between comparator output (prev KNN) and BDU output
-    assign inputs_valid = topK_inputs_valid_sel ? 1'b1 : bdus_done; // TODO need control logic to decide if prev_knn_cache is being sent to topK
+    assign topK_input_point = topK_input_sel ? BDU_output_point : comparator_output_point; //TODO need control logic to decide between comparator output (prev KNN) and BDU output
+    assign inputs_valid = topK_inputs_valid_sel ? 1'b1 : bdus_done; 
 
     memory_controller mem_ctrl_inst (
         .clk(clk),
@@ -47,16 +48,12 @@ module bitNN (
         .BDU_inputs(BDU_inputs),
         .bdus_done(bdus_done),
 
-        // query point finished (route to prev_knn_cache, running mean)
-        .new_query(new_query),
-        // query point xyz bit parallel (route to parallelDistCompute)
-        // new query point signal 1 cycle high (route to prev_knn_cache)
-
         // logic to select between prev_knn_cache output and BDU output going into topK input
         .topK_input_sel(topK_input_sel),
         .topK_inputs_valid_sel(topK_inputs_valid_sel),
         .topK_done(topK_done),
 
+        .knn_buffer_in(prev_knn),
         .done(done)
     );
 
@@ -92,7 +89,7 @@ module bitNN (
         .rst(reset),
         .top_k_done(topK_done), // connect to entire KNN done signal
         .top_k_entry(knn_buffer_out), // connect to topK knn buffer output
-        .entry_to_compute(prev_knn_to_compute) // connect to parallelDistCompare input
+        .prev_knn(prev_knn) // connect to parallelDistCompare input
     );
 
     parallelDistCompute parallel_dist_compute_inst (
@@ -100,7 +97,7 @@ module bitNN (
         .qp_y(), // connect to query point y
         .qp_z(), // connect to query point z
         .new_query(),
-        .prev_knn_point_in(prev_knn_to_compute), // connect to prev_knn_cache output
+        .prev_knn_point_in(prev_knn), // connect to prev_knn_cache output
         .prev_knn_point_out(comparator_input_point) // connect to comparator input
     );
 
