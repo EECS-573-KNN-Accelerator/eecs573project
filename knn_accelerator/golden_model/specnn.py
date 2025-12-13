@@ -7,6 +7,8 @@ K = 3
 NUM_BITS = 32
 NUM_BDU = 64
 RUNNINGMEANMULTIPLIER = 3
+QUERY_POINT_DATASET_FILE = "../verification/datasets/synthetic_knn_query.csv"
+REF_POINT_DATASET_FILE = "../verification/datasets/synthetic_knn_data.csv"
 
 # BDU Module
 def BDU(q_coor_tuple, r_coor_tuple, threshold):
@@ -209,9 +211,6 @@ def simulateBitNN(q_list, r_list):
 
         prevTopK = TopK
         lastkthdist = lastkthdist[1:] + [threshold]
-    
-    percent = topk_valid / topk_count
-    print(f"\nValid Percentage: {percent}")
 
     # ============ GRAPHS ============
     def save_graph(x, y, title, ylabel, filename):
@@ -262,6 +261,9 @@ def simulateBitNN(q_list, r_list):
     print(" new_bitnn_max_cycles.png")
     print(" new_bitnn_thresholds.png")
 
+    percent = topk_valid / topk_count
+    print(f"\nValid Percentage: {percent}")
+
     return total_cycles
 
 
@@ -269,7 +271,7 @@ def simulateBitNN(q_list, r_list):
 if __name__ == "__main__":
 
     r_list = [] 
-    with open("../verification/datasets/synthetic_knn_data.csv", 'r') as f:
+    with open(REF_POINT_DATASET_FILE, 'r') as f:
         reader = csv.reader(f)
         for row in reader:  
             r_list.append([int(v) for v in row])
@@ -279,7 +281,7 @@ if __name__ == "__main__":
 
     # Load query points from synthetic_knn_query.csv
     q_list = []
-    with open("../verification/datasets/synthetic_knn_query.csv", 'r') as f:
+    with open(QUERY_POINT_DATASET_FILE, 'r') as f:
         reader = csv.reader(f)
         for row in reader:
             q_list.append([int(v) for v in row])
@@ -290,5 +292,6 @@ if __name__ == "__main__":
     # print(f"Loaded {len(q_list)} query points")
     
     total_cycles = simulateBitNN(q_list, r_list)
-    print(total_cycles)
+
+    print("\n Total Cycles: ", total_cycles)
     

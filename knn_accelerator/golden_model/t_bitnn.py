@@ -223,9 +223,3 @@ if __name__ == "__main__":
     total_cycles = simulateBitNN(q_list, r_list)
 
     print(total_cycles)
-
-
-
-
-
-        

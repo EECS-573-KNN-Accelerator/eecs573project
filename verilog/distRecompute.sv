@@ -1,4 +1,4 @@
-module parallelDistCompute #(
+module distRecompute #(
     parameter BIT_WIDTH = `BIT_WIDTH,
     parameter K = `K
 )(

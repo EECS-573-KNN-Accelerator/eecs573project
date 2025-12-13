@@ -1,264 +1,227 @@
 import math
+import csv
+import matplotlib.pyplot as plt
 
-# ======================
-# 1. Helper Functions
-# ======================
+K = 3
+NUM_BITS = 32
+NUM_BDU = 64
+QUERY_POINT_DATASET_FILE = "../verification/datasets/synthetic_knn_query.csv"
+REF_POINT_DATASET_FILE = "../verification/datasets/synthetic_knn_data.csv"
 
-def read_memory_file(filename):
-    """
-    Reads a memory file in hex format.
-    Returns list of bits (MSB first) for each coordinate of each point.
-    Each 32 lines represent 4 points (x, y, z for each).
-    """
-    with open(filename, 'r') as f:
-        lines = [line.strip() for line in f if line.strip()]
-    
-    points = []
-    # Each 32 lines = 4 points
-    for group_start in range(0, len(lines), 32):
-        group_lines = lines[group_start:group_start + 32]
-        for point_idx in range(4):
-            # x, y, z each 32 bits (MSB first)
-            x_bits = []
-            y_bits = []
-            z_bits = []
-            for bit_line_idx in range(8):  # 8 lines per coordinate (4 points * 8 bits per line?)
-                # Actually: 32 lines = 4 points * 3 coords * (32 bits / 4 bits per line?)
-                # Let's assume each line is 4 hex chars = 16 bits, so 2 lines per 32-bit coord.
-                pass  # We need to adjust based on actual file layout.
-    # Simplified: assume file is just hex values per bit?
-    # Let's assume each line is one 32-bit hex number per coordinate.
-    # But problem says: {MSB of x of first 4 query points}...
-    # Let's implement a flexible version:
-    # We'll parse as raw hex strings and convert to bits.
-    pass  # We'll implement after clarifying.
+def BDU(q_coor_tuple, r_coor_tuple, threshold):
 
-# Let's simplify for now: assume each line is 32-bit hex string.
-# We'll implement a more structured version.
+    cycles = 0
+    f = [0,0,0]
+    dist2 = 0
+    lower2 = 0
+    currLower = 0
 
-def hex_to_bits(hex_str, bits=32):
-    """Convert hex string to list of bits (MSB first)."""
-    val = int(hex_str, 16)
-    bits_list = [(val >> i) & 1 for i in reversed(range(bits))]
-    return bits_list
+    for i in range (NUM_BITS - 1, -1, -1):
+        dist2 = dist2 << 2
 
-def read_points_from_file(filename):
-    points = []
-    with open(filename, 'r') as f:
-        lines = [line.strip() for line in f if line.strip()]
-    # Expect 32 lines per 4 points (x, y, z each 32 bits)
-    for i in range(0, len(lines), 32):
-        group_lines = lines[i:i+32]
-        # Each 8 lines = one coordinate for 4 points
-        for point_offset in range(4):
-            x_bits = []
-            y_bits = []
-            z_bits = []
-            for j in range(8):  # 8 lines per coord (32 bits / 4 bits per line)
-                # Actually each line may be 4 hex chars = 16 bits
-                # Let's assume each line is full 32-bit hex
-                # We need more info. Let's simplify:
-                # Assume each of the 32 lines is 32-bit hex for one coord of one point.
-                pass
-    # Let's adopt a simpler input format for simulation:
-    # One point per line: "x_hex y_hex z_hex"
-    points = []
-    for line in lines:
-        x_hex, y_hex, z_hex = line.split()
-        x_bits = hex_to_bits(x_hex, 32)
-        y_bits = hex_to_bits(y_hex, 32)
-        z_bits = hex_to_bits(z_hex, 32)
-        points.append((x_bits, y_bits, z_bits))
-    return points
+        h = [0,0,0]
 
-# ======================
-# 2. Bit-serial Distance Computation
-# ======================
-
-class BDU:
-    """
-    Simulates a Bit-serial Distance Unit.
-    Computes Euclidean distance bit-by-bit with early termination.
-    """
-    def __init__(self, kth_dist2=float('inf')):
-        self.kth_dist2 = kth_dist2
-        self.dist2 = 0  # partial squared distance
-        self.f = [0, 0, 0]  # partial subtraction for x, y, z
-        self.terminated = False
-        self.cycle_count = 0
-    
-    def process_bit(self, q_bits_tuple, r_bits_tuple):
-        """
-        Process one cycle: x, y, z bits simultaneously.
-        q_bits_tuple: (qx_bit, qy_bit, qz_bit) each 0/1
-        r_bits_tuple: (rx_bit, ry_bit, rz_bit) each 0/1
-        Returns: whether to continue
-        """
-        if self.terminated:
-            return False
-        
-        self.cycle_count += 1
-        
-        # Update f and dist2 per Equation (4)
-        new_f = []
-        dist2_update = 0
         for d in range(3):
-            qb = q_bits_tuple[d]
-            rb = r_bits_tuple[d]
-            diff = qb - rb  # -1, 0, 1
-            # Update f
-            f_new = (self.f[d] << 1) + diff
-            new_f.append(f_new)
-            # (q-r)^2 term
-            dist2_update += diff * diff
-            # (q-r)*f term (multiplied by 4 as per equation)
-            dist2_update += 4 * diff * self.f[d]
-        
-        # Update dist2: dist2_{m-1} << 2 + ...
-        self.dist2 = (self.dist2 << 2) + dist2_update
-        self.f = new_f
-        
-        # Early termination check
-        remaining_cycles = 32 - self.cycle_count
-        if remaining_cycles > 0:
-            # Lower bound = current dist2 * 4^remaining_cycles
-            lower_bound = self.dist2 * (1 << (2 * remaining_cycles))
             
-            if lower_bound >= self.kth_dist2:
-                self.terminated = True
-                return False
-        
-        return True
-    
-    def get_distance(self):
-        return self.dist2
+            h = [0,0,0]
 
-# ======================
-# 3. TopK Management
-# ======================
+            q_bit = (q_coor_tuple[d] >> i) & 1
+            r_bit = (r_coor_tuple[d] >> i) & 1
 
-class TopKList:
-    def __init__(self, k):
-        self.k = k
-        self.distances = []  # list of (dist2, point_data)
-    
-    def update(self, dist2, point_data):
-        self.distances.append((dist2, point_data))
-        self.distances.sort(key=lambda x: x[0])
-        if len(self.distances) > self.k:
-            self.distances = self.distances[:self.k]
-    
-    def get_kth_dist(self):
-        if len(self.distances) < self.k:
-            return float('inf')
-        return self.distances[-1][0]
+            dist2 += (q_bit - r_bit) ** 2
+            dist2 += ((q_bit - r_bit)*f[d]) << 2
 
-# ======================
-# 4. Main Simulation
-# ======================
+            f[d] = (f[d] << 1) + (q_bit - r_bit)
 
-def simulate_bitnn(query_file, ref_file, k=5, bdu_per_query=4):
-    """
-    Simulates BitNN accelerator.
-    Returns total cycles and results.
-    """
-    query_points = read_points_from_file(query_file)
-    ref_points = read_points_from_file(ref_file)
+            lower2 = dist2 * (2 ** (2*(i)))
+
+            for j in range(3):
+                if f[j] == 0:
+                    h[j] = 0
+                else:
+                    h[j] = (2 * abs(f[j])) - 1
+
+                lower2 -= h[j] * (2 ** (2*(i)))
+
+            if dist2 > lower2:
+                currLower = dist2
+            else:
+                currLower = lower2
+
+            cycles += 1
+            
+            if d == 2 and threshold <= currLower:
+                if r_coor_tuple == [98485, 89328, 87016]:
+                    print(i, dist2, threshold, currLower)
+                # print(dist2, currLower)
+                return False, cycles, currLower
     
+    return True, cycles, dist2
+
+# 81225 + 466489
+
+def TopKupdate (oldTopK, r_coor, newdist2):
+    newTopK = []
+    newTopK = oldTopK
+    newTopK.append((newdist2, r_coor))
+    newTopK.sort()
+    if(len(newTopK) > K):
+        newTopK = newTopK[:K]
+
+    threshold = newTopK[-1][0]
+
+    return newTopK, threshold
+
+
+def simulateBitNN(q_list, r_list):
+
     total_cycles = 0
-    results = []
+
+    # >>> Stats arrays for logging <<< 
+    query_indices = []
+    early_list = []
+    full_list = []
+    avg_cycles_list = []
+    max_cycles_list = []
+    threshold_list = []
+
+    query_id = 0
     
-    for q_idx, q in enumerate(query_points):
-        topk = TopKList(k)
-        # Process reference points in groups of bdu_per_query
-        for ref_start in range(0, len(ref_points), bdu_per_query):
-            ref_group = ref_points[ref_start:ref_start + bdu_per_query]
-            # Create BDUs for this group
-            bdus = [BDU(topk.get_kth_dist()) for _ in range(len(ref_group))]
-            
-            # Bit-serial processing (MSB first, 32 bits per dimension)
-            # Process x, y, z bits in parallel (one cycle processes x, y, z bits for all BDUs)
-            for bit_pos in range(31, -1, -1):  # MSB to LSB
-                # Get query bits for all 3 dimensions at this bit position
-                qx_bit = q[0][bit_pos]  # x bit
-                qy_bit = q[1][bit_pos]  # y bit  
-                qz_bit = q[2][bit_pos]  # z bit
-                
-                # Process all BDUs for this cycle
-                all_terminated = True
-                for bdu_idx, (bdu, r) in enumerate(zip(bdus, ref_group)):
-                    if bdu.terminated:
-                        continue
-                    
-                    # Get reference bits for all 3 dimensions
-                    rx_bit = r[0][bit_pos]
-                    ry_bit = r[1][bit_pos]
-                    rz_bit = r[2][bit_pos]
-                    
-                    # Process one set of bits (x, y, z) in one cycle
-                    if bdu.process_bit((qx_bit, qy_bit, qz_bit), (rx_bit, ry_bit, rz_bit)):
-                        all_terminated = False
-                
-                total_cycles += 1  # One cycle processes x, y, z bits
-                
-                # If all BDUs terminated early, we can break bit loop
-                if all_terminated:
-                    break
-            
-            # After processing bits, collect distances
-            for bdu, r in zip(bdus, ref_group):
-                if not bdu.terminated:
-                    dist2 = bdu.get_distance()
-                    topk.update(dist2, r)
-                # else: early terminated, no update
+    for q in q_list:
+        query_id += 1
+        threshold = 9999999999999
+        TopK = []
         
-        results.append((q_idx, topk.distances))
+        query_early = 0
+        query_full = 0
+        query_cycles = []
+        
+        for r in range(0, len(r_list), NUM_BDU):
+            done = [False] * NUM_BDU
+            cycles = [0] * NUM_BDU
+            dist2 = [0] * NUM_BDU
+
+            for i in range(NUM_BDU):
+                # print("r: ", r)
+                # print(r+i)
+                done[i], cycles[i], dist2[i] = BDU(q, r_list[r+i], threshold)
+                
+                # Track early vs full terminations
+                if done[i] is False:
+                    query_early += 1
+                else:
+                    query_full += 1
+
+            for i in range(NUM_BDU):
+                if done[i]:
+                    # print(threshold, dist2[i])
+                    TopK, threshold = TopKupdate(TopK, r_list[r+i], dist2[i])
+        
+
+            max_cycles = max(cycles)
+            total_cycles += max_cycles
+            query_cycles.extend(cycles)
+
+            total_cycles += NUM_BDU # latency for shifting things into TopK
+        
+        avg_cyc = sum(query_cycles) / len(query_cycles)
+        max_cyc = max(query_cycles)
+        
+        print(f"\n=== Query {query_id} Statistics ===")
+        print(f"  Query Coordinates     : {q}")
+        print(f"  Early terminated BDUs : {query_early}")
+        print(f"  Full BDUs completed   : {query_full}")
+        print(f"  Avg BDU cycles        : {avg_cyc:.2f}")
+        print(f"  Max BDU cycles        : {max_cyc}")
+        print(f"  Final TopK threshold  : {threshold}")
+        print(f"  TopK list             : {TopK}")
+        
+        # >>> Save stats <<<
+        query_indices.append(query_id)
+        early_list.append(query_early)
+        full_list.append(query_full)
+        avg_cycles_list.append(avg_cyc)
+        max_cycles_list.append(max_cyc)
+        threshold_list.append(threshold)
     
-    return total_cycles, results
+    # ============ GRAPHS ============
+    def save_graph(x, y, title, ylabel, filename):
+        plt.figure(figsize=(10, 4))
+        plt.plot(x, y)
+        plt.title(title)
+        plt.xlabel("Query Index")
+        plt.ylabel(ylabel)
+        plt.grid(True)
 
-# ======================
-# 5. File Format Adapter (if needed)
-# ======================
+        # Add more ticks (20 evenly spaced ticks)
+        step = max(1, len(x) // 20)
+        plt.xticks(range(0, len(x)+1, step), rotation=45)
 
-def convert_memory_format_to_pointlist(filename, points_per_group=4):
-    """
-    Converts the described memory format to list of points.
-    Format: 
-      {MSB of x of first 4 points}
-      {MSB of y of first 4 points}
-      {MSB of z of first 4 points}
-    Each coordinate 32 bits, so 32 lines = 4 points.
-    """
-    points = []
-    with open(filename, 'r') as f:
-        lines = [line.strip() for line in f if line.strip()]
+        plt.tight_layout()
+        plt.savefig(filename)
+        plt.close()
+
+    save_graph(query_indices, early_list,
+               "Early Terminated BDUs per Query",
+               "Early Terminations",
+               "t_bitnn_early_terminations.png")
+
+    save_graph(query_indices, full_list,
+               "Full BDU Evaluations per Query",
+               "Full Evaluations",
+               "t_bitnn_full_terminations.png")
+
+    save_graph(query_indices, avg_cycles_list,
+               "Average BDU Cycles per Query",
+               "Average Cycles",
+               "t_bitnn_avg_cycles.png")
+
+    save_graph(query_indices, max_cycles_list,
+               "Max BDU Cycles per Query",
+               "Max Cycles",
+               "t_bitnn_max_cycles.png")
+
+    save_graph(query_indices, threshold_list,
+               "TopK Threshold per Query",
+               "Threshold Value",
+               "t_bitnn_thresholds.png")
+
+    print("\nSaved graphs:")
+    print(" t_bitnn_early_terminations.png")
+    print(" t_bitnn_full_terminations.png")
+    print(" t_bitnn_avg_cycles.png")
+    print(" t_bitnn_max_cycles.png")
+    print(" t_bitnn_thresholds.png")
     
-    # Each 8 lines = 32 bits for one coordinate for 4 points? Need clarification.
-    # Let's implement a placeholder.
-    print("Warning: memory format parsing not fully implemented")
-    return []
+    return total_cycles
 
-# ======================
-# 6. Example Usage
-# ======================
 
 if __name__ == "__main__":
-    # Example files (create sample data)
-    def create_sample_files():
-        # Create dummy query and ref files in simplified format
-        with open("query.txt", "w") as f:
-            for i in range(1):  # 1 query point
-                f.write(f"{i:08x} {i+1:08x} {i+2:08x}\n")
-        with open("ref.txt", "w") as f:
-            for i in range(100):  # 100 reference points
-                f.write(f"{i:08x} {i+5:08x} {i+10:08x}\n")
     
-    create_sample_files()
     
-    total_cycles, results = simulate_bitnn("query.txt", "ref.txt", k=5, bdu_per_query=4)
+    # Load reference points from synthetic_knn_data.csv
+    r_list = []
+    with open(REF_POINT_DATASET_FILE, 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            r_list.append([int(v) for v in row])
+
+    # cut to 4544 point 
+    r_list = r_list[:4544]
+    # Load query points from synthetic_knn_query.csv
+    q_list = []
+    with open(QUERY_POINT_DATASET_FILE, 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            q_list.append([int(v) for v in row])
+    # cut to 4544 point
+    q_list = q_list[:4544]
+
+    # q_list = [[103478, 97132, 92140]]
     
-    print(f"Total cycles: {total_cycles}")
-    for q_idx, topk in results:
-        print(f"Query {q_idx} top {len(topk)} neighbors:")
-        for dist2, _ in topk:
-            print(f"  Distance^2: {dist2}")
+    # print(f"Loaded {len(r_list)} reference points")
+    # print(f"Loaded {len(q_list)} query points")
+    
+    total_cycles = simulateBitNN(q_list, r_list)
+
+    print("\n Total Cycles: ", total_cycles)

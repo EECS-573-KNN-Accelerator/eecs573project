@@ -1,6 +1,16 @@
 import re
 import sys
 
+def extract_cycles(line):
+    """Extract cycle count from a line containing 'Total Cycles:'."""
+    # Pattern to match "Total Cycles: <number>"
+    pattern = r'Total Cycles:\s*(\d+)'
+    
+    match = re.search(pattern, line)
+    if match:
+        return int(match.group(1))
+    return None
+
 def extract_topk_coordinates(line):
     """Extract coordinates from a TopK list line."""
     # Pattern to match coordinates: [num, num, num]
@@ -18,7 +28,10 @@ def extract_topk_coordinates(line):
     return coordinates
 
 def compare_files(file1_path, file2_path):
-    """Compare two files for TopK list matches."""
+    """Compare two files for TopK list matches and calculate speedup."""
+    # Initialize variables
+    cycles1 = None
+    cycles2 = None
     total_coords_evaluated = 0
     matches_count = 0
     first_mismatch_found = False
@@ -28,6 +41,33 @@ def compare_files(file1_path, file2_path):
         with open(file1_path, 'r') as file1, open(file2_path, 'r') as file2:
             lines1 = file1.readlines()
             lines2 = file2.readlines()
+            
+            # Extract cycle counts
+            print("Extracting cycle counts...")
+            for line in lines1:
+                if cycles1 is None:
+                    cycles1 = extract_cycles(line)
+            for line in lines2:
+                if cycles2 is None:
+                    cycles2 = extract_cycles(line)
+            
+            # Report cycle information
+            print(f"File 1 total cycles: {cycles1 if cycles1 is not None else 'Not found'}")
+            print(f"File 2 total cycles: {cycles2 if cycles2 is not None else 'Not found'}")
+            
+            # Calculate speedup if both cycles are found
+            if cycles1 is not None and cycles2 is not None and cycles1 > 0:
+                speedup = cycles1 / cycles2
+                print(f"\nSpeedup (File1/File2): {speedup:.2f}x")
+                print(f"Performance improvement: {(speedup - 1) * 100:.1f}%")
+            elif cycles1 == 0:
+                print("\nWarning: File 1 has 0 cycles, cannot calculate speedup")
+            elif cycles1 is None or cycles2 is None:
+                print("\nWarning: Could not extract cycle counts from one or both files")
+            
+            print("\n" + "="*60)
+            print("TOP-K LIST COMPARISON")
+            print("="*60)
             
             # Find all TopK list lines in both files
             topk_lines1 = [(i, line.strip()) for i, line in enumerate(lines1) if 'TopK list' in line]
@@ -93,9 +133,9 @@ def compare_files(file1_path, file2_path):
                     }
                     first_mismatch_found = True
         
-        # Calculate and print results
+        # Calculate and print TopK comparison results
         print("\n" + "="*60)
-        print("COMPARISON RESULTS")
+        print("TOP-K COMPARISON RESULTS")
         print("="*60)
         
         if total_coords_evaluated > 0:
@@ -106,9 +146,29 @@ def compare_files(file1_path, file2_path):
         else:
             print("No coordinates were evaluated!")
         
+        # Summary of all results
+        print("\n" + "="*60)
+        print("SUMMARY")
+        print("="*60)
+        
+        if cycles1 is not None and cycles2 is not None:
+            print(f"File 1 cycles: {cycles1:,}")
+            print(f"File 2 cycles: {cycles2:,}")
+            if cycles1 > 0 and cycles2 > 0:
+                speedup = cycles1 / cycles2
+                print(f"Speedup: {speedup:.2f}x")
+                
+                # Additional metrics
+                if cycles1 > cycles2:
+                    cycle_reduction = (1 - cycles2/cycles1) * 100
+                    print(f"Cycle reduction: {cycle_reduction:.1f}%")
+        
+        if total_coords_evaluated > 0:
+            print(f"\nTop-K accuracy: {match_percentage:.2f}%")
+        
         if first_mismatch:
             print("\n" + "="*60)
-            print("FIRST MISMATCH FOUND")
+            print("FIRST MISMATCH DETAILS")
             print("="*60)
             print(f"At TopK entry #{first_mismatch['entry']}")
             print(f"File1 (line {first_mismatch['file1']['line']}):")
@@ -129,7 +189,7 @@ def compare_files(file1_path, file2_path):
                     print(f"    File2: {mismatch['coord2']}")
         
         if matches_count == total_coords_evaluated and total_coords_evaluated > 0:
-            print("\n✓ All coordinates match perfectly!")
+            print("\n✓ All Top-K coordinates match perfectly!")
             
     except FileNotFoundError as e:
         print(f"Error: {e}")
@@ -140,17 +200,29 @@ def main():
     if len(sys.argv) != 3:
         print("Usage: python compare_topk.py <file1.txt> <file2.txt>")
         print("Example: python compare_topk.py output1.txt output2.txt")
+        print("\nNote: File1 should be the baseline (slower) and File2 should be the optimized (faster)")
         sys.exit(1)
     
     file1_path = sys.argv[1]
     file2_path = sys.argv[2]
     
+    print("="*60)
+    print("PERFORMANCE COMPARISON TOOL")
+    print("="*60)
     print(f"Comparing files:")
-    print(f"  File 1: {file1_path}")
-    print(f"  File 2: {file2_path}")
+    print(f"  Baseline (File 1): {file1_path}")
+    print(f"  Optimized (File 2): {file2_path}")
     print()
     
     compare_files(file1_path, file2_path)
+    
+    print("\n" + "="*60)
+    print("INTERPRETATION")
+    print("="*60)
+    print("Speedup > 1.0: File 2 is faster than File 1")
+    print("Speedup = 1.0: Same performance")
+    print("Speedup < 1.0: File 2 is slower than File 1")
+    print("\nNote: Assuming File 1 is baseline and File 2 is optimized version")
 
 if __name__ == "__main__":
     main()
